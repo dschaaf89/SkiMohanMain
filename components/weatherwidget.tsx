@@ -17,7 +17,7 @@ const WeatherWidget: React.FC = () => {
   useEffect(() => {
     const latitude = 47.3928;
     const longitude = -121.4009;
-    const url = `http://api.weatherapi.com/v1/current.json?key=f0c50889a48f431db6d194531241503&q=${latitude},${longitude}`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=f0c50889a48f431db6d194531241503&q=${latitude},${longitude}`;
 
     axios.get(url)
       .then(response => {
