@@ -126,7 +126,7 @@ const TodaysLeadership = () => {
             </CardHeader>
             <CardContent className="flex justify-center">
               <Image
-                src="/nathanielgibbs.png" // Replace with the path to the third image
+                src="/NathanielGibbs.png" // Replace with the path to the third image
                 alt="Nathaniel Gibbs"
                 width={250}
                 height={200}
@@ -154,7 +154,7 @@ const TodaysLeadership = () => {
             </CardHeader>
             <CardContent className="flex justify-center">
               <Image
-                src="/ruth lodge.jpg" // Replace with the path to the third image
+                src="/RuthLodge.jpg" // Replace with the path to the third image
                 alt="Ruth Richardson"
                 width={200}
                 height={200}
