@@ -96,49 +96,49 @@ const Navbar = () => {
   const staff: { title: string; href: string }[] = [
     {
       title: "Instructor ",
-      href: "/school-programs/eastside-catholic",
+      href: "/staff/instructor",
     },
     {
       title: "Assistant",
-      href: "/school-programs/ballard",
+      href: "/staff/assistant",
     },
     {
       title: "Volunteer",
-      href: "/docs/primitives/progress",
+      href: "/staff/volunteer",
     },
     {
       title: "Ski Term Glossary",
-      href: "/docs/primitives/scroll-area",
+      href: "/staff/ski-term-glossary",
     },
   ];
   const aboutus: { title: string; href: string }[] = [
     {
-      title: "Be A Part Of Our Team ",
-      href: "/school-programs/eastside-catholic",
+      title: "Be A Part Of Our Team",
+      href: "/staff",
     },
     {
       title: "Company Profile",
-      href: "/school-programs/ballard",
+      href: "/aboutus/company-profile",
     },
     {
       title: "Our Mission",
-      href: "/docs/primitives/progress",
+      href: "/aboutus/our-mission",
     },
     {
       title: "Donations",
-      href: "/docs/primitives/scroll-area",
+      href: "/aboutus/donations",
     },
     {
       title: "Founders and Past Leaders",
-      href: "/docs/primitives/tabs",
+      href: "/aboutus/our-leadership",
     },
     {
       title: "Today's Leadership",
-      href: "/docs/primitives/tabs",
+      href: "/aboutus/todays-leadership",
     },
     {
       title: "History Timeline",
-      href: "/docs/primitives/tabs",
+      href: "/aboutus/timeline",
     },
   ];
 
