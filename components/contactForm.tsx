@@ -4,7 +4,6 @@ const ContactForm = () => {
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
-    company: "",
     phone: "",
     details: "",
   });
@@ -22,7 +21,7 @@ const ContactForm = () => {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response = await fetch('/api/sendmail', {
+      const response = await fetch('/api/sendContact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -84,14 +83,6 @@ const ContactForm = () => {
           required
         />
 
-        <label htmlFor="company">Company Name</label>
-        <input
-          type="text"
-          id="company"
-          name="company"
-          value={formData.company}
-          onChange={handleChange}
-        />
 
         <label htmlFor="phone">Phone Number</label>
         <input

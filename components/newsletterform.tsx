@@ -1,10 +1,11 @@
+"use client";
+
 import React, { useState } from 'react';
 
-interface NewsletterSignUpProps {
-  onSubmit: (formData: { name: string; email: string; phone: string }) => void;
-}
+// Removed onSubmit from props since we'll handle submission internally
+interface NewsletterSignUpProps {}
 
-const NewsletterSignUp: React.FC<NewsletterSignUpProps> = ({ onSubmit }) => {
+const NewsletterSignUp: React.FC<NewsletterSignUpProps> = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -19,15 +20,32 @@ const NewsletterSignUp: React.FC<NewsletterSignUpProps> = ({ onSubmit }) => {
     }));
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    onSubmit(formData);
-    setFormData({ name: '', email: '', phone: '' }); // Reset form data
-  };
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
 
+    event.preventDefault();
+    const formData = new FormData(event.currentTarget);
+    try {
+
+        const response = await fetch('/api/sendmail', {
+            method: 'post',
+            body: formData,
+        });
+
+        if (!response.ok) {
+            console.log("falling over")
+            throw new Error(`response status: ${response.status}`);
+        }
+        const responseData = await response.json();
+        console.log(responseData['message'])
+
+        alert('Message successfully sent');
+    } catch (err) {
+        console.error(err);
+        alert("Error, please try resubmitting the form");
+    }
+};
   return (
     <>
-     
       <form onSubmit={handleSubmit} className="flex flex-col space-y-3">
         <input
           type="text"

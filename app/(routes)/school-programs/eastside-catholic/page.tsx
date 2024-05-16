@@ -1,7 +1,16 @@
-import { Table } from "@/components/ui/table";
-import React from "react";
 
-const EastsideCatholic = () => {
+import ProductsTable from "@/components/ui/productTable";
+import { Table } from "@/components/ui/table";
+import getProduct from "@/actions/get-product";
+import React, { useState, useEffect } from 'react';
+import { Product } from "@/types";
+import getProductsByProgramId from "@/actions/get-productByProgram";
+
+export const revalidate = 0;
+const EastsideCatholic = async () => {
+
+const products = await getProductsByProgramId("64c48644-60a7-46bd-bfa2-559c3eca4ce2");
+
   return (
     <div className="max-w-4xl mx-auto p-8">
       <h1 className="text-6xl font-bold text-blue-800 mb-6 text-center">
@@ -120,8 +129,8 @@ const EastsideCatholic = () => {
 
       <div>
 
-      <h1 className="text-6xl font-bold mb-6 text-center">
-       Product table goes here
+      <h1 className="flex items-center justify-center font-bold mb-6 text-center">
+      <ProductsTable products={products} />
       </h1>
       </div>
 

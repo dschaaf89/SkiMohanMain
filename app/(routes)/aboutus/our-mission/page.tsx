@@ -1,5 +1,5 @@
 import ClinicTable from "@/components/clinicTable";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/buttons";
 
 const ourMission = () => {
   return (

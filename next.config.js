@@ -1,6 +1,15 @@
 const nextConfig = {
   images: {
-    domains: ['cdn.weatherapi.com'],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'cdn.weatherapi.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'res.cloudinary.com',
+      },
+    ],
   },
   eslint: {
     ignoreDuringBuilds: true,
@@ -9,12 +18,12 @@ const nextConfig = {
     // Ignore .js.map files
     config.module.rules.push({
       test: /\.js\.map$/,
-      loader: 'ignore-loader'
+      loader: 'ignore-loader',
     });
 
     // Important: return the modified config
-    return config; 
+    return config;
   },
-}
+};
 
 module.exports = nextConfig;

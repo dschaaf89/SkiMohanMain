@@ -1,7 +1,15 @@
+import getProduct from "@/actions/get-product";
+import getProductsByProgramId from "@/actions/get-productByProgram";
+import ProductsTable from "@/components/ui/productTable";
 import { Table } from "@/components/ui/table";
 import React from "react";
 
-const Ballard = () => {
+
+
+const Ballard = async () => {
+
+  const products = await getProductsByProgramId("3a12dc00-41ad-49c1-9884-765c25b2644d");
+  
   return (
     <div className="max-w-4xl mx-auto p-8">
       <h1 className="text-6xl font-bold text-blue-800 mb-6 text-center">
@@ -120,8 +128,8 @@ const Ballard = () => {
 
       <div>
 
-      <h1 className="text-6xl font-bold mb-6 text-center">
-       Product table goes here
+      <h1 className="flex items-center justify-center font-bold mb-6 text-center">
+      <ProductsTable products={products} />
       </h1>
       </div>
 
