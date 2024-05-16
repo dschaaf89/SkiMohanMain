@@ -1,5 +1,3 @@
-import ClinicTable from "@/components/clinicTable";
-import { Button } from "@/components/ui/buttons";
 
 const skiTermGlossary = () => {
   return (
