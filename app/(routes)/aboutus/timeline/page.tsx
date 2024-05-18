@@ -11,7 +11,7 @@ const Timeline = () => {
 
   return (
     <div style={{ width: '500px', height: '950px' }}>
-      <Chrono items={items} mode="VERTICAL" />
+     timeline goes here
     </div>
   );
 };
