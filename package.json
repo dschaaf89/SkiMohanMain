@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "prebuild": "ts-node check-api.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -27,6 +28,7 @@
     "lucide-react": "^0.356.0",
     "next": "^14.1.3",
     "next-themes": "^0.3.0",
+    "node-fetch": "^3.3.2",
     "nodemailer": "^6.9.12",
     "punycode": "^2.3.1",
     "query-string": "^9.0.0",
@@ -55,6 +57,7 @@
     "eslint-config-next": "14.1.3",
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
+    "ts-node": "^10.9.2",
     "typescript": "^5"
   }
 }
