@@ -4,6 +4,7 @@ import Footer from "@/components/footer";
 import "./globals.css";
 import Navbar from "@/components/navbar";
 import Ticker from "@/components/ticker";
+import ToastProvider from "@/providers/toast-provider";
 
 const font = Urbanist({ subsets: ["latin"] });
 const messages = [
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={font.className}>
+        <ToastProvider/>
         <Navbar/>
         <Ticker messages={messages}/>
         {children}
