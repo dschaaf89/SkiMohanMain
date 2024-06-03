@@ -38,7 +38,6 @@ const HomePage: React.FC = () => {
 
     fetchData();
   }, []);
-
   return (
     <MsalProvider instance={msalInstance}>
       <div className="min-h-screen flex flex-col bg-cover bg-center" style={{ backgroundImage: "url(/mountain.jpg)" }}>

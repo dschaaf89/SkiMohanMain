@@ -58,19 +58,17 @@
 // export default getBillboards;
 import { BillboardData } from "@/types";
 import axios, { AxiosError } from 'axios';
+
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/billboards`;
 
 const getBillboards = async (): Promise<BillboardData[]> => {
   try {
-    const headers = {
-      'Content-Type': 'application/json', // Example header
-      // Add more headers if needed
-    };
-
     const response = await axios.get(URL, {
-      headers,
+      headers: {
+        'Content-Type': 'application/json',
+      },
       timeout: 10000
-    }); // Using Axios with a 5000 ms timeout and custom headers
+    });
 
     return response.data;
   } catch (error) {
@@ -78,21 +76,17 @@ const getBillboards = async (): Promise<BillboardData[]> => {
       // Axios error handling
       const axiosError = error as AxiosError;
       if (axiosError.response) {
-        // The request was made and the server responded with a status code
         console.error("Request failed with status code:", axiosError.response.status);
         console.error("Response data:", axiosError.response.data);
       } else if (axiosError.request) {
-        // The request was made but no response was received
         console.error("No response received:", axiosError.request);
       } else {
-        // Something happened in setting up the request that triggered an error
         console.error("Error setting up the request:", axiosError.message);
       }
     } else {
-      // Other non-Axios errors
       console.error("Error fetching billboards:", (error as Error).message);
     }
-    throw error; // Rethrow to handle it outside, e.g., to show an error message in the UI or retry
+    throw error;
   }
 };
 
