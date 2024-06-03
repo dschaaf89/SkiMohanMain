@@ -1,3 +1,5 @@
+"use Client"
+
 import getProduct from "@/actions/get-product";
 import getProductsByProgramId from "@/actions/get-productByProgram";
 import ProductsTable from "@/components/ui/productTable";
