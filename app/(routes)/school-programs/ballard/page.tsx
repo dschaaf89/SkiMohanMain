@@ -5,15 +5,18 @@ import getProductsByProgramId from "@/actions/get-productByProgram";
 import ProductsTable from "@/components/ui/productTable";
 import { Table } from "@/components/ui/table";
 import { Product } from "@/types";
-import { GetServerSideProps } from "next";
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
-type BallardProps = {
-  products: Product[];
-  error: string | null;
-};
+const Ballard = async () => {
+  let products: Product[] = [];
+  let error: string | null = null;
 
-const Ballard: React.FC<BallardProps> = ({ products, error }) => {
+  try {
+    products = await getProductsByProgramId('3a12dc00-41ad-49c1-9884-765c25b2644d');
+  } catch (err) {
+    console.error('Failed to load products:', err);
+    error = 'Failed to load products';
+  }
 
   return (
     <div className="max-w-4xl mx-auto p-8">
@@ -177,24 +180,5 @@ const Ballard: React.FC<BallardProps> = ({ products, error }) => {
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async () => {
-  try {
-    const products = await getProductsByProgramId("3a12dc00-41ad-49c1-9884-765c25b2644d");
-    return {
-      props: {
-        products,
-        error: null,
-      },
-    };
-  } catch (error) {
-    console.error('Failed to load products:', error);
-    return {
-      props: {
-        products: [],
-        error: 'Failed to load products',
-      },
-    };
-  }
-};
 
 export default Ballard;
