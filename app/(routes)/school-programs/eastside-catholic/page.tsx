@@ -130,7 +130,7 @@ const products = await getProductsByProgramId("64c48644-60a7-46bd-bfa2-559c3eca4
       <div>
 
       <h1 className="flex items-center justify-center font-bold mb-6 text-center">
-      <ProductsTable products={products} />
+      {/* <ProductsTable products={products} /> */}
       </h1>
       </div>
 
