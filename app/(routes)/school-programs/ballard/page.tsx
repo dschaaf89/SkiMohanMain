@@ -2,14 +2,29 @@ import getProduct from "@/actions/get-product";
 import getProductsByProgramId from "@/actions/get-productByProgram";
 import ProductsTable from "@/components/ui/productTable";
 import { Table } from "@/components/ui/table";
-import React from "react";
+import { Product } from "@/types";
+import React, { useEffect, useState } from 'react';
 
 
+const Ballard: React.FC = () => {
+  // Initialize products state as an array of Product
+  const [products, setProducts] = useState<Product[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
-const Ballard = async () => {
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const productsData = await getProductsByProgramId("3a12dc00-41ad-49c1-9884-765c25b2644d");
+        setProducts(productsData);
+      } catch (error) {
+        console.error('Failed to load products:', error);
+        setError('Failed to load products');
+      }
+    };
 
-  //const products = await getProductsByProgramId("898b7c42-d62d-407e-bdab-c757d6d964c8");
-  const products = await getProductsByProgramId("3a12dc00-41ad-49c1-9884-765c25b2644d");
+    fetchProducts();
+  }, []);
+
   return (
     <div className="max-w-4xl mx-auto p-8">
       <h1 className="text-6xl font-bold text-blue-800 mb-6 text-center">
