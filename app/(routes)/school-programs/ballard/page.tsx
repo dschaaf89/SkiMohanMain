@@ -1,4 +1,17 @@
-const Ballard = () => {
+import getProductsByProgramId from "@/actions/get-productByProgram";
+import ProductsTable from "@/components/ui/productTable";
+import { Product } from "@/types";
+
+const Ballard = async () => {
+  let products: Product[] = [];
+  let error: string | null = null;
+
+  try {
+    products = await getProductsByProgramId("3a12dc00-41ad-49c1-9884-765c25b2644d");
+  } catch (err) {
+    console.error('Failed to load products:', err);
+    error = 'Failed to load products';
+  }
     return (
 
         <div className="max-w-4xl mx-auto p-8">
@@ -119,7 +132,7 @@ const Ballard = () => {
         <div>
   
         <h1 className="flex items-center justify-center font-bold mb-6 text-center">
-        
+        <ProductsTable products={products} />
         </h1>
         </div>
   
