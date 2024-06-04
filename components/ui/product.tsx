@@ -1,13 +1,9 @@
-"use client"
+"use client";
 
-import React from 'react';
-import { Product as ProductType } from '@/types';
-import Image from 'next/image'; // <-- Import Image component
-import useCart from '@/hooks/use-cart';
-
-
-
-
+import React from "react";
+import { Product as ProductType } from "@/types";
+import Image from "next/image";
+import useCart from "@/hooks/use-cart";
 
 interface ProductProps {
   data: ProductType;
@@ -17,27 +13,27 @@ const Product: React.FC<ProductProps> = ({ data }) => {
   const imageUrl = data.images?.[0]?.url;
   const productName = data.name;
   const productPrice = data.price;
-  const productType= data.type.name;
-  const cart = useCart();
+  const productType = data.type.name;
+
+  const cart = useCart(); // Correctly invoke the hook here
+
   const handleOrder = () => {
-    // Implement order logic here
-    cart.addItem(data)
+    cart.addItem(data);
     console.log(`Ordering product: ${productName}`);
   };
 
   return (
     <tr className="bg-white border-b">
-     <td className="p-4 relative h-24 w-24"> {/* Adjust the height and width as needed */}
-  <div className="relative h-full w-full">
-    <Image
-      src={imageUrl}
-      alt={productName}
-      layout="fill"
-      objectFit="cover"
-      className="rounded"
-    />
-  </div>
-</td>
+      <td className="p-4 relative h-24 w-24">
+        <div className="relative h-full w-full">
+          <Image
+            src={imageUrl}
+            alt={productName}
+            fill
+            className="object-cover rounded"
+          />
+        </div>
+      </td>
       <td className="p-4 text-gray-900">{productType}</td>
       <td className="p-4 text-gray-900">${productPrice}</td>
       <td className="p-4">
