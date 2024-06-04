@@ -3,6 +3,12 @@
 import React from 'react';
 import { Product as ProductType } from '@/types';
 import Image from 'next/image'; // <-- Import Image component
+import useCart from '@/hooks/use-cart';
+
+
+
+
+
 interface ProductProps {
   data: ProductType;
 }
@@ -12,8 +18,10 @@ const Product: React.FC<ProductProps> = ({ data }) => {
   const productName = data.name;
   const productPrice = data.price;
   const productType= data.type.name;
+  const cart = useCart();
   const handleOrder = () => {
     // Implement order logic here
+    cart.addItem(data)
     console.log(`Ordering product: ${productName}`);
   };
 
