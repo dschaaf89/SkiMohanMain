@@ -24,28 +24,31 @@ const TodaysLeadership = () => {
           <Card className="flex flex-col h-full bg-gray-100">
             <CardHeader>
               <CardTitle className="text-center">DAN ALBERTINI</CardTitle>
-              <CardDescription className="text-center text-black"> STAFF SERVICES DIRECTOR & BOARD MEMBER</CardDescription>
+              <CardDescription className="text-center text-black">
+                {" "}
+                STAFF SERVICES DIRECTOR & BOARD MEMBER
+              </CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center">
-            <Image
-            src="/New-Dan.jpg"
-            alt="Dan Albertini"
-            width={250}
-            height={200}
-            objectFit="cover"
-          />
+              <Image
+                src="/New-Dan.jpg"
+                alt="Dan Albertini"
+                width={250}
+                height={200}
+                objectFit="cover"
+              />
             </CardContent>
             <CardFooter className="text-center">
-              <p>Dan has 20 years experience with Mohan. He started as a ski
-            instructor which naturally led him into the role of clinic
-            instructor and then Supervisor. Dan now serves as a member on the
-            Mohan Board of Directors. His love is creating smiles by handing out
-            awards and recognition.</p>
+              <p>
+                Dan has 20 years experience with Mohan. He started as a ski
+                instructor which naturally led him into the role of clinic
+                instructor and then Supervisor. Dan now serves as a member on
+                the Mohan Board of Directors. His love is creating smiles by
+                handing out awards and recognition.
+              </p>
             </CardFooter>
           </Card>
           {/* Vertical spacing */}
-         
-     
         </div>
         {/* Column 2 */}
         <div className="space-y-4">
@@ -54,25 +57,31 @@ const TodaysLeadership = () => {
           <Card className="flex flex-col h-full bg-gray-100">
             <CardHeader>
               <CardTitle className="text-center">GORDY BALL</CardTitle>
-              <CardDescription className="text-center text-black"> TECHNICAL DIRECTOR & BOARD MEMBER</CardDescription>
+              <CardDescription className="text-center text-black">
+                {" "}
+                TECHNICAL DIRECTOR & BOARD MEMBER
+              </CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center">
-            <Image
-            src="/New-Gordy_0.jpg"
-            alt="GORDY BALL"
-            width={250}
-            height={200}
-            objectFit="cover"
-          />
+              <Image
+                src="/New-Gordy_0.jpg"
+                alt="GORDY BALL"
+                width={250}
+                height={200}
+                objectFit="cover"
+              />
             </CardContent>
             <CardFooter className="text-center">
-              <p> Gordy has over forty years experience teaching and leading ski
-            enthusiasts of all ages. He continues to serve the Professional Ski
-            Instructors of America (PSIA) as an examiner and has served on the
-            Board of Directors, and as a divisional clinic leader. "Developing a
-            community of skillful, joyful, student centered instructors that
-            lead students into successful mountain experiences" continues to be
-            his lifelong goal.</p>
+              <p>
+                {" "}
+                Gordy has over forty years experience teaching and leading ski
+                enthusiasts of all ages. He continues to serve the Professional
+                Ski Instructors of America (PSIA) as an examiner and has served
+                on the Board of Directors, and as a divisional clinic leader.
+                "Developing a community of skillful, joyful, student centered
+                instructors that lead students into successful mountain
+                experiences" continues to be his lifelong goal.
+              </p>
             </CardFooter>
           </Card>
         </div>
@@ -83,32 +92,38 @@ const TodaysLeadership = () => {
           <Card className="flex flex-col h-full bg-gray-100">
             <CardHeader>
               <CardTitle className="text-center">TIM BERGLUND</CardTitle>
-              <CardDescription className="text-center text-black"> SUPERVISOR & BOARD MEMBER</CardDescription>
+              <CardDescription className="text-center text-black">
+                {" "}
+                SUPERVISOR & BOARD MEMBER
+              </CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center">
-            <Image
-            src="/Tim Ski photo 2.jpg" // Replace with the path to the third image
-            alt="Tim Berglund"
-            width={300}
-            height={400}
-            objectFit="cover"
-          />
+              <Image
+                src="/Tim Ski photo 2.jpg" // Replace with the path to the third image
+                alt="Tim Berglund"
+                width={300}
+                height={400}
+                objectFit="cover"
+              />
             </CardContent>
             <CardFooter className="text-center">
-              <p> Tim has been teaching with Mohan Ski School since 1989. Tim began as
-            an assistant while in junior high school, before being promoted to
-            instructor. While on staff for Mohan, Tim has served as a full-time
-            instructor for 5 yrs, resident desk supervisor, ski and snowboard
-            clinician and currently serves on the Mohan Board of Directors. Tim
-            has lived by the motto taught by John Mohan himself, "We are
-            teaching people how to have fun, not how to ski. People learn to
-            ski, because they are having fun.</p>
+              <p>
+                {" "}
+                Tim has been teaching with Mohan Ski School since 1989. Tim
+                began as an assistant while in junior high school, before being
+                promoted to instructor. While on staff for Mohan, Tim has served
+                as a full-time instructor for 5 yrs, resident desk supervisor,
+                ski and snowboard clinician and currently serves on the Mohan
+                Board of Directors. Tim has lived by the motto taught by John
+                Mohan himself, "We are teaching people how to have fun, not how
+                to ski. People learn to ski, because they are having fun.
+              </p>
             </CardFooter>
           </Card>
         </div>
         <br />
       </div>
-      <div className="grid grid-cols-3 gap-8">
+      <div className="grid gap-8">
         {" "}
         {/* Grid container */}
         {/* Column 1 */}
@@ -134,14 +149,32 @@ const TodaysLeadership = () => {
               />
             </CardContent>
             <CardFooter className="text-center">
-              <p> BIO goes here</p>
+              <p>
+                {" "}
+                Nathaniel has been in the ski industry for 8+ years and has been
+                skiing for much longer. He enjoys being up on the mountain with
+                the fabulous Mohan team and the students that join us up on the
+                slopes. He is currently Mohan’s General Manager, and you will
+                see him in the community at events as well as up on the slopes
+                during the season. He also oversees the mountain operations
+                alongside the Technical Director and oversees the Mohan Office.
+                He loves to get to know all the Mohanian students and their
+                families so come up and say hello! Nathaniel will do what he can
+                to help provide everyone with the opportunity to be up on the
+                slopes, experiencing skiing and boarding and the wonders of the
+                snowy mountains. Outside of Mohan, Nathaniel is a member of
+                Rotary International and is a local Rotarian where he does
+                community service events and supports the local community with
+                his clubs.
+              </p>
             </CardFooter>
           </Card>
         </div>
         {/* Column 3 */}
         <div className="space-y-4"> {/* Vertical spacing */}</div>
       </div>
-<br /><br />
+      <br />
+      <br />
       <div className="grid grid-cols-2 gap-8">
         {/* Column 1 */}
         <div className="space-y-4">
@@ -188,7 +221,7 @@ const TodaysLeadership = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center">
-            <Image
+              <Image
                 src="/sara.jpg" // Replace with the path to the third image
                 alt="Sara Schaaf"
                 width={250}
