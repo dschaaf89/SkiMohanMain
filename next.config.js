@@ -1,3 +1,5 @@
+const EnforceDevtoolPlugin = require('./enforceDevToolPlugin');
+
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -15,13 +17,21 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // Ignore .js.map files
+    // Add the plugin
+    config.plugins.push(new EnforceDevtoolPlugin());
+
+    if (!dev) {
+      config.devtool = isServer ? false : 'cheap-module-source-map';
+    }
+
     config.module.rules.push({
       test: /\.js\.map$/,
       loader: 'ignore-loader',
     });
 
-    // Important: return the modified config
+    // Log the devtool setting
+    console.log('Webpack Devtool:', config.devtool);
+
     return config;
   },
 };

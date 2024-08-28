@@ -1,6 +1,30 @@
+import React from "react";
+import getProductsByProgramId from "@/actions/get-productByProgram";
+import InstructorProductTable from "@/components/ui/instructorProductTable"; // Corrected the import statement
 import ClinicTable from "@/components/clinicTable";
+import { Product } from "@/types";
 
-const Instructor = () => {
+const Instructor = async () => {
+  // Marking the function as async
+  let products: Product[] = [];
+  let error: string | null = null;
+
+  try {
+    products = await getProductsByProgramId(
+      "7acbf527-b3f6-4fad-95c0-db290d59b976"
+    );
+    console.log("Number of products fetched:", products.length);
+    console.log("Products data:", products);
+    // Map products to include imageUrl at the top level
+    products = products.map((product) => ({
+      ...product,
+      imageUrl: product.program?.imageUrl || "", // Ensure there's a fallback
+    }));
+  } catch (err) {
+    console.error("Failed to load products:", err);
+    error = "Failed to load products";
+  }
+
   return (
     <div className="max-w-6xl mx-auto p-8">
       <h1 className="text-6xl font-bold text-blue-800 mb-6 text-center">
@@ -64,7 +88,9 @@ const Instructor = () => {
           year as well as skiing trips to nearby resorts or even abroad!
         </li>
       </ul>
-      <p>Please download and complete the following forms:</p>
+      <p>
+        Please download and complete the following forms:
+      </p>
       <br />
       <ul className="list-disc pl-5 mb-6 space-y-1">
         <li>Background Check</li>
@@ -75,7 +101,12 @@ const Instructor = () => {
         <li>W-4</li>
       </ul>
       <br />
-      <p>We respectfully request that ALL our instructors pay $60 towards staff liability insurance.  Please note this fee is NON-refundable once the training has begun.  Below are the training clinic requirements for all staff…</p>
+      <p>
+        We respectfully request that ALL our instructors pay $60 towards staff
+        liability insurance. Please note this fee is NON-refundable once the
+        training has begun. Below are the training clinic requirements for all
+        staff…
+      </p>
       <br />
       <p>Clinic expectations are as follows:</p>
       <br />
@@ -85,16 +116,22 @@ const Instructor = () => {
         <li>6-8 years tenure: Last 2 Snow clinics</li>
         <li>8+ years tenure: Clinic #4 ONLY</li>
       </ul>
-      <br /><br />
-      <p>See below for the current season clinic schedule.  Please note at the point of checkout you will be asked to complete your registration information.</p>
       <br />
-      <h1 className="text-6xl font-bold text-blue-800 mb-6 text-center">
-        Product Table to Register Instructors
+      <br />
+   
+      <br />
+      <div className="mb-8">
+      <h1 className="flex items-center justify-center font-bold mb-6 text-center"> {/* Use a div with appropriate spacing and no large heading */}
+        <InstructorProductTable products={products} />
       </h1>
-      <br />
-      <ClinicTable/>
+      </div>
+      <p>
+        See below for the current season clinic schedule. Please note at the
+        point of checkout you will be asked to complete your registration
+        information.
+      </p>
+      <ClinicTable />
     </div>
-    
   );
 };
 

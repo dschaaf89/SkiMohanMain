@@ -6,7 +6,7 @@ import Navbar from "@/components/navbar";
 import Ticker from "@/components/ticker";
 import ToastProvider from "@/providers/toast-provider";
 import ModalProvider from "@/providers/modal-provider";
-
+import { ClerkProvider } from '@clerk/nextjs';
 const font = Urbanist({ subsets: ["latin"] });
 const messages = [
   "OPERATIONAL STATUS: CLOSED FOR SEASON",
@@ -23,6 +23,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
+    <ClerkProvider>
     <html lang="en">
       <body className={font.className}>
         <ModalProvider/>
@@ -33,5 +34,6 @@ export default function RootLayout({
         <Footer/>
         </body>
     </html>
+    </ClerkProvider>
   );
 }

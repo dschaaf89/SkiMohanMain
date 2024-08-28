@@ -1,6 +1,31 @@
+import React from "react";
+import getProductsByProgramId from "@/actions/get-productByProgram";
+import InstructorProductTable from "@/components/ui/instructorProductTable"; // Corrected the import statement
 import ClinicTable from "@/components/clinicTable";
+import { Product } from "@/types";
 
-const Assistants = () => {
+const Assistants = async () => {
+
+// Marking the function as async
+let products: Product[] = [];
+let error: string | null = null;
+
+try {
+  products = await getProductsByProgramId(
+    "1ba55217-2590-4d6e-8ad2-6f3bd22696fa"
+  );
+  console.log("Number of products fetched:", products.length);
+  console.log("Products data:", products);
+  // Map products to include imageUrl at the top level
+  products = products.map((product) => ({
+    ...product,
+    imageUrl: product.program?.imageUrl || "", // Ensure there's a fallback
+  }));
+} catch (err) {
+  console.error("Failed to load products:", err);
+  error = "Failed to load products";
+}
+
   return (
     <div className="max-w-6xl mx-auto p-8">
       <h1 className="text-6xl font-bold text-blue-800 mb-6 text-center">
@@ -109,9 +134,11 @@ const Assistants = () => {
         information.
       </p>
       <br />
-      <h1 className="text-6xl font-bold text-blue-800 mb-6 text-center">
-        Product Table to Register Assistants
+      <div className="mb-8">
+      <h1 className="flex items-center justify-center font-bold mb-6 text-center"> {/* Use a div with appropriate spacing and no large heading */}
+        <InstructorProductTable products={products} />
       </h1>
+      </div>
       <br />
       <ClinicTable />
     </div>

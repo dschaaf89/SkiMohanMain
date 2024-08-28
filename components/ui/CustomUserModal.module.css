@@ -1,0 +1,56 @@
+.container {
+    display: flex;
+  }
+  
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .activeTab {
+    font-weight: bold;
+  }
+  
+  .content {
+    flex: 1;
+    padding: 1rem;
+    height: 600px; /* Fixed height for the modal content */
+    overflow-y: auto; /* Enable scrolling if content exceeds fixed height */
+  }
+  
+  .centeredTitle {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .studentGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  
+  .studentColumn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ddd;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+  
+  .studentColumn p {
+    text-align: center;
+  }
+  
+  .signOutButton {
+    margin-top: auto;
+    background-color: red;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
