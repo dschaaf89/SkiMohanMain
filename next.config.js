@@ -1,5 +1,3 @@
-const EnforceDevtoolPlugin = require('./enforceDevToolPlugin');
-
 const nextConfig = {
   images: {
     remotePatterns: [
@@ -17,8 +15,11 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // Add the plugin
-    config.plugins.push(new EnforceDevtoolPlugin());
+    // Only require and add the plugin in development mode
+    if (dev) {
+      const EnforceDevtoolPlugin = require('./enforceDevToolPlugin');
+      config.plugins.push(new EnforceDevtoolPlugin());
+    }
 
     if (!dev) {
       config.devtool = isServer ? false : 'cheap-module-source-map';
