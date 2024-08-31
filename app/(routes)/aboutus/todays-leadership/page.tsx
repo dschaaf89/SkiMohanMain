@@ -213,33 +213,7 @@ const TodaysLeadership = () => {
 
         {/* Column 2 */}
         <div className="space-y-4">
-          <Card className="flex flex-col h-full bg-gray-100">
-            <CardHeader>
-              <CardTitle className="text-center">Sara Schaaf</CardTitle>
-              <CardDescription className="text-center text-black-800">
-                Programs Coordinator
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex justify-center">
-              <Image
-                src="/sara.jpg" // Replace with the path to the third image
-                alt="Sara Schaaf"
-                width={250}
-                height={200}
-                objectFit="cover"
-              />
-            </CardContent>
-            <CardFooter className="text-center">
-              <p> Sara has a background in education which has helps in her position as 
-                Programs Coordinator as well as her position as Office Coordinator. She 
-                enjoys checking in with the students and parents to assure that everyone 
-                is having a great time with Mohan. She loves to explore the world around 
-                her with her family and that is a reason she loves working here at Mohan. 
-                Helping people explore their own love for adventures and learning new 
-                things is a great joy for her. 
-              </p>
-            </CardFooter>
-          </Card>
+          
         </div>
       </div>
     </div>
