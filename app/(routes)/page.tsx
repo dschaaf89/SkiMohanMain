@@ -153,8 +153,8 @@ const HomePage: React.FC = () => {
         <div className="relative z-10 flex justify-between w-full max-w-7xl px-8">
           {/* Left Side: Hero Text */}
           <div className="text-white flex flex-col justify-center">
-            <h1 className="text-5xl font-bold">Skiing Has a Soul</h1>
-            <p className="text-xl mt-4">This is where it lives.</p>
+            <h1 className="text-5xl font-bold">Skiing And Boarding Has a Soul</h1>
+            <p className="text-3xl mt-4 text-center">This is where it lives.</p>
           </div>
 
           {/* Right Side: Weather Widget */}
