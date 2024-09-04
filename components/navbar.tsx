@@ -16,7 +16,7 @@ import Image from "next/image";
 import { Facebook, Instagram } from "lucide-react";
 import React from "react";
 import NavbarActions from "@/components/navbar-actions";
-import { useState } from 'react';
+import { useState } from "react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -154,135 +154,56 @@ const Navbar = () => {
   ); // Replace 'text-gray-200' and 'hover:text-gray-50' with the colors you want
 
   return (
-<nav className="bg-white text-black p-4">
-  <div className="container mx-auto flex items-center justify-between">
-    <Link href="/" legacyBehavior passHref>
-      <a className="flex items-center">
-        <Image
-          src="/ski_mohan_logo.png"
-          alt="Ski Mohan Logo"
-          width={50}
-          height={50}
-          className="mr-2"
-        />
-      </a>
-    </Link>
-    <div className="hidden lg:flex items-center space-x-4">
-      <NavigationMenu>
-        <NavigationMenuList className="flex items-center space-x-4">
-        <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link href="/">Home</Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>General Lessons</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid grid-cols-2 gap-3 p-4 w-80">
-                <ListItem href="/generallessons/saturday" title="Saturday"></ListItem>
-                <ListItem href="/generallessons/sunday" title="Sunday"></ListItem>
-                <ListItem href="/generallessons/private-lessons" title="Private Lessons"></ListItem>
-                <ListItem href="/generallessons/seniors" title="Seniors"></ListItem>
-                <ListItem href="/generallessons/thursday-board" title="Thursday Board"></ListItem>
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Seattle School Programs</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid grid-cols-2 gap-3 p-4 w-80">
-                {components.map((component) => (
-                  <ListItem key={component.title} title={component.title} href={component.href} />
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid grid-cols-2 gap-3 p-4 w-80">
-                {resources.map((resource) => (
-                  <ListItem key={resource.title} title={resource.title} href={resource.href} />
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Staff</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid grid-cols-2 gap-3 p-4 w-80">
-                {staff.map((member) => (
-                  <ListItem key={member.title} title={member.title} href={member.href} />
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <ul className="grid grid-cols-2 gap-3 p-4 w-80">
-                {aboutus.map((item) => (
-                  <ListItem key={item.title} title={item.title} href={item.href} />
-                ))}
-              </ul>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link href="/contactUs">Contact Us</Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
-    </div>
-    <NavbarActions />
-    <div className="lg:hidden">
-      <button onClick={toggleMenu} className="text-black focus:outline-none">
-        <svg
-          className="w-6 h-6"
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M4 6h16M4 12h16M4 18h16"
-          ></path>
-        </svg>
-      </button>
-    </div>
-  </div>
-  {isOpen && (
-    <div className="lg:hidden">
-      <ul className="space-y-4 p-4 bg-white text-black">
-      
-        <li>
-          <NavigationMenu orientation="vertical">
-            <NavigationMenuList className="flex flex-col space-y-3">
-            <NavigationMenuLink asChild>
-              <Link href="/">Home</Link>
-            </NavigationMenuLink>
+    <nav className="bg-white text-black p-4">
+      <div className="container mx-auto flex items-center justify-between">
+        <Link href="/" legacyBehavior passHref>
+          <a className="flex items-center">
+            <Image
+              src="/ski_mohan_logo.png"
+              alt="Ski Mohan Logo"
+              width={50}
+              height={50}
+              className="mr-2"
+            />
+          </a>
+        </Link>
+        <div className="hidden lg:flex items-center space-x-4">
+          <NavigationMenu>
+            <NavigationMenuList className="flex items-center space-x-4">
               <NavigationMenuItem>
-                <NavigationMenuTrigger>General Lessons</NavigationMenuTrigger>
-                <NavigationMenuContent>
-                  <ul className="space-y-3 p-4 bg-white text-black">
-                    <ListItem href="/generallessons/saturday" title="Saturday"></ListItem>
-                    <ListItem href="/generallessons/sunday" title="Sunday"></ListItem>
-                    <ListItem href="/generallessons/private-lessons" title="Private Lessons"></ListItem>
-                    <ListItem href="/generallessons/seniors" title="Seniors"></ListItem>
-                    <ListItem href="/generallessons/thursday-board" title="Thursday Board"></ListItem>
-                  </ul>
-                </NavigationMenuContent>
+                <NavigationMenuLink asChild>
+                  <Link href="/">Home</Link>
+                </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>Seattle School Programs</NavigationMenuTrigger>
+  <NavigationMenuLink asChild>
+    <Link href="/generallessons"> {/* This ensures clicking General Lessons goes to /generallessons */}
+      <NavigationMenuTrigger>General Lessons</NavigationMenuTrigger>
+    </Link>
+  </NavigationMenuLink>
+  <NavigationMenuContent>
+    <ul className="grid grid-cols-2 gap-3 p-4 w-80">
+      <ListItem href="/generallessons/saturday" title="Saturday"></ListItem>
+      <ListItem href="/generallessons/sunday" title="Sunday"></ListItem>
+      <ListItem href="/generallessons/private-lessons" title="Private Lessons"></ListItem>
+      <ListItem href="/generallessons/seniors" title="Seniors"></ListItem>
+      <ListItem href="/generallessons/thursday-board" title="Thursday Board"></ListItem>
+    </ul>
+  </NavigationMenuContent>
+</NavigationMenuItem>
+
+              <NavigationMenuItem>
+                <NavigationMenuTrigger>
+                  Seattle School Programs
+                </NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="space-y-3 p-4 bg-white text-black">
+                  <ul className="grid grid-cols-2 gap-3 p-4 w-80">
                     {components.map((component) => (
-                      <ListItem key={component.title} title={component.title} href={component.href} />
+                      <ListItem
+                        key={component.title}
+                        title={component.title}
+                        href={component.href}
+                      />
                     ))}
                   </ul>
                 </NavigationMenuContent>
@@ -290,9 +211,13 @@ const Navbar = () => {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="space-y-3 p-4 bg-white text-black">
+                  <ul className="grid grid-cols-2 gap-3 p-4 w-80">
                     {resources.map((resource) => (
-                      <ListItem key={resource.title} title={resource.title} href={resource.href} />
+                      <ListItem
+                        key={resource.title}
+                        title={resource.title}
+                        href={resource.href}
+                      />
                     ))}
                   </ul>
                 </NavigationMenuContent>
@@ -300,9 +225,13 @@ const Navbar = () => {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>Staff</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="space-y-3 p-4 bg-white text-black">
+                  <ul className="grid grid-cols-2 gap-3 p-4 w-80">
                     {staff.map((member) => (
-                      <ListItem key={member.title} title={member.title} href={member.href} />
+                      <ListItem
+                        key={member.title}
+                        title={member.title}
+                        href={member.href}
+                      />
                     ))}
                   </ul>
                 </NavigationMenuContent>
@@ -310,26 +239,160 @@ const Navbar = () => {
               <NavigationMenuItem>
                 <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
                 <NavigationMenuContent>
-                  <ul className="space-y-3 p-4 bg-white text-black">
+                  <ul className="grid grid-cols-2 gap-3 p-4 w-80">
                     {aboutus.map((item) => (
-                      <ListItem key={item.title} title={item.title} href={item.href} />
+                      <ListItem
+                        key={item.title}
+                        title={item.title}
+                        href={item.href}
+                      />
                     ))}
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
               <NavigationMenuItem>
-            <NavigationMenuLink asChild>
-              <Link href="/contactUs">Contact Us</Link>
-            </NavigationMenuLink>
-          </NavigationMenuItem>
+                <NavigationMenuLink asChild>
+                  <Link href="/contactUs">Contact Us</Link>
+                </NavigationMenuLink>
+              </NavigationMenuItem>
             </NavigationMenuList>
           </NavigationMenu>
-        </li>
-      </ul>
-    </div>
-  )}
-</nav>
-
+        </div>
+        <NavbarActions />
+        <div className="lg:hidden">
+          <button
+            onClick={toggleMenu}
+            className="text-black focus:outline-none"
+          >
+            <svg
+              className="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              ></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+      {isOpen && (
+        <div className="lg:hidden">
+          <ul className="space-y-4 p-4 bg-white text-black">
+            <li>
+              <NavigationMenu orientation="vertical">
+                <NavigationMenuList className="flex flex-col space-y-3">
+                  <NavigationMenuLink asChild>
+                    <Link href="/">Home</Link>
+                  </NavigationMenuLink>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger>
+                      General Lessons
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="space-y-3 p-4 bg-white text-black">
+                        <ListItem
+                          href="/generallessons"
+                          title="General Lessons"
+                        ></ListItem>
+                        <ListItem
+                          href="/generallessons/saturday"
+                          title="Saturday"
+                        ></ListItem>
+                        <ListItem
+                          href="/generallessons/sunday"
+                          title="Sunday"
+                        ></ListItem>
+                        <ListItem
+                          href="/generallessons/private-lessons"
+                          title="Private Lessons"
+                        ></ListItem>
+                        <ListItem
+                          href="/generallessons/seniors"
+                          title="Seniors"
+                        ></ListItem>
+                        <ListItem
+                          href="/generallessons/thursday-board"
+                          title="Thursday Board"
+                        ></ListItem>
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger>
+                      Seattle School Programs
+                    </NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="space-y-3 p-4 bg-white text-black">
+                        {components.map((component) => (
+                          <ListItem
+                            key={component.title}
+                            title={component.title}
+                            href={component.href}
+                          />
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="space-y-3 p-4 bg-white text-black">
+                        {resources.map((resource) => (
+                          <ListItem
+                            key={resource.title}
+                            title={resource.title}
+                            href={resource.href}
+                          />
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger>Staff</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="space-y-3 p-4 bg-white text-black">
+                        {staff.map((member) => (
+                          <ListItem
+                            key={member.title}
+                            title={member.title}
+                            href={member.href}
+                          />
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuTrigger>About Us</NavigationMenuTrigger>
+                    <NavigationMenuContent>
+                      <ul className="space-y-3 p-4 bg-white text-black">
+                        {aboutus.map((item) => (
+                          <ListItem
+                            key={item.title}
+                            title={item.title}
+                            href={item.href}
+                          />
+                        ))}
+                      </ul>
+                    </NavigationMenuContent>
+                  </NavigationMenuItem>
+                  <NavigationMenuItem>
+                    <NavigationMenuLink asChild>
+                      <Link href="/contactUs">Contact Us</Link>
+                    </NavigationMenuLink>
+                  </NavigationMenuItem>
+                </NavigationMenuList>
+              </NavigationMenu>
+            </li>
+          </ul>
+        </div>
+      )}
+    </nav>
   );
 };
 const ListItem = React.forwardRef<
