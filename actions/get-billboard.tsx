@@ -59,7 +59,7 @@
 import { BillboardData } from "@/types";
 import axios, { AxiosError } from 'axios';
 
-const URL = `${process.env.NEXT_PUBLIC_API_URL}/billboards`;
+const URL = `${process.env.BILLBOARDS_PUBLIC_API}/billboards`;
 
 const getBillboards = async (): Promise<BillboardData[]> => {
   try {
