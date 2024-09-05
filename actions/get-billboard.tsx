@@ -59,7 +59,7 @@
 import { BillboardData } from "@/types";
 import axios, { AxiosError } from 'axios';
 
-const URL = process.env.BILLBOARDS_PUBLIC_API!;
+const URL = `${process.env.BILLBOARDS_PUBLIC_API}`!;
 
 const getBillboards = async (): Promise<BillboardData[]> => {
   try {
