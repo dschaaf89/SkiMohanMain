@@ -59,7 +59,7 @@
 import { BillboardData } from "@/types";
 import axios, { AxiosError } from 'axios';
 
-const URL = `${process.env.BILLBOARDS_PUBLIC_API}`;
+const URL = process.env.BILLBOARDS_PUBLIC_API!;
 
 const getBillboards = async (): Promise<BillboardData[]> => {
   try {
@@ -73,7 +73,6 @@ const getBillboards = async (): Promise<BillboardData[]> => {
     return response.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      // Axios error handling
       const axiosError = error as AxiosError;
       if (axiosError.response) {
         console.error("Request failed with status code:", axiosError.response.status);
