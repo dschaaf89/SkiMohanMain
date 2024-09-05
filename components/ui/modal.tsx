@@ -69,24 +69,23 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children, title, descrip
   if (!isOpen) return null; // Render nothing if the modal is closed
 
   return (
-    <Dialog as="div" className="relative z-10" onClose={onClose}>
-      <div className="fixed inset-0 bg-black bg-opacity-50" />
-
-      <div className="fixed inset-0 overflow-y-auto">
-        <div className="flex min-h-full items-center justify-center p-4 text-center">
-          <Dialog.Panel className="w-full max-w-2xl overflow-hidden rounded-lg bg-white p-6 shadow-xl">
-            <div className="relative">
-              <IconButton onClick={onClose} icon={<X size={15} />} />
-              <div>
-                {title && <h2 className="text-lg font-bold">{title}</h2>}
-                {description && <p className="mt-2 text-gray-600">{description}</p>}
-                <div>{children}</div>
-              </div>
+    <Dialog open={isOpen} onClose={onClose} className="relative z-10">
+    <div className="fixed inset-0 bg-black bg-opacity-50" />
+    <div className="fixed inset-0 overflow-y-auto">
+      <div className="flex min-h-full items-center justify-center p-4 text-center">
+        <Dialog.Panel className="w-full max-w-2xl overflow-hidden rounded-lg bg-white p-6 shadow-xl">
+          <div className="relative">
+            <IconButton onClick={onClose} icon={<X size={15} />} />
+            <div>
+              {title && <h2 className="text-lg font-bold">{title}</h2>}
+              {description && <p className="mt-2 text-gray-600">{description}</p>}
+              <div>{children}</div>
             </div>
-          </Dialog.Panel>
-        </div>
+          </div>
+        </Dialog.Panel>
       </div>
-    </Dialog>
+    </div>
+  </Dialog>
   );
 };
 
