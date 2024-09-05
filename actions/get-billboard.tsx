@@ -59,7 +59,7 @@
 import { BillboardData } from "@/types";
 import axios, { AxiosError } from 'axios';
 
-const URL = `${process.env.BILLBOARDS_PUBLIC_API}`!;
+const URL = process.env.BILLBOARDS_PUBLIC_API || 'https://ski-mohan-admin.vercel.app/api/billboards';
 
 const getBillboards = async (): Promise<BillboardData[]> => {
   try {
