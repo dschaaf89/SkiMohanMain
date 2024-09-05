@@ -116,8 +116,16 @@ import { msalConfig } from "@/msal-config";
 import { PublicClientApplication } from "@azure/msal-browser";
 import { BillboardData } from "@/types";
 import { useEffect, useState } from "react";
-import Image from "next/image";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 import Link from "next/link";
+import Image from "next/image";
+
 // Initialize MSAL instance
 const msalInstance = new PublicClientApplication(msalConfig);
 
@@ -141,24 +149,47 @@ const HomePage: React.FC = () => {
 
   return (
     <MsalProvider instance={msalInstance}>
-      {/* Full-screen Hero Section with Background Image and Weather Widget */}
-      <div
-        className="relative min-h-screen flex items-center justify-center bg-cover bg-center"
-        style={{ backgroundImage: "url(/mountain.jpg)" }} // Replace with your mountain image path
-      >
+      {/* Full-screen Hero Section with Carousel */}
+      <div className="relative min-h-[60vh] flex items-center justify-center bg-cover bg-center">
+        {/* Carousel of Billboards */}
+        <Carousel
+          opts={{ align: "start", loop: true }}
+          className="absolute inset-0 w-full h-[60vh]"
+        >
+          <CarouselContent className="w-full h-[60vh]">
+            {billboards.length > 0 ? (
+              billboards.map((billboard) => (
+                <CarouselItem key={billboard.id} className="w-full h-full">
+                  <div className="relative w-full h-full">
+                    <Billboard data={billboard} />
+                  </div>
+                </CarouselItem>
+              ))
+            ) : (
+              <div className="w-full h-full flex items-center justify-center">
+                <p className="text-white text-xl">No Billboards Found</p>
+              </div>
+            )}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-0 z-20 p-2" />
+          <CarouselNext className="absolute right-0 z-20 p-2" />
+        </Carousel>
+
         {/* Overlay for darkened effect */}
         <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
         {/* Hero Content & Weather Widget */}
-        <div className="relative z-10 flex justify-between w-full max-w-7xl px-8">
+        <div className="relative z-10 flex justify-between w-full max-w-full px-8">
           {/* Left Side: Hero Text */}
-          <div className="text-white flex flex-col justify-center">
-            <h1 className="text-5xl font-bold">Skiing And Boarding Has a Soul</h1>
+          <div className="text-white flex flex-col justify-center items-center text-center w-full">
+            <h1 className="text-5xl font-bold">
+              Skiing And Boarding Has a Soul
+            </h1>
             <p className="text-3xl mt-4 text-center">This is where it lives.</p>
           </div>
 
           {/* Right Side: Weather Widget */}
-          <div className="bg-blue-500 bg-opacity-70 p-6 rounded-lg shadow-lg text-center w-80">
+          <div className="bg-blue-500 bg-opacity-70 p-6 rounded-lg shadow-lg text-center w-64 absolute right-24 top-1/2 transform -translate-y-1/2">
             <h2 className="text-white text-2xl mb-4">Current Weather</h2>
             <WeatherWidget />
           </div>
@@ -235,12 +266,21 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
-      {/* Secondary Promotional Area */}
+      {/* Welcome Video Area */}
       <div className="py-12 bg-gray-800 text-white text-center">
-        <h2 className="text-3xl mb-4">Secondary Promotional Area</h2>
-        <button className="px-6 py-3 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-700">
-          Discover It Here
-        </button>
+        <h2 className="text-3xl mb-4">Welcome Video</h2>
+        <div className="flex justify-center my-8">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/MZ7NTs-pAc8"
+            title="Welcome Video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="rounded-lg shadow-lg"
+          ></iframe>
+        </div>
       </div>
 
       {/* Newsletter and Future Events */}
