@@ -1,11 +1,33 @@
 import { Table } from "@/components/ui/table";
 import React from "react";
+import getProductsByProgramId from "@/actions/get-productByProgram";
+import ProductsTable from "@/components/ui/productTable";
+import { Product } from "@/types";
 
-const NortheastSeattle = () => {
+const NortheastSeattle = async () => {
+  let products: Product[] = [];
+  let error: string | null = null;
+
+  try {
+    products = await getProductsByProgramId(
+      "1368e4b7-35e3-4b68-84c9-f4d04d544fd5"
+    ); // Replace with the correct program ID
+    console.log("Number of products fetched:", products.length);
+    console.log("Products data:", products);
+
+    // Map products to include imageUrl at the top level
+    products = products.map((product) => ({
+      ...product,
+      imageUrl: product.program?.imageUrl || "", // Ensure there's a fallback
+    }));
+  } catch (err) {
+    console.error("Failed to load products:", err);
+    error = "Failed to load products";
+  }
   return (
     <div className="max-w-4xl mx-auto p-8">
       <h1 className="text-6xl font-bold text-blue-800 mb-6 text-center">
-      Northeast Seattle Snowsports
+        Northeast Seattle Snowsports
       </h1>
       <p className="text-lg mb-4">
         OUR EXPERIENCED, FRIENDLY MOHAN INSTRUCTORS BRING FUN TO YOUR MOUNTAIN
@@ -108,7 +130,8 @@ const NortheastSeattle = () => {
       </div>
       <div>
         <h3 className="text-xl font-bold mb-6 text-center">
-          Bus Meeting Location:South lot along 30th, furthest from the flag pole (30th Ave NE south of 75th)
+          Bus Meeting Location:South lot along 30th, furthest from the flag pole
+          (30th Ave NE south of 75th)
         </h3>
         <ul className="list-disc list-inside mb-6">
           <li>
@@ -146,8 +169,8 @@ const NortheastSeattle = () => {
       </div>
 
       <div>
-        <h1 className="text-6xl font-bold mb-6 text-center">
-          Product table goes here
+        <h1 className="flex items-center justify-center font-bold mb-6 text-center">
+          <ProductsTable products={products} />
         </h1>
       </div>
 

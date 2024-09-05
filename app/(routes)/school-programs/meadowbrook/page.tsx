@@ -1,7 +1,28 @@
 import { Table } from "@/components/ui/table";
 import React from "react";
+import getProductsByProgramId from "@/actions/get-productByProgram";
+import ProductsTable from "@/components/ui/productTable";
+import { Product } from "@/types";
 
-const NortheastSeattle = () => {
+const NortheastSeattle = async () => {
+
+  let products: Product[] = [];
+  let error: string | null = null;
+
+  try {
+    products = await getProductsByProgramId("8dd1a8d9-ca6f-4fdf-9c63-3ed87ca60150"); // Replace with the correct program ID
+    console.log('Number of products fetched:', products.length);
+    console.log('Products data:', products);
+    
+    // Map products to include imageUrl at the top level
+    products = products.map(product => ({
+      ...product,
+      imageUrl: product.program?.imageUrl || '',  // Ensure there's a fallback
+    }));
+  } catch (err) {
+    console.error('Failed to load products:', err);
+    error = 'Failed to load products';
+  }
   return (
     <div className="max-w-4xl mx-auto p-8">
       <h1 className="text-6xl font-bold text-blue-800 mb-6 text-center">
@@ -146,9 +167,9 @@ const NortheastSeattle = () => {
       </div>
 
       <div>
-        <h1 className="text-6xl font-bold mb-6 text-center">
-          Product table goes here
-        </h1>
+      <h1 className="flex items-center justify-center font-bold mb-6 text-center">
+    <ProductsTable products={products} />
+    </h1>
       </div>
 
       <div>
