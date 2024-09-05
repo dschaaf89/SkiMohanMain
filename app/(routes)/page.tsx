@@ -151,50 +151,51 @@ const HomePage: React.FC = () => {
     <MsalProvider instance={msalInstance}>
       {/* Full-screen Hero Section with Carousel */}
       <div className="relative min-h-[60vh] flex items-center justify-center bg-cover bg-center">
-        {/* Carousel of Billboards */}
-        <Carousel
-          opts={{ align: "start", loop: true }}
-          className="absolute inset-0 w-full h-[60vh]"
-        >
-          <CarouselContent className="w-full h-[60vh]">
-            {billboards.length > 0 ? (
-              billboards.map((billboard) => (
-                <CarouselItem key={billboard.id} className="w-full h-full">
-                  <div className="relative w-full h-full">
-                    <Billboard data={billboard} />
-                  </div>
-                </CarouselItem>
-              ))
-            ) : (
-              <div className="w-full h-full flex items-center justify-center">
-                <p className="text-white text-xl">No Billboards Found</p>
-              </div>
-            )}
-          </CarouselContent>
-          <CarouselPrevious className="absolute left-0 z-20 p-2" />
-          <CarouselNext className="absolute right-0 z-20 p-2" />
-        </Carousel>
-
-        {/* Overlay for darkened effect */}
-        <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-
-        {/* Hero Content & Weather Widget */}
-        <div className="relative z-10 flex justify-between w-full max-w-full px-8">
-          {/* Left Side: Hero Text */}
-          <div className="text-white flex flex-col justify-center items-center text-center w-full">
-            <h1 className="text-5xl font-bold">
-              Skiing And Boarding Has a Soul
-            </h1>
-            <p className="text-3xl mt-4 text-center">This is where it lives.</p>
-          </div>
-
-          {/* Right Side: Weather Widget */}
-          <div className="bg-blue-500 bg-opacity-70 p-6 rounded-lg shadow-lg text-center w-64 absolute right-24 top-1/2 transform -translate-y-1/2">
-            <h2 className="text-white text-2xl mb-4">Current Weather</h2>
-            <WeatherWidget />
-          </div>
+  {/* Carousel of Billboards */}
+  <Carousel
+    opts={{ align: "start", loop: true }}
+    className="absolute inset-0 w-full h-[60vh]"
+  >
+    <CarouselContent className="w-full h-[60vh]">
+      {billboards.length > 0 ? (
+        billboards.map((billboard) => (
+          <CarouselItem key={billboard.id} className="w-full h-full">
+            <div className="relative w-full h-full">
+              <Billboard data={billboard} />
+            </div>
+          </CarouselItem>
+        ))
+      ) : (
+        <div className="w-full h-full flex items-center justify-center">
+          <p className="text-white text-xl">No Billboards Found</p>
         </div>
-      </div>
+      )}
+    </CarouselContent>
+    <CarouselPrevious className="absolute left-0 z-20 p-2" />
+    <CarouselNext className="absolute right-0 z-20 p-2" />
+  </Carousel>
+
+  {/* Overlay for darkened effect */}
+  <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+
+  {/* Hero Content & Weather Widget */}
+  <div className="relative z-10 flex flex-col md:flex-row items-center justify-center w-full px-8">
+    {/* Centered Hero Text */}
+    <div className="text-white flex flex-col justify-center text-center w-full">
+      <h1 className="text-4xl md:text-5xl font-bold">
+        Skiing And Boarding Has a Soul
+      </h1>
+      <p className="text-xl md:text-3xl mt-4">This is where it lives.</p>
+    </div>
+
+    {/* Weather Widget */}
+    <div className="bg-blue-500 bg-opacity-70 p-6 rounded-lg shadow-lg text-center w-64 mt-8 lg:mt-0 lg:w-auto lg:absolute lg:right-24 lg:top-1/2 lg:transform lg:-translate-y-1/2">
+      <h2 className="text-white text-2xl mb-4">Current Weather</h2>
+      <WeatherWidget />
+    </div>
+  </div>
+</div>
+
 
       {/* Main Content with Sections */}
       <div className="py-12 bg-white">
