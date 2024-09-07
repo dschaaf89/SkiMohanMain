@@ -6,21 +6,23 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import useCart from "@/hooks/use-cart";
 import { StudentSignupForm, StudentFormValues } from "@/components/ui/studentSignUpForm";
+import { useUser } from "@clerk/nextjs"; 
 
 const StudentSignupPage = () => {
+  const { user } = useUser(); 
   const [currentProgramIndex, setCurrentProgramIndex] = useState(0);
   const [programCodes, setProgramCodes] = useState<string[]>([]);
   const router = useRouter();
   const searchParams = useSearchParams();
   const clearCart = useCart((state) => state.removeAll);
-
+  const userId = searchParams.get('userId') || user?.id;
   useEffect(() => {
     const productCodes = searchParams.get('productCodes');
     if (productCodes) {
       setProgramCodes(productCodes.split(','));
     }
   }, [searchParams]);
-
+console.log(userId)
   const handleSubmit = async (data: StudentFormValues) => {
     try {
       const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/students/studentSignUp`;
@@ -34,6 +36,7 @@ const StudentSignupPage = () => {
         ...data,
         seasonId,
         ProgCode: programCodes[currentProgramIndex],
+        userId,
       };
   
       const response = await axios.post(apiUrl, requestBody);
@@ -70,7 +73,7 @@ const StudentSignupPage = () => {
 
   return (
     <div>
-      <h1>Student Signup</h1>
+      
       <StudentSignupForm
         programCode={programCodes[currentProgramIndex] || ""}
         onSubmit={handleSubmit} // Pass the handleSubmit function as a prop

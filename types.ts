@@ -24,6 +24,7 @@ export interface Image {
 
 
 export interface Product {
+  title:string;
   id: string;
   program: Program;
   name: string;

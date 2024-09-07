@@ -1,4 +1,30 @@
+"use client"; import getProductsByProgramId from "@/actions/get-productByProgram";
+import ProductsTable from "@/components/ui/productTable";
+import { Product } from "@/types";
+import { useUser } from "@clerk/nextjs";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+
 const Saturdaylessons = () => {
+
+  const { user } = useUser(); // Client-side only
+  const [products, setProducts] = useState<Product[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  console.log('User object:', user);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const fetchedProducts = await getProductsByProgramId("f900ee4c-93fa-461f-a30a-3be54cb0e25b");
+        setProducts(fetchedProducts);
+      } catch (err) {
+        console.error('Failed to load products:', err);
+        setError('Failed to load products');
+      }
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <div className="max-w-4xl mx-auto p-8">
       <h1 className="text-4xl font-bold text-blue-800 mb-6 text-center">
@@ -10,7 +36,7 @@ const Saturdaylessons = () => {
         EXPERIENCE.
       </p>
       <h2 className="text-2xl font-bold mb-6 text-center">
-        1/20, 1/27, 2/3, 2/10, 2/17, & 2/24
+        1/11, 1/18, 1/25, 2/1, 2/8, & 2/22 Week 7 Make-up 3/1
       </h2>
       <ul className="list-disc list-inside mb-6">
         <li>
@@ -58,7 +84,7 @@ const Saturdaylessons = () => {
         </li>
         <li>
           <strong>
-            There WILL be classes Presidents' Weekend (17th - 21st)
+            There WILL be classes Presidents' Weekend (14th,15th,16th)
           </strong>
         </li>
         <li>
@@ -101,6 +127,10 @@ const Saturdaylessons = () => {
           868-3820 or through the Contact Us section on the website.
         </li>
       </ul>
+
+      <h1 className="flex items-center justify-center font-bold mb-6 text-center">
+          <ProductsTable products={products} />
+        </h1>
 
       {/* ... You would continue adding content here following the same pattern ... */}
       <div>

@@ -1,4 +1,33 @@
-const generallessons = () => {
+"use client";
+import getProductsByProgramId from "@/actions/get-productByProgram";
+import ProductsTable from "@/components/ui/productTable";
+import { Product } from "@/types";
+import { useUser } from "@clerk/nextjs";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+
+const ThursdayBoard = () => {
+
+  const { user } = useUser(); // Client-side only
+  const [products, setProducts] = useState<Product[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  console.log('User object:', user);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const fetchedProducts = await getProductsByProgramId("ffa0ed45-7f19-49ee-bd9e-b931722c5d4c");
+        setProducts(fetchedProducts);
+      } catch (err) {
+        console.error('Failed to load products:', err);
+        setError('Failed to load products');
+      }
+    };
+
+    fetchProducts();
+  }, []);
+
+  
   return (
     <div className="max-w-4xl mx-auto p-8">
       <h1 className="text-4xl font-bold text-blue-800 mb-6">Thursday Board</h1>
@@ -19,6 +48,9 @@ const generallessons = () => {
         with new successes and challenges to ponder. We would love to have you
         join us.
       </p>
+      <h1 className="flex items-center justify-center font-bold mb-6 text-center">
+          <ProductsTable products={products} />
+        </h1>
       <h2 className="text-xl font-bold">SOME OF OUR CREW</h2>
       <p>
         Pat Smith - Eternally perched on the shoulders of giants, and a longtime
@@ -41,6 +73,7 @@ const generallessons = () => {
         <br />
         
       </p>
+     
       {/* ... You would continue adding content here following the same pattern ... */}
       <p>
         Lift Tickets are NOT included. See our Lift Tickets page for details.
@@ -63,4 +96,4 @@ const generallessons = () => {
   );
 };
 
-export default generallessons;
+export default ThursdayBoard;

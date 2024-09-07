@@ -37,7 +37,6 @@ const SuccessPage: React.FC = () => {
       setPaymentDetails(storedPaymentDetails);
     }
   }, [router]);
-  
 
   if (!students.length || !paymentDetails) {
     // Show a loading state or return null to prevent premature rendering
@@ -46,6 +45,15 @@ const SuccessPage: React.FC = () => {
 
   const handlePrint = () => {
     window.print(); // Triggers the browser's print functionality
+  };
+
+  const handleBackToMainPage = () => {
+    // Clear the localStorage items
+    localStorage.removeItem("submittedStudents");
+    localStorage.removeItem("paymentDetails");
+
+    // Redirect to main page
+    router.push("/");
   };
 
   return (
@@ -67,8 +75,7 @@ const SuccessPage: React.FC = () => {
           students.map((student, index) => (
             <div key={index} className="mb-4">
               <p><strong>Student Name:</strong> {student.NAME_FIRST} {student.NAME_LAST}</p>
-              <p><strong>Program Code:</strong> {student.ProgCode}</p>
-              {/* Add more fields here if needed */}
+              <p><strong>Program :</strong> {student.ProgCode}</p>
             </div>
           ))
         ) : (
@@ -79,7 +86,7 @@ const SuccessPage: React.FC = () => {
       <div className="mt-6 flex space-x-4">
         <button
           className="bg-blue-500 text-white py-2 px-4 rounded-lg"
-          onClick={() => router.push("/")}
+          onClick={handleBackToMainPage} // Updated to clear localStorage
         >
           Back to Main Page
         </button>

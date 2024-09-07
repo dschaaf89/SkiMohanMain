@@ -128,7 +128,10 @@ const Ballard = () => {
          {/* Render Coordinator's Portal Button if user has access */}
        {hasCoordinatorAccess() && (
         <div className="pb-5">
-          <Link href="/coordinators-portal" className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700">
+          <Link
+  href={`${process.env.NEXT_PUBLIC_API_COORDINATORPORTAL_URL}?programId=Ballard`}
+  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700"
+>
   Go to Coordinator's Portal
 </Link>
         </div>

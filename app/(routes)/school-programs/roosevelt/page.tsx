@@ -1,26 +1,37 @@
-import { Table } from "@/components/ui/table";
-import React from "react";
+"use client"; 
 import getProductsByProgramId from "@/actions/get-productByProgram";
 import ProductsTable from "@/components/ui/productTable";
 import { Product } from "@/types";
-const Roosevelt = async () => {
-  let products: Product[] = [];
-  let error: string | null = null;
+import { useUser } from "@clerk/nextjs";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+const Roosevelt =  () => {
+  const { user } = useUser(); // Client-side only
+  const [products, setProducts] = useState<Product[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  console.log('User object:', user);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const fetchedProducts = await getProductsByProgramId("b47f0dd-257f-4b68-ab83-5569acc13bb4");
+        setProducts(fetchedProducts);
+      } catch (err) {
+        console.error('Failed to load products:', err);
+        setError('Failed to load products');
+      }
+    };
 
-  try {
-    products = await getProductsByProgramId("2b47f0dd-257f-4b68-ab83-5569acc13bb4"); // Replace with the correct program ID
-    console.log('Number of products fetched:', products.length);
-    console.log('Products data:', products);
-    
-    // Map products to include imageUrl at the top level
-    products = products.map(product => ({
-      ...product,
-      imageUrl: product.program?.imageUrl || '',  // Ensure there's a fallback
-    }));
-  } catch (err) {
-    console.error('Failed to load products:', err);
-    error = 'Failed to load products';
-  }
+    fetchProducts();
+  }, []);
+
+
+// Helper function to check if user has coordinator access
+const hasCoordinatorAccess = () => {
+  return user?.publicMetadata?.role === 'coordinator'; // Adjust based on how you're managing roles
+};
+ 
+
+ 
   return (
     <div className="max-w-4xl mx-auto p-8">
       <h1 className="text-6xl font-bold text-blue-800 mb-6 text-center">
@@ -124,6 +135,17 @@ const Roosevelt = async () => {
             rooseveltdistrictsnowsports@gmail.com
           </a>
         </h2>
+         {/* Render Coordinator's Portal Button if user has access */}
+ {hasCoordinatorAccess() && (
+          <div className="pb-5">
+                  <Link
+  href={`${process.env.NEXT_PUBLIC_API_COORDINATORPORTAL_URL}?programId=Roosevelt`}
+  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700"
+>
+  Go to Coordinator's Portal
+</Link>
+          </div>
+        )}
       </div>
       <div>
         <h3 className="text-xl font-bold mb-6 text-center">

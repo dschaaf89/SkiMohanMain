@@ -58,7 +58,7 @@ const Product: React.FC<ProductProps> = ({ data }) => {
             />
           </div>
         </td>
-        <td className="p-4 text-gray-900">{data.name}</td>
+        <td className="p-4 text-gray-900">{data.title}</td>
         <td className="p-4 text-gray-900">${data.price}</td>
         <td className="p-4">
           {data.quantity > 0 ? (

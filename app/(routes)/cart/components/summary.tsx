@@ -7,13 +7,15 @@ import { Button } from "@/components/ui/button";
 import Currency from "@/components/ui/currency";
 import useCart from "@/hooks/use-cart";
 import { toast } from "react-hot-toast";
-
+import { useUser } from '@clerk/nextjs';
 const SummaryComponent = () => {
+  const { user } = useUser();
   const searchParams = useSearchParams();
   const router = useRouter();
   const items = useCart((state) => state.items);
   const removeAll = useCart((state) => state.removeAll);
-
+  const userId = user?.id; 
+  console.log("user id is :",userId);
   const seasonId = "3523ea0b-4dc2-4efb-be8d-10e1740d2f63"; // This should be dynamically set
 
   useEffect(() => {
@@ -42,6 +44,7 @@ const SummaryComponent = () => {
         
         const response = await axios.post(url, {
             items: itemsWithProgramCodes,
+            userId: user?.id,
         });
 
         const paymentDetails = {
@@ -73,7 +76,7 @@ const SummaryComponent = () => {
         <Currency value={totalPrice} />
       </div>
       <div className="flex justify-end mt-4">
-        <Button onClick={onCheckout}>Proceed to Checkout</Button>
+      <Button onClick={onCheckout} disabled={!userId}>Proceed to Checkout</Button>
       </div>
     </div>
   );

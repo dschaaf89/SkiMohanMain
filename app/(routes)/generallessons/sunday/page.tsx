@@ -1,4 +1,33 @@
+"use client"; import getProductsByProgramId from "@/actions/get-productByProgram";
+import ProductsTable from "@/components/ui/productTable";
+import { Product } from "@/types";
+import { useUser } from "@clerk/nextjs";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+
+
+
+
 const Sundaylessons = () => {
+
+  
+  const { user } = useUser(); // Client-side only
+  const [products, setProducts] = useState<Product[]>([]);
+  const [error, setError] = useState<string | null>(null);
+  console.log('User object:', user);
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const fetchedProducts = await getProductsByProgramId("45612fb5-5bc4-48fd-aea0-fe0c335efe79");
+        setProducts(fetchedProducts);
+      } catch (err) {
+        console.error('Failed to load products:', err);
+        setError('Failed to load products');
+      }
+    };
+
+    fetchProducts();
+  }, []);
   return (
     <div className="max-w-4xl mx-auto p-8">
       <h1 className="text-4xl font-bold text-blue-800 mb-6">
@@ -11,7 +40,7 @@ const Sundaylessons = () => {
 
         
       </p>
-      <h2 className="text-2xl font-bold mb-6">1/21, 1/28, 2/4, 2/11, 2/18, & 2/25 </h2>
+      <h2 className="text-2xl font-bold mb-6">1/12, 1/19, 1/26, 2/2, 2/9, & 2/23 and Make-up is 3/2 </h2>
       <ul className="list-disc list-inside mb-6">
         <li>
           We suggest you always check our website{" "}
@@ -58,7 +87,7 @@ const Sundaylessons = () => {
         </li>
         <li>
           <strong>
-            There WILL be classes Presidents' Weekend (17th - 21st)
+            There WILL be classes Presidents' Weekend (14th - 16st)
           </strong>
         </li>
         <li>
@@ -101,7 +130,9 @@ const Sundaylessons = () => {
           868-3820 or through the Contact Us section on the website.
         </li>
       </ul>
-
+      <h1 className="flex items-center justify-center font-bold mb-6 text-center">
+          <ProductsTable products={products} />
+        </h1>
       {/* ... You would continue adding content here following the same pattern ... */}
       <div>
         <p>
