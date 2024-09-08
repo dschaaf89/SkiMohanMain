@@ -226,3 +226,31 @@
 .success-button:hover {
   background-color: #0056b3;
 }
+.dropzone {
+  border: 2px dashed #0087F7;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.drag-active {
+  background-color: #e0f7fa;
+}
+
+.file-list {
+  margin-top: 20px;
+  list-style-type: none;
+}
+
+.file-item {
+  margin: 10px 0;
+}
+
+.upload-button {
+  margin-top: 20px;
+  background-color: #0087F7;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
