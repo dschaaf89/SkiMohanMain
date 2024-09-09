@@ -93,12 +93,41 @@ const Instructor = async () => {
       </p>
       <br />
       <ul className="list-disc pl-5 mb-6 space-y-1">
-        <li>Background Check</li>
-        <li>Disclosure Form</li>
-        <li>Emergency Medical & Overnight Permission Form</li>
-        <li>I-9</li>
+      <li>
+  <a 
+    className="text-blue-500"
+    href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EZRZ3aN_oJ9KuYiONw3vMoEBzEHBEaT-91Q8OXmuT3gD8g?e=hKXO7W"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Background Check
+  </a>
+</li>
+        <li> <a 
+    className="text-blue-500"
+    href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EZp_lCr-ZPtIsoJlP8wO1LEB7TZxijxlEsZ7T0KNcL9Hng?e=QjNl2m"
+    target="_blank"
+    rel="noopener noreferrer"
+  >Disclosure Form</a></li>
+        <li><a 
+    className="text-blue-500"
+    href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EU3nWgJNQfdEg4Z39d8eQzEBPineloHCXjuYnx5gEBwV9A?e=8zJB3g"
+    target="_blank"
+    rel="noopener noreferrer">
+    Emergency Medical & Overnight Permission Form</a>
+    </li>
+        <li><a 
+    className="text-blue-500"
+    href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EY4DXwFtiCFDo-EFKLjeOygBC0bM0izO8_GYSAggJO_72w?e=cRzDmV"
+    target="_blank"
+    rel="noopener noreferrer">I-9
+    </a></li>
         <li>Parent-School Authorization Form</li>
-        <li>W-4</li>
+        <li><a 
+    className="text-blue-500"
+    href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EZXLcNMg8l1Ojurb9WL_GiIBrEmTHtxuipc0eAjm-4ZELw?e=Pxwv63"
+    target="_blank"
+    rel="noopener noreferrer">W-4</a></li>
       </ul>
       <br />
       <p>

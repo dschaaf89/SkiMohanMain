@@ -6,7 +6,7 @@ import axios from "axios";
 import { toast } from "react-hot-toast";
 import useCart from "@/hooks/use-cart";
 import { InstructorSignupForm, InstructorFormValues } from "@/components/ui/instructorSignUpForm"
-
+import { useUser } from "@clerk/nextjs"; 
 const InstructorSignupPage = () => {
   const [currentProgramIndex, setCurrentProgramIndex] = useState(0);
   const [programCodes, setProgramCodes] = useState<string[]>([]);
@@ -14,7 +14,9 @@ const InstructorSignupPage = () => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const clearCart = useCart((state) => state.removeAll);
-
+  const { user } = useUser(); 
+  const userId = searchParams.get('userId') || user?.id;
+  console.log(userId);
   useEffect(() => {
     const productCodes = searchParams.get('productCodes');
     if (productCodes) {
@@ -47,6 +49,7 @@ const InstructorSignupPage = () => {
         ...formData,
         seasonId,
         ProgCode: programCodes[currentProgramIndex],
+        userId,
       };
 
       // First, send the form data to the backend (without files)

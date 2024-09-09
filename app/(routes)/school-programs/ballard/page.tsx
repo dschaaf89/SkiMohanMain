@@ -38,7 +38,7 @@ const Ballard = () => {
         OUR EXPERIENCED, FRIENDLY MOHAN INSTRUCTORS BRING FUN TO YOUR MOUNTAIN EXPERIENCE.
       </p>
       <h2 className="text-2xl font-bold mb-6 text-center">
-        1/19, 1/26, 2/2, 2/9, 2/16, &amp; 2/23
+        1/10, 1/17, 1/24, 1/31, 2/7 &amp; 2/21
       </h2>
       <ul className="list-disc list-inside mb-6">
         <li>

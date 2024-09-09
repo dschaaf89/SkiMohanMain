@@ -53,7 +53,7 @@ import {
 import { cn } from "@/lib/utils";
 import { Label } from "@/components/ui/label";
 import { Instructor } from "@/types";
-
+import { MyFileUpload } from "@/components/ui/myFileUpload";
 type ClassTime = {
   id: number;
   label: string;
@@ -140,68 +140,63 @@ const classes = [
 const clinics = [
   {
     id: "1",
-    label: "Dry Land#1 Tuesday December 5th 2023 7pm Zoom",
+    label: "Dry Land#1 Tuesday December 3rd 2024 7pm Zoom",
   },
   {
     id: "2",
-    label: "Dry Land#1 Thursday December 7th 2023 7pm Zoom",
+    label: "Dry Land#1 Thursday December 5th 2024 7pm Zoom",
   },
   {
     id: "3",
-    label: "On Snow Clinic#1 Saturday December 9th 2023 930am Summit Central",
+    label: "On Snow Clinic#1 Saturday December 7th 2024 9:30am Summit Central",
   },
   {
     id: "4",
-    label: "On Snow Clinic#1 Sunday December 10th 2023 930am Summit Central",
+    label: "On Snow Clinic#1 Sunday December 8th 2024 9:30am Summit Central",
   },
-
   {
     id: "5",
-    label: "Dry Land#2 Tuesday December 12th 2023 7pm Zoom",
+    label: "Dry Land#2 Tuesday December 10th 2024 7pm Zoom",
   },
   {
     id: "6",
-    label: "Dry Land#2 Thursday December 14th 2023 7pm Zoom",
+    label: "Dry Land#2 Thursday December 12th 2024 7pm Zoom",
   },
   {
     id: "7",
-    label: "On Snow Clinic#2 Saturday December 16th 2023 930am Summit Central",
+    label: "On Snow Clinic#2 Saturday December 14th 2024 9:30am Summit Central",
   },
   {
     id: "8",
-    label: "On Snow Clinic#2 Sunday December 17th 2023 930am Summit Central",
+    label: "On Snow Clinic#2 Sunday December 15th 2024 9:30am Summit Central",
   },
   {
     id: "9",
-    label: "Dry Land#3 Tuesday December 19th 2023 7pm Zoom",
+    label: "Dry Land#3 Tuesday December 17th 2024 7pm Zoom",
   },
   {
     id: "10",
-    label: "Dry Land#3 Thursday December 21st 2023 7pm Zoom",
+    label: "Dry Land#3 Thursday December 19th 2024 7pm Zoom",
   },
   {
     id: "11",
-    label: "On Snow Clinic#3 Saturday December 30th 2023 930am Summit Central",
+    label: "On Snow Clinic#3 Saturday December 21st 2024 9:30am Summit Central",
   },
   {
     id: "12",
-    label: "On Snow Clinic#3 Sunday December 31st 2023 930am Summit Central",
+    label: "On Snow Clinic#3 Sunday December 22nd 2024 9:30am Summit Central",
   },
   {
     id: "13",
-    label: "Dry Land#4 Tuesday January 2nd 2024 7pm Zoom",
+    label: "Dry Land#4 Tuesday January 2nd 2025 7pm Zoom",
   },
   {
     id: "14",
-    label: "Dry Land#4 Thursday January 4th 2024 7pm Zoom",
+    label: "On Snow Clinic#4 Saturday December 28th 2024 9:30am Summit Central",
   },
   {
     id: "15",
-    label: "On Snow Clinic#4 Saturday January 6th 2024 930am Summit Central",
-  },
-  {
-    id: "16",
-    label: "On Snow Clinic#4 Sunday January 7th 2024 930am Summit Central",
+    label: "On Snow Clinic#4 Sunday December 29th 2024 9:30am Summit Central",
   },
 ] as const;
 
@@ -291,6 +286,7 @@ const formSchema = z.object({
   idRecieved: z.boolean().optional(),
   schoolPermission: z.boolean().optional(),
   WSPDate: z.string().optional(),
+  files: z.array(z.any()).optional(),
 });
 
 type AssistantFormValues = z.infer<typeof formSchema>;
@@ -312,7 +308,7 @@ const AssistantSignupForm: React.FC<AssistantSignupFormProps> = ({
     InstructorClassTime[]
   >([]);
   const [classTimes, setClassTimes] = useState<ClassTime[]>([]);
-
+  const [files, setFiles] = useState<File[]>([]); // Store uploaded files
   useEffect(() => {
     if (sessionId && orderId) {
       // Store session_id and orderId in localStorage or state if needed
@@ -390,6 +386,7 @@ const AssistantSignupForm: React.FC<AssistantSignupFormProps> = ({
       idRecieved: false,
       schoolPermission: false,
       WSPDate: "", // Set the program code here
+      files: [],
     },
   });
 
@@ -407,7 +404,11 @@ const AssistantSignupForm: React.FC<AssistantSignupFormProps> = ({
 
     fetchClassTimes();
   }, []);
-
+  const handleFileUpload = (acceptedFiles: File[]) => {
+    setFiles(acceptedFiles); // Update state when files are uploaded
+    form.setValue("files", acceptedFiles); // Set files in form value
+    console.log("Files uploaded:", acceptedFiles); // Add a log to see if files are captured
+  };
   const handleCheckboxChange = (classTimeId: number, checked: boolean) => {
     if (checked) {
       setInstructorClassTimes((prev) => [
@@ -765,7 +766,15 @@ const AssistantSignupForm: React.FC<AssistantSignupFormProps> = ({
                   </CardContent>
                 </Card>
               </div>
-
+              {/* File Upload */}
+              <Card className="p-4">
+                <CardHeader>
+                  <CardTitle>Upload Required Documents</CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <MyFileUpload onFilesUploaded={handleFileUpload} />
+                </CardContent>
+              </Card>
               <div className="flex justify-end mt-8">
                 <Button disabled={loading} className="ml-auto" type="submit">
                   Submit

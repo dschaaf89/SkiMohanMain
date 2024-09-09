@@ -96,7 +96,7 @@ const Volunteer = () => {
             ride tickets to anyone wishing the single day transportation option.
           </p>
           <br />
-          <h1 className="text-l font-bold mb-6">
+          {/* <h1 className="text-l font-bold mb-6">
             PROGRAM COORDINATOR SEASON PASSES
           </h1>
           <p>
@@ -104,7 +104,7 @@ const Volunteer = () => {
             season pass. Please submit your receipt for your pass and you will receive the
             reimbursement. Please keep in mind that this season pass is only good for the named
             Program Coordinator and there may only be one PC per program!
-          </p>
+          </p> */}
           <br />
           <h1 className="text-l font-bold mb-6">
             BUS CHAPERONES
