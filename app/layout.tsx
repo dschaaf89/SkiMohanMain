@@ -10,7 +10,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 const font = Urbanist({ subsets: ["latin"] });
 const messages = [
   "OPERATIONAL STATUS: CLOSED FOR SEASON",
-  "Thanks for joining us this season!",
+  "REGISTRATION WIll OPEN ON SEPTEMBER 16TH AT 9AM",
 ];
 export const metadata: Metadata = {
   title: "Mohan Ski School Website",
@@ -23,7 +23,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <ClerkProvider>
+    
+    <ClerkProvider >
     <html lang="en">
       <body className={font.className}>
         <ModalProvider/>
