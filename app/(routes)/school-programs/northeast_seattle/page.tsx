@@ -191,7 +191,7 @@ const hasCoordinatorAccess = () => {
 
       <div>
         <h1 className="flex items-center justify-center font-bold mb-6 text-center">
-          <ProductsTable products={products} />
+          {/* <ProductsTable products={products} /> */}
         </h1>
       </div>
 
