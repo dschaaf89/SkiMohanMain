@@ -189,7 +189,12 @@ const HomePage: React.FC = () => {
     </div>
 
     {/* Weather Widget */}
-    <div className="bg-blue-500 bg-opacity-70 p-6 rounded-lg shadow-lg text-center w-64 mt-8 lg:mt-0 lg:w-auto lg:absolute lg:right-24 lg:top-1/2 lg:transform lg:-translate-y-1/2">
+    <div className="
+  bg-blue-500 bg-opacity-70 p-6 rounded-lg shadow-lg text-center
+  w-64 mt-8 lg:mt-0 lg:w-auto lg:absolute lg:right-24 lg:top-1/2 lg:transform lg:-translate-y-1/2 
+  md:w-48 md:absolute md:right-0 md:top-1/2 md:transform md:-translate-y-1/2 
+  sm:relative sm:mt-4 sm:w-full sm:p-4
+">
       <h2 className="text-white text-2xl mb-4">Current Weather</h2>
       <WeatherWidget />
     </div>
