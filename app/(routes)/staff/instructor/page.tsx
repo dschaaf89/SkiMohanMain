@@ -151,7 +151,7 @@ const Instructor = async () => {
       <br />
       <div className="mb-8">
       <h1 className="flex items-center justify-center font-bold mb-6 text-center"> {/* Use a div with appropriate spacing and no large heading */}
-        <InstructorProductTable products={products} />
+        {/* <InstructorProductTable products={products} /> */}
       </h1>
       </div>
       <p>
