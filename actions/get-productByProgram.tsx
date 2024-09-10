@@ -4,7 +4,11 @@ const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
 
 const getProductsByProgramId = async (programId: string): Promise<Product[]> => {
   try {
-    const res = await fetch(`${URL}?programId=${programId}`);
+    const res = await fetch(`${URL}?programId=${programId}`, {
+      headers: {
+        'Cache-Control': 'no-store',
+      },
+    });
     
     // Log the response status and headers
     console.log('Response Status:', res.status);
