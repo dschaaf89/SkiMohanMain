@@ -149,19 +149,22 @@ const HomePage: React.FC = () => {
 
   return (
     <MsalProvider instance={msalInstance}>
-      {/* Full-screen Hero Section with Carousel */}
-      <div className="relative min-h-[60vh] flex items-center justify-center bg-cover bg-center">
+{/* Full-screen Hero Section with Carousel */}
+<div className="relative w-screen h-screen flex items-center justify-center bg-cover bg-center">
   {/* Carousel of Billboards */}
   <Carousel
     opts={{ align: "start", loop: true }}
-    className="absolute inset-0 w-full h-[60vh]"
+    className="absolute inset-0 w-full h-full"
   >
-    <CarouselContent className="w-full h-[60vh]">
+    <CarouselContent className="w-full h-full">
       {billboards.length > 0 ? (
         billboards.map((billboard) => (
           <CarouselItem key={billboard.id} className="w-full h-full">
             <div className="relative w-full h-full">
-              <Billboard data={billboard} />
+              {/* Ensure the Billboard component fills the container */}
+              <Billboard
+                data={billboard}
+              />
             </div>
           </CarouselItem>
         ))
@@ -178,7 +181,7 @@ const HomePage: React.FC = () => {
   {/* Overlay for darkened effect */}
   <div className="absolute inset-0 bg-black bg-opacity-30"></div>
 
-  {/* Hero Content & Weather Widget */}
+  {/* Hero Content */}
   <div className="relative z-10 flex flex-col md:flex-row items-center justify-center w-full px-8">
     {/* Centered Hero Text */}
     <div className="text-white flex flex-col justify-center text-center w-full">
@@ -187,20 +190,44 @@ const HomePage: React.FC = () => {
       </h1>
       <p className="text-xl md:text-3xl mt-4">This is where it lives.</p>
     </div>
-
-    {/* Weather Widget */}
-    <div className="
-  bg-blue-500 bg-opacity-70 p-6 rounded-lg shadow-lg text-center
-  w-64 mt-8 lg:mt-0 lg:w-auto lg:absolute lg:right-24 lg:top-1/2 lg:transform lg:-translate-y-1/2 
-  md:w-48 md:absolute md:right-0 md:top-1/2 md:transform md:-translate-y-1/2 
-  sm:relative sm:mt-4 sm:w-full sm:p-4
-">
-      <h2 className="text-white text-2xl mb-4">Current Weather</h2>
-      <WeatherWidget />
-    </div>
   </div>
 </div>
 
+
+
+
+  
+<div className="py-12 bg-gray-800 text-white text-center">
+  <div className="container mx-auto px-4">
+    <div className="flex flex-col lg:flex-row lg:space-x-8">
+      
+      {/* Left Column: YouTube Video */}
+      <div className="w-full lg:w-1/2">
+        <iframe
+          width="100%"
+          height="300"
+          src="https://www.youtube.com/embed/7VFEFBUuGTI?autoplay=1&mute=1"
+          title="YouTube video player"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          className="rounded-lg"
+        ></iframe>
+      </div>
+
+      {/* Right Column: Weather Widget */}
+      <div className="w-full lg:w-1/2 mt-8 lg:mt-0">
+        <div className="
+          bg-blue-500 bg-opacity-70 p-6 rounded-lg shadow-lg text-center
+          w-full sm:max-w-xs md:max-w-sm lg:max-w-md
+        ">
+          <h2 className="text-white text-2xl md:text-xl sm:text-xl mb-4">Current Weather</h2>
+          <WeatherWidget />
+        </div>
+      </div>
+      
+    </div>
+  </div>
+</div>
 
       {/* Main Content with Sections */}
       <div className="py-12 bg-white">
