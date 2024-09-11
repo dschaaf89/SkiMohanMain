@@ -213,7 +213,28 @@ const TodaysLeadership = () => {
 
         {/* Column 2 */}
         <div className="space-y-4">
-          
+        <Card className="flex flex-col h-full bg-gray-100">
+            <CardHeader>
+              <CardTitle className="text-center">Emily Sheehan</CardTitle>
+              <CardDescription className="text-center text-black-800">
+              Program Coordinator Manager
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="flex justify-center">
+              {/* <Image
+                src="/" // Replace with the path to the third image
+                alt="Emily Sheehan"
+                width={200}
+                height={200}
+                objectFit="cover"
+              /> */}
+            </CardContent>
+            <CardFooter className="text-center">
+              <p>
+              An avid skier and snow enthusiast, Emily loves being up on the mountain with the team at Mohan. On top of over 25+ years of ski experience (she’s been skiing as long as she could walk), she is a PSIA Level I Instructor with over 2+ years in the skiing industry. While not working in the office or instructing students, she’s out with her gimbal on the slopes making movies for Mohan. She works in the office to make sure all your questions are answered quickly and efficiently, so that you’re all set to buckle up your boots and get out there! She loves working with new students and building community within Mohan. When she’s not skiing (or answering skiing related emails,) Emily works as a narrative/commercial film director/producer.  
+              </p>
+            </CardFooter>
+          </Card>
         </div>
       </div>
     </div>
