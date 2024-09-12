@@ -221,13 +221,13 @@ const TodaysLeadership = () => {
               </CardDescription>
             </CardHeader>
             <CardContent className="flex justify-center">
-              {/* <Image
-                src="/" // Replace with the path to the third image
+              <Image
+                src="/Emily.jpg" // Replace with the path to the third image
                 alt="Emily Sheehan"
                 width={200}
                 height={200}
                 objectFit="cover"
-              /> */}
+              />
             </CardContent>
             <CardFooter className="text-center">
               <p>

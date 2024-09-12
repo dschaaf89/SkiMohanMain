@@ -67,10 +67,6 @@ const ThursdayBoard = () => {
         Archey, PSIA Level II instructor. Chris is a life long skier with a
         passion for sharing his love of skiing with others. Let's take some
         turns and have some fun.
-        <br />
-        <br /> Roger Lowell -<br />
-        <br /> Gordy Ball -<br />
-        <br />
         
       </p>
      
@@ -84,8 +80,8 @@ const ThursdayBoard = () => {
         information.</p>
         <br />
       <p>
-         Evenings 7:00 PM - 9:00 PM <br />Starting Thursday, January 18,
-        2024<br /> Summit Central (exit 53)<br /> 47 miles from Seattle<br /><br /> These Meetings are
+         Evenings 7:00 PM - 9:00 PM <br />Starting Thursday, January 16,
+        2025<br /> Summit Central (exit 53)<br /> 47 miles from Seattle<br /><br /> These Meetings are
         different! They’re on snow with flexible meeting dates and you have 7
         weeks in to attend 5 meetings
       </p>

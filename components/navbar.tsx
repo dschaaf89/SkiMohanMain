@@ -1,4 +1,5 @@
 "use client";
+import React from "react";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -13,16 +14,16 @@ import {
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import Image from "next/image";
-import { Facebook, Instagram } from "lucide-react";
-import React from "react";
-import NavbarActions from "@/components/navbar-actions";
 import { useState } from "react";
+import NavbarActions from "@/components/navbar-actions";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
   const components: { title: string; href: string }[] = [
     {
       title: "Eastside Catholic Snow Sports ",
@@ -61,6 +62,7 @@ const Navbar = () => {
       href: "/school-programs/wallingford",
     },
   ];
+
   const resources: { title: string; href: string }[] = [
     {
       title: "Arrival Video ",
@@ -99,6 +101,7 @@ const Navbar = () => {
       href: "/resources/faq",
     },
   ];
+
   const staff: { title: string; href: string }[] = [
     {
       title: "Instructor ",
@@ -117,6 +120,7 @@ const Navbar = () => {
       href: "/staff/ski-term-glossary",
     },
   ];
+
   const aboutus: { title: string; href: string }[] = [
     {
       title: "Be A Part Of Our Team",
@@ -176,21 +180,19 @@ const Navbar = () => {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-  <NavigationMenuLink asChild>
-    <Link href="/generallessons"> {/* This ensures clicking General Lessons goes to /generallessons */}
-      <NavigationMenuTrigger>General Lessons</NavigationMenuTrigger>
-    </Link>
-  </NavigationMenuLink>
-  <NavigationMenuContent>
-    <ul className="grid grid-cols-2 gap-3 p-4 w-80">
-      <ListItem href="/generallessons/saturday" title="Saturday"></ListItem>
-      <ListItem href="/generallessons/sunday" title="Sunday"></ListItem>
-      <ListItem href="/generallessons/private-lessons" title="Private Lessons"></ListItem>
-      <ListItem href="/generallessons/seniors" title="Seniors"></ListItem>
-      <ListItem href="/generallessons/thursday-board" title="Thursday Board"></ListItem>
-    </ul>
-  </NavigationMenuContent>
-</NavigationMenuItem>
+                <NavigationMenuTrigger>
+                  General Lessons
+                </NavigationMenuTrigger>
+                <NavigationMenuContent>
+                  <ul className="grid grid-cols-2 gap-3 p-4 w-80">
+                    <ListItem href="/generallessons/saturday" title="Saturday"></ListItem>
+                    <ListItem href="/generallessons/sunday" title="Sunday"></ListItem>
+                    <ListItem href="/generallessons/private-lessons" title="Private Lessons"></ListItem>
+                    <ListItem href="/generallessons/seniors" title="Seniors"></ListItem>
+                    <ListItem href="/generallessons/thursday-board" title="Thursday Board"></ListItem>
+                  </ul>
+                </NavigationMenuContent>
+              </NavigationMenuItem>
 
               <NavigationMenuItem>
                 <NavigationMenuTrigger>
@@ -395,6 +397,7 @@ const Navbar = () => {
     </nav>
   );
 };
+
 const ListItem = React.forwardRef<
   React.ElementRef<"a">,
   React.ComponentPropsWithoutRef<"a">
@@ -420,4 +423,5 @@ const ListItem = React.forwardRef<
   );
 });
 ListItem.displayName = "ListItem";
+
 export default Navbar;

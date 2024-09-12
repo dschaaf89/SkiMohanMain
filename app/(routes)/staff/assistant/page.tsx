@@ -112,19 +112,22 @@ try {
       </ul>
       <br />
       <p>
-        We respectfully request that ALL our instructors pay $60 towards staff
+        We respectfully request that ALL our instructors pay $60 towards staff training and 
         liability insurance. Please note this fee is NON-refundable once the
         training has begun. Below are the training clinic requirements for all
         staff…
       </p>
+      <br /><br />
+     <span className="font-bold">Use Promocode STAFF2559 By September 30th to recieve $59 discount at checkout.</span> <br />
+      <span className="font-bold">Use Promocode STAFF2530 By October 31th to recieve $30 discount at checkout.</span><br /><br />
+      
       <br />
       <p>Clinic expectations are as follows:</p>
       <br />
       <ul className="list-disc pl-5 mb-6 space-y-1">
-        <li>1-2 years tenure: 8 clinics</li>
+      <li>1-2 years tenure: 8 clinics</li>
         <li>3-5 years tenure: 4 Snow clinics</li>
-        <li>6-8 years tenure: Last 2 Snow clinics</li>
-        <li>8+ years tenure: Clinic #4 ONLY</li>
+        <li>6+ years tenure: Last 2 Snow clinics</li>
       </ul>
       <br />
       <br />

@@ -122,8 +122,8 @@ const Ballard = () => {
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Program Coordinator <br />
-          Noam Gundle<br />
-          Email: <a href="mailto:noamjg@gmail.com" className="text-blue-600 underline">noamjg@gmail.com</a>
+          TBD<br />
+          Email: <a href="mailto:" className="text-blue-600 underline"></a>
         </h2>
          {/* Render Coordinator's Portal Button if user has access */}
        {hasCoordinatorAccess() && (

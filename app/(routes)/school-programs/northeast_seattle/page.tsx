@@ -128,7 +128,7 @@ const hasCoordinatorAccess = () => {
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Program Coordinator <br />
-          Jessica Levine & Julie Church <br />
+          TBD <br />
           Email:{" "}
           <a
             href=" mailto:NEseattlesnowsports@gmail.com"

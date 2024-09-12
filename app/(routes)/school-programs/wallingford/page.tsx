@@ -127,7 +127,7 @@ const hasCoordinatorAccess = () => {
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Program Coordinator <br />
-          Alice Turner, Parent Volunteer <br />
+          TBD<br />
           Email:{" "}
           <a
             href="mailto:Wallingfordsnowsports@gmail.com"

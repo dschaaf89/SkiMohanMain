@@ -56,37 +56,11 @@ const seniorlessons = () => {
           Lift Tickets are NOT included. See our Lift Ticket page for different season pass options.
           </li>
           <li>Equipment is NOT included. To avoid spending time with daily rentals, we suggest "Take Home Season Rentals." See our Equipment page for more information.</li>
-          <li>Change for 2022/2023 - Assume we are skiing weekly - WE WILL SEND EMAILS ON MONDAY ONLY IF WE CANCEL</li>
+          
           
         </ul>
       </div>
-      <div>
-        <br />
-        <h4 className="text-2xl font-bold">WARRANTY INFORMATION</h4>
-        <p>
-          Any delay or failure in the performance of Mohan Skiing & Boarding
-          (Mohan) hereunder shall be excused if caused by Force Majeure (a cause
-          or event that is not reasonably foreseeable or otherwise caused by or
-          under the control of Mohan, including acts of God). Events that are
-          beyond the reasonable anticipation and control to prevent, avoid,
-          delay, or mitigate are not attributable Mohan failure to perform its
-          obligations under this Agreement. Prior to the end of the business
-          day, 3pm, on November 30 of the current season, participants may
-          request, in writing, a refund for their lessons and/or transportation.
-          When processed there will be a $25 fee subtracted for each refund.
-          After 3pm of November 30, participant’s lessons and/or transportation
-          are NOT refundable unless: The program is not completed by April 30.
-          In which case a prorated credit will be applied towards the following
-          season. Please note that it is typical to postpone program operations
-          throughout the season due to weather or road conditions. The decision
-          to operate or postpone is at the sole discretion of Mohan. The
-          operating status is posted daily on the Mohan website and phone number
-          voicemail. Please check frequently for the latest information. If a
-          program is postponed, it is our policy to AUTOMATICALLY add a make-up
-          program date to the end of the program schedule until all
-          postponements are completed.
-        </p>
-      </div>
+      
     </div>
   );
 };

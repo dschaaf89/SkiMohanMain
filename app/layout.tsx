@@ -9,8 +9,9 @@ import ModalProvider from "@/providers/modal-provider";
 import { ClerkProvider } from '@clerk/nextjs';
 const font = Urbanist({ subsets: ["latin"] });
 const messages = [
-  "OPERATIONAL STATUS: CLOSED FOR SEASON",
+  
   "REGISTRATION WIll OPEN ON SEPTEMBER 16TH AT 9AM",
+  "If your student is trying out for Winter Sports, please remember that there are no refunds after November 29th at 3pm. NO EXECPTIONS."
 ];
 export const metadata: Metadata = {
   title: "Mohan Ski School Website",

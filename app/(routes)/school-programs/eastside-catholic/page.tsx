@@ -79,7 +79,7 @@ const hasCoordinatorAccess = () => {
       </li>
       <li>
         If weather forces a postponement, classes are extended until all weeks
-        are completed. No classes Presidents' Weekend (17th - 20th).
+        are completed. No classes Presidents' Weekend (14 - 16th).
       </li>
       <li>
         Students 14 years and older who are interested in teaching or
@@ -123,7 +123,7 @@ const hasCoordinatorAccess = () => {
     <div className="text-center">
     <h2 className="text-2xl font-bold mb-6 text-center">
       Program Coordinator <br />
-      Matt Compston <br />
+      TBD<br />
       Email: <a href="mailto:ecskibus@gmail.com"className="text-blue-600 underline">ecskibus@gmail.com</a>
     </h2>
  {/* Render Coordinator's Portal Button if user has access */}
@@ -143,7 +143,7 @@ const hasCoordinatorAccess = () => {
     Bus Meeting Location: Eastside Catholic High School parking lot (232 228th Ave SE, Sammamish, WA 98074)
     </h3>
     <ul className="list-disc list-inside mb-6">
-      <li>The bus departs from the Eastside Catholic parking lot at 3:15 PM and returns at approximately 10:00 PM</li>
+      <li>The bus departs from the Eastside Catholic parking lot at approximately 3:15 PM and returns at approximately 11:00 PM- 11:30 PM</li>
       <li>6-week Friday programs include transportation and optional skiing/boarding lessons</li>
       <li>Participants of this Friday program should be high school age</li>
       <li>Participants must be self sufficient. There is little to no supervision while on the hill. </li>
@@ -155,7 +155,9 @@ const hasCoordinatorAccess = () => {
       <li>If the bus sells out, please contact our office via email <a href="mailto:office@skimohan.com" className="text-blue-600 underline">(office@skimohan.com)</a> or by phone (425-868-3820) to be put on a wait list.</li>
     </ul>
     </div>
-
+      <div>
+        <p className='font-bold'>IF YOU WANT TRANSPORTATION ONLY, PLEASE JOIN THE WAITLIST.TRANSPORTATION ONLY SLOTS WILL BECOME AVAILABLE IN NOVEMBER. WE WILL SELECT PRIORITY OFF OF WAITING LIST.</p>
+      </div>
     <div>
 
     <h1 className="flex items-center justify-center font-bold mb-6 text-center">
@@ -179,10 +181,10 @@ const hasCoordinatorAccess = () => {
         obligations under this Agreement.
       </p>
       <p className="font-bold">
-        Prior to the end of the business day, 3pm, on November 30 of the
+        Prior to the end of the business day, 3pm, on November 29 of the
         current season, participants may request, in writing, a refund for
         their lessons and/or transportation. When processed there will be a
-        $25 fee subtracted for each refund. After 3pm of November 30,
+        $25 fee subtracted for each refund. After 3pm of November 29,
         participant’s lessons and/or transportation are NOT refundable unless:
         The program is not completed by April 30. In which case a prorated
         credit will be applied towards the following season.

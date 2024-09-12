@@ -231,7 +231,7 @@ const HomePage: React.FC = () => {
 
       {/* Main Content with Sections */}
       <div className="py-12 bg-white">
-        <div className="container mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="container mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Become an Instructor */}
           <div className="p-6 bg-gray-100 rounded-lg shadow-lg flex flex-col items-center">
             <div className="relative w-full h-48 mb-4">
@@ -247,6 +247,28 @@ const HomePage: React.FC = () => {
             </h2>
             <div className="mt-auto">
               <Link href="/staff/instructor" passHref>
+                <button className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-700">
+                  Start Here
+                </button>
+              </Link>
+            </div>
+          </div>
+
+           {/* Become an Assistant */}
+           <div className="p-6 bg-gray-100 rounded-lg shadow-lg flex flex-col items-center">
+            <div className="relative w-full h-48 mb-4">
+              <Image
+                src="/Instructors Charging.jpg"
+                alt="Ski Mohan Logo"
+                layout="fill"
+                objectFit="contain"
+              />
+            </div>
+            <h2 className="text-xl font-semibold mb-2 text-center">
+              Become an Assistant
+            </h2>
+            <div className="mt-auto">
+              <Link href="/staff/assistant" passHref>
                 <button className="mt-2 px-4 py-2 bg-blue-500 text-white rounded-lg shadow-lg hover:bg-blue-700">
                   Start Here
                 </button>

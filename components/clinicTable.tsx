@@ -131,7 +131,7 @@ const ClinicTable = () => {
   return (
     <div>
       <h2 className="text-xl font-bold mb-4 text-center">
-        2023 – 2024 Season Clinic Dates
+        2024 – 2025 Season Clinic Dates
       </h2>
       <table className="min-w-full table-auto">
         <thead>

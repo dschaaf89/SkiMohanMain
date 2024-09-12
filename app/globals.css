@@ -254,3 +254,38 @@
   border: none;
   cursor: pointer;
 }
+/* Ensure the dropdown aligns directly under the parent menu item */
+.navigation-menu-content {
+  position: absolute;
+  top: 100%; /* This ensures it's right under the navigation item */
+  left: 0;
+  z-index: 50; /* Ensures it stays above other elements */
+  background-color: white; /* Adjust as necessary */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Optional */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Add padding and space to ensure dropdown does not overlap */
+.navigation-menu-item:hover .navigation-menu-content {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navigation-menu-content.hidden {
+  opacity: 0;
+  transform: translateY(-20px);
+  pointer-events: none;
+}
+
+/* Adjust the width to ensure alignment */
+.navigation-menu-list {
+  width: max-content;
+}
+
+/* Make sure to adjust hover effects so dropdown doesn't disappear immediately */
+.navigation-menu-item:hover .navigation-menu-content,
+.navigation-menu-item:focus-within .navigation-menu-content {
+  display: block;
+  opacity: 1;
+}
+
