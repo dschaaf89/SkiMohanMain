@@ -12,7 +12,6 @@ const Footer = () => {
             <h3 className="text-white uppercase mb-2">General Lessons</h3>
             <ul>
               <li><a href="/generallessons" className="hover:underline">General Lessons</a></li>
-              <li><a href="/seattle-programs" className="hover:underline">Seattle Programs</a></li>
               <li><a href="/resources" className="hover:underline">Resources</a></li>
               <li><a href="/staff" className="hover:underline">Staff</a></li>
               <li><a href="/about" className="hover:underline">About Us</a></li>
@@ -24,11 +23,9 @@ const Footer = () => {
           <div className="flex-1">
             <h3 className="text-white uppercase mb-2">More Info</h3>
             <ul>
-              <li><a href="/calendar" className="hover:underline">Calendar</a></li>
               <li><a href="/warranty" className="hover:underline">Warranty Information</a></li>
-              <li><a href="/risk" className="hover:underline">Assumption of Risk and Liability Release</a></li>
-              <li><a href="/donations" className="hover:underline">Donations</a></li>
-              <li><a href="/scholarship" className="hover:underline">Maria Jose Scholarship</a></li>
+              <li><a href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EQoR80_TCWxGqhwpm0VbvIsBJ-Ei-CgIXAIrzKPfgJICOw?e=iJqjtA" className="hover:underline">Assumption of Risk and Liability Release</a></li>
+              <li><a href="/resources/maria-jose-scholarship" className="hover:underline">Maria Jose Scholarship</a></li>
             </ul>
           </div>
 

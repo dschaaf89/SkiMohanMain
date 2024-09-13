@@ -36,7 +36,7 @@ const Staff = () => {
       <h3 className="text-2xl font-bold mb-4">Class Assistant</h3>
 
       <p className="mb-4">
-        As a Class Assistant (MUST be at least <strong>13 years old</strong>), you will learn indispensable life skills and begin to see how and why a skilled instructor knows what to teach. You will train with them directly and become a mentor to your students.
+        As a Class Assistant (MUST be at least <strong>14 years old</strong>), you will learn indispensable life skills and begin to see how and why a skilled instructor knows what to teach. You will train with them directly and become a mentor to your students.
       </p>
 
       <p className="mb-4">
@@ -53,7 +53,7 @@ const Staff = () => {
       </ul>
 
       <p className="mb-4">
-        We respectfully request that staff/volunteers pay <strong>$60</strong> towards staff liability insurance. Please note this fee is <strong>NON-refundable</strong> once the training has begun. Below are the training clinic requirements for all staff:
+        We respectfully request that staff/volunteers pay <strong>$60</strong> towards staff training and liability insurance. Please note this fee is <strong>NON-refundable</strong> once the training has begun. Below are the training clinic requirements for all staff:
       </p>
 
       <h3 className="text-2xl font-bold mb-4">Clinic Expectations</h3>
@@ -61,8 +61,7 @@ const Staff = () => {
       <ul className="list-disc list-inside mb-4">
         <li><strong>1-2 years tenure</strong>: 8 clinics</li>
         <li><strong>3-5 years tenure</strong>: 4 Snow clinics</li>
-        <li><strong>6-8 years tenure</strong>: Last 2 Snow clinics</li>
-        <li><strong>8+ years tenure</strong>: Clinic #4 ONLY</li>
+        <li><strong>6+ years tenure</strong>: Last 2 Snow clinics</li>
       </ul>
 
       <p className="mb-4">Here are a few words from some of our existing instructors:</p>

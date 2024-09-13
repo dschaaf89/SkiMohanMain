@@ -35,7 +35,7 @@ const hasCoordinatorAccess = () => {
   return (
     <div className="max-w-4xl mx-auto p-8">
       <h1 className="text-6xl font-bold text-blue-800 mb-6 text-center">
-      Roosevelt District Snowsports
+      Roosevelt Snowsports
       </h1>
       <p className="text-lg mb-4">
         OUR EXPERIENCED, FRIENDLY MOHAN INSTRUCTORS BRING FUN TO YOUR MOUNTAIN
@@ -154,7 +154,7 @@ const hasCoordinatorAccess = () => {
         </h3>
         <ul className="list-disc list-inside mb-6">
           <li>
-            The bus departs at 3:45 PM and returns at approximately 10:30 PM
+            The bus departs at 3:45 PM and returns at approximately 11:00 PM- 11:30 PM
           </li>
           <li>
             6-week Friday programs include transportation and optional

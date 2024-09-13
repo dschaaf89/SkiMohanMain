@@ -123,7 +123,7 @@ const Ballard = () => {
         <h2 className="text-2xl font-bold mb-6 text-center">
           Program Coordinator <br />
           TBD<br />
-          Email: <a href="mailto:" className="text-blue-600 underline"></a>
+          Email: <a href="mailto:Ballardsnowsports@gmail.com" className="text-blue-600 underline">ballardsnowsports@gmail.com</a>
         </h2>
          {/* Render Coordinator's Portal Button if user has access */}
        {hasCoordinatorAccess() && (
@@ -142,7 +142,7 @@ const Ballard = () => {
           Bus Meeting Location: Ballard Pool Parking Lot (1471 NW 67th St, Seattle, WA 98117)
         </h3>
         <ul className="list-disc list-inside mb-6">
-          <li>The bus departs at 4:00 PM and returns at approximately 10:30 PM</li>
+          <li>The bus departs at 4:00 PM and returns at approximately 11:00 PM- 11:30 PM</li>
           <li>6-week Friday programs include transportation and optional skiing/boarding lessons</li>
           <li>Participants of this Friday program should be high school age</li>
           <li>Participants must be self sufficient. There is little to no supervision while on the hill. </li>

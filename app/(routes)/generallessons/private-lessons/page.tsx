@@ -26,12 +26,11 @@ const generallessons = () => {
           Private lessons are by the hour $180 per plus $90 per additional
           person (maximum of 2 matching ability NOT beginner students)
         </li>
-        <li>Lessons are 2 hours minumum.</li>
+        <li>Lessons are 2 hours minimum.</li>
         <li>
           Classes are arranged by age and skill level, and five year olds are
           the youngest.
         </li>
-        <li>Achievement pins and ribbons are given to all participants</li>
         <li>
           Private lessons are a wonderful way to brush off the cobwebs after
           some time off or a great way to become a better skier/ boarder and

@@ -152,7 +152,7 @@ const hasCoordinatorAccess = () => {
         </h3>
         <ul className="list-disc list-inside mb-6">
           <li>
-            The bus departs at 3:50 PM and returns at approximately 10:30 PM
+            The bus departs at 3:50 PM and returns at approximately 11:00 PM- 11:30 PM
           </li>
           <li>
             6-week Friday programs include transportation and optional

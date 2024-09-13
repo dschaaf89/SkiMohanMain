@@ -12,78 +12,68 @@ const FAQ = () => {
         and we can tell you. Below are some guide lines as well
       </p>
       <br />
-      <h6 className="text-xl font-bold mb-6 ">Ski Levels</h6>
       <ul className="list-disc pl-5 mb-6 space-y-1">
-        <li>Level 1 - Little or No Skiing Experience</li>
-        <li>
-          Level 2 - Rides Magic Carpet unsupervised - Controls speed and
-          direction with wedge turns
-        </li>
-        <li>
-          Level 3 - Skis Holiday slope unsupervised - Controls speed and
-          direction with wedge turns on green slopes
-        </li>
-        <li>
-          Level 4 - Links Christie turns - brings skis parallel last 1/3 of
-          turn- on blue slopes
-        </li>
-        <li>
-          Level 5 - Links Christie II turns - brings skis parallel at or before
-          fall-line - on blue slope and uses turn radius to control speed and
-          direction
-        </li>
-        <li>
-          Level 6 - Links Christie III turns - showing consistent speed and
-          smooth directional changes
-        </li>
-        <li>
-          Level 7 - Links skidded parallel turns showing consistent speed and
-          smooth transitions on blue slopes
-        </li>
-        <li>
-          Level 8 - Links parallel turns showing consistent speed and smooth
-          transitions on black slopes
-        </li>
-        <li>
-          Level 9 - Links parallel turns with precise pole touch and upper body
-          moving into new turn on black slopes
-        </li>
-      </ul>
-      <h6 className="text-xl font-bold mb-6 ">Board Levels</h6>
-      <ul className="list-disc pl-5 mb-6 space-y-1">
-        <li>Level 1 - Have never snowboard before - is new to the sport</li>
-        <li>
-          Level 2 - Rider can ride beginner chair unassisted and can stop, heel
-          slip and toe slip on easy terrain. Rides using mostly one edge.
-        </li>
-        <li>
-          Level 3 - Rider can make controlled linked toe and heel side turns on
-          green terrain
-        </li>
-        <li>
-          Level 4 - Rider can make linked toe and heel side turns on gentle blue
-          terrain - and uses primarily one edge on steeper blue terrain
-        </li>
-        <li>
-          Level 5 - Rider can make controlled linked toe and heel side turns on
-          most blue terrain
-        </li>
-        <li>
-          Level 6 - Rider can make controlled linked toe and heel side turns on
-          blue terrain carving the last half of each turn
-        </li>
-        <li>
-          Level 7 - Rider can make controlled linked turns carving on blue
-          terrain
-        </li>
-        <li>
-          Level 8 - Rider can make controlled linked turns on black terrain
-        </li>
-        <li>
-          Level 9 - Rider can make controlled linked turns on all slopes in all
-          conditions
-        </li>
-      </ul>
+  <h6 className="text-xl font-bold mb-6">Ski Levels</h6>
+  <li>Level 1 - Have never skied before - is new to the sport</li>
+  <li>
+    Level 2 - Has some experience skiing. Rides the Magic Carpet lift and can
+    ski down controlling speed and direction with wedge turns.
+  </li>
+  <li>
+    Level 3 - Rides the Holiday lift (green slope) and can ski down controlling
+    speed and direction with linked wedge and/or beginning wedge christie
+    turns.
+  </li>
+  <li>
+    Level 4 - Rides the Gallery lift (blue slope) and can ski down controlling
+    speed and direction with linked christie turns bringing the skis parallel
+    the last third of the turn.
+  </li>
+  <li>
+    Level 5 - Rides the Express chairlift (blue and black slopes) and skis down
+    Alpine controlling speed and direction with linked parallel turns.
+  </li>
+  <li>
+    Level 6 - Skis blue and easy black slopes controlling speed and direction
+    with linked parallel turns carving the last half of the turn.
+  </li>
+  <li>
+    Level 7 - Skis black slopes controlling speed and direction with a variety
+    of skidded and carved parallel turns varying turn shape as necessary for
+    the conditions.
+  </li>
+</ul>
+
+<ul className="list-disc pl-5 mb-6 space-y-1">
+  <h6 className="text-xl font-bold mb-6">Board Levels</h6>
+  <li>Level 1 - Have never snowboarded before - is new to the sport</li>
+  <li>
+    Level 2 - Rides the Magic Carpet lift and can stop, heel slip and toe slip
+    on easy terrain. Rides using mostly one edge.
+  </li>
+  <li>
+    Level 3 - Rides the Magic Carpet lift and can turn to a stop with toe and
+    heel side turns.
+  </li>
+  <li>
+    Level 4 - Rides Holiday chair (green slope) and can control speed and
+    direction with toe and heel side turns.
+  </li>
+  <li>
+    Level 5 - Rides Gallery chair (blue slope) Rider can make controlled linked
+    toe and heel side turns on most blue terrain.
+  </li>
+  <li>
+    Level 6 - Rides the Express chairlift (blue and black slopes) Rider can make
+    controlled linked toe and heel side turns on blue and easy black terrain
+    carving the last half of each turn.
+  </li>
+  <li>
+    Level 7 - Rides black slopes controlling speed and direction with a variety
+    of skidded and carved linked toe and heel side turns varying turn shape as
+    necessary for the conditions.
+  </li>
+</ul>
       <h6 className="text-xl font-bold mb-6 ">
         WHEN WILL I KNOW WHICH CLASS MY CHILD/CHILDREN HAVE BEEN ALLOCATED TO?
       </h6>
@@ -93,7 +83,7 @@ const FAQ = () => {
         HOW DO I PURCHASE A SEASON PASS?
       </h6>
       <p>
-        If you plan to purchase a season pass, we highly reccommend you complete
+        If you plan to purchase a season pass, we highly recommend you complete
         that purchase as soon as possible. The Summit has limited inventory and
         will likely sell out relatively early. However, once you have completed
         your Mohan registration, you will be sent a link that will allow you to
@@ -129,7 +119,7 @@ const FAQ = () => {
         WHERE CAN I RENT SKI EQUIPMENT FROM?
       </h6>
       <p>
-        We have a list of recommended equipment suppliers on our website
+        We have a list of recommended equipment suppliers on our website {" "}
         <a href="/resources/equipmentguide" className="text-blue-600">
           equipment guide.
         </a>{" "}

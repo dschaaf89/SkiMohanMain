@@ -13,7 +13,7 @@ const generallessons = () => {
         <li>Average class size for 5-year-old students is about three. Some may be bigger or smaller.  Larger classes have assistants assigned. All students must be at least 5-years old by the first lesson.  Most classes have an instructor and assistant, so students learn faster.</li>
         <li>Average class size for 6 through Adults is under eight students.  If there are fewer than three registered students for any class, we reserve the right to cancel the class or reduce the lesson time to one hour.</li>
         <li>As we operate in a winter environment, conditions can change quickly.  If weather forces a postponement, classes are extended until all weeks are completed.</li>
-        <li><strong>There WILL be classes Presidents' Weekend (17th - 21st)</strong></li>
+        <li><strong>There WILL be classes Presidents' Weekend (14th - 16th)</strong></li>
         <li>Students 14 years and older who are interested in teaching or assisting should visit our <a href="https://www.skimohan.com/instructor-assistants"className="text-blue-600 underline">Job Application page</a>.</li>
         <li>Lift Tickets are not included, but should be purchased on the Summit website immediately.</li>
         <li>DAILY LIFT TICKETS need to be purchased and scheduled ahead of time on the Summit's website. Tickets are NOT guaranteed to be available.</li>

@@ -42,7 +42,7 @@ const Navbar = () => {
       href: "/school-programs/meadowbrook",
     },
     {
-      title: "North East Seattle Snow Sports",
+      title: "Northeast Seattle Snow Sports",
       href: "/school-programs/northeast_seattle",
     },
     {
@@ -180,16 +180,31 @@ const Navbar = () => {
                 </NavigationMenuLink>
               </NavigationMenuItem>
               <NavigationMenuItem>
-                <NavigationMenuTrigger>
-                  General Lessons
-                </NavigationMenuTrigger>
+                <Link href="/generallessons" passHref>
+                  <NavigationMenuTrigger>General Lessons</NavigationMenuTrigger>
+                </Link>
                 <NavigationMenuContent>
                   <ul className="grid grid-cols-2 gap-3 p-4 w-80">
-                    <ListItem href="/generallessons/saturday" title="Saturday"></ListItem>
-                    <ListItem href="/generallessons/sunday" title="Sunday"></ListItem>
-                    <ListItem href="/generallessons/private-lessons" title="Private Lessons"></ListItem>
-                    <ListItem href="/generallessons/seniors" title="Seniors"></ListItem>
-                    <ListItem href="/generallessons/thursday-board" title="Thursday Board"></ListItem>
+                    <ListItem
+                      href="/generallessons/saturday"
+                      title="Saturday"
+                    ></ListItem>
+                    <ListItem
+                      href="/generallessons/sunday"
+                      title="Sunday"
+                    ></ListItem>
+                    <ListItem
+                      href="/generallessons/private-lessons"
+                      title="Private Lessons"
+                    ></ListItem>
+                    <ListItem
+                      href="/generallessons/seniors"
+                      title="Seniors"
+                    ></ListItem>
+                    <ListItem
+                      href="/generallessons/thursday-board"
+                      title="Thursday Board"
+                    ></ListItem>
                   </ul>
                 </NavigationMenuContent>
               </NavigationMenuItem>
