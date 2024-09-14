@@ -1,34 +1,29 @@
 import { Product } from "@/types";
 
 const URL = `${process.env.NEXT_PUBLIC_API_URL}/products`;
-
 const getProductsByProgramId = async (programId: string): Promise<Product[]> => {
   try {
     const res = await fetch(`${URL}?programId=${programId}`, {
+      method: 'GET',
       headers: {
+     
         'Cache-Control': 'no-store',
+        // Add custom headers here if needed
       },
+      credentials: 'include', // Ensures cookies are sent along with requests, adjust if needed
     });
-    
-    // Log the response status and headers
-    console.log('Response Status:', res.status);
-    console.log('Response Headers:', res.headers);
 
     if (!res.ok) {
       throw new Error(`Failed to fetch products with status ${res.status}`);
     }
 
-    // Log the response text to see if it's HTML or JSON
-    const text = await res.text();
-    console.log('Response Text:', text);
-
-    // Attempt to parse the response as JSON
-    const data = JSON.parse(text);
+    const data = await res.json();
     return data;
   } catch (error) {
     console.error('Error fetching products:', error);
     throw error;
   }
 };
+
 
 export default getProductsByProgramId;

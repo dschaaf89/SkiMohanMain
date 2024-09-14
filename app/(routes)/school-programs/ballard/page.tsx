@@ -13,7 +13,9 @@ const Ballard = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
+        
         const fetchedProducts = await getProductsByProgramId("3a12dc00-41ad-49c1-9884-765c25b2644d");
+        console.log(fetchProducts);
         setProducts(fetchedProducts);
       } catch (err) {
         console.error('Failed to load products:', err);
@@ -156,7 +158,7 @@ const Ballard = () => {
       </div>
       <div>
         <h1 className="flex items-center justify-center font-bold mb-6 text-center">
-          {/* <ProductsTable products={products} /> */}
+          <ProductsTable products={products} />
         </h1>
       </div>
       <div>
