@@ -7,7 +7,8 @@ interface TickerProps {
 const Ticker: React.FC<TickerProps> = ({ messages }) => {
   return (
     <div className="overflow-hidden bg-red-700 text-white font-bold h-14 sm:h-16 md:h-18 lg:h-20 flex items-center">
-      <div className="animate-marquee-left-to-right flex space-x-6">
+      {/* Apply the custom Tailwind animation class */}
+      <div className="flex space-x-6 animate-marquee-slow animate-marquee animate-marquee-left-to-right">
         {messages.map((message, index) => (
           <span
             key={index}

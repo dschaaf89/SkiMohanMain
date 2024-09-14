@@ -23,7 +23,6 @@ const Footer = () => {
           <div className="flex-1">
             <h3 className="text-white uppercase mb-2">More Info</h3>
             <ul>
-              <li><a href="/warranty" className="hover:underline">Warranty Information</a></li>
               <li><a href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EQoR80_TCWxGqhwpm0VbvIsBJ-Ei-CgIXAIrzKPfgJICOw?e=iJqjtA" className="hover:underline">Assumption of Risk and Liability Release</a></li>
               <li><a href="/resources/maria-jose-scholarship" className="hover:underline">Maria Jose Scholarship</a></li>
             </ul>

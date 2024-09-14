@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 const MariaJoseScholarship = () => {
   return (
@@ -65,11 +66,11 @@ const MariaJoseScholarship = () => {
             contact applicants via email by December 20th to notify you of the
             application status.
           </p>
+          
           <p className="underline text-blue-800 cursor-pointer">
-            Scholarship Application (link to Application)
-          </p>
-          <p className="underline text-blue-800 cursor-pointer">
-            Donate to this scholarship fund (Link to donation)
+            <Link href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EXXF3dSRhc1Dg-yWIyEqV1sBR7-l8SYlGWlm90Z6ecynkQ?e=3wVN1o">
+            Scholarship Application 
+            </Link>
           </p>
         </div>
    
