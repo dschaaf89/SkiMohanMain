@@ -276,7 +276,7 @@ const StudentSignupForm: React.FC<StudentSignupFormProps> = ({
                   name="GradeLevel"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Grade Level</FormLabel>
+                      <FormLabel>Grade Level (Optional if doing program not friday related)</FormLabel>
                       <Select onValueChange={field.onChange}>
                         <FormControl>
                           <SelectTrigger>
@@ -324,8 +324,6 @@ const StudentSignupForm: React.FC<StudentSignupFormProps> = ({
                           <SelectItem value="5">5</SelectItem>
                           <SelectItem value="6">6</SelectItem>
                           <SelectItem value="7">7</SelectItem>
-                          <SelectItem value="8">8</SelectItem>
-                          <SelectItem value="9">9</SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />

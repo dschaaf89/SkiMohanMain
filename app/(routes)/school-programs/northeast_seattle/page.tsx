@@ -58,7 +58,7 @@ const hasCoordinatorAccess = () => {
           </a>{" "}
           and then select option 1 to hear our latest operation updates just
           before leaving for the mountains or while en route. Our website and
-          voice mail are the most reliable way for us to update the operation's
+          voicemail are the most reliable way for us to update the operation's
           status.
         </li>
         <li>
@@ -71,7 +71,7 @@ const hasCoordinatorAccess = () => {
           awarded on the final week of lessons to all who attend.
         </li>
         <li>
-          verage class size is under eight students. If there are fewer than
+          Average class size is under eight students. If there are fewer than
           three registered students for any class, we reserve the right to
           cancel the class or reduce the lesson time to one hour.
         </li>
@@ -84,7 +84,7 @@ const hasCoordinatorAccess = () => {
         </li>
         <li>
           If weather forces a postponement, classes are extended until all weeks
-          are completed. No classes Presidents' Weekend (17th - 20th).
+          are completed. No classes Presidents' Weekend (14th-16th).
         </li>
         <li>
           Students 14 years and older who are interested in teaching or
@@ -210,10 +210,10 @@ const hasCoordinatorAccess = () => {
           obligations under this Agreement.
         </p>
         <p className="font-bold">
-          Prior to the end of the business day, 3pm, on November 30 of the
+          Prior to the end of the business day, 3pm, on November 29 of the
           current season, participants may request, in writing, a refund for
           their lessons and/or transportation. When processed there will be a
-          $25 fee subtracted for each refund. After 3pm of November 30,
+          $25 fee subtracted for each refund. After 3pm of November 29,
           participant’s lessons and/or transportation are NOT refundable unless:
           The program is not completed by April 30. In which case a prorated
           credit will be applied towards the following season.

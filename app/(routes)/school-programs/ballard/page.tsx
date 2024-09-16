@@ -54,7 +54,7 @@ const Ballard = () => {
           </a>{" "}
           and then select option 1 to hear our latest operation updates just
           before leaving for the mountains or while en route. Our website and
-          voice mail are the most reliable way for us to update the operation&apos;s
+          voicemail are the most reliable way for us to update the operation&apos;s
           status.
         </li>
         <li>
@@ -80,7 +80,7 @@ const Ballard = () => {
         </li>
         <li>
           If weather forces a postponement, classes are extended until all weeks
-          are completed. No classes Presidents&apos; Weekend (17th - 20th).
+          are completed. No classes Presidents&apos; Weekend (14th-16th).
         </li>
         <li>
           Students 14 years and older who are interested in teaching or
@@ -158,7 +158,7 @@ const Ballard = () => {
       </div>
       <div>
         <h1 className="flex items-center justify-center font-bold mb-6 text-center">
-          <ProductsTable products={products} />
+          {/* <ProductsTable products={products} /> */}
         </h1>
       </div>
       <div>
@@ -175,10 +175,10 @@ const Ballard = () => {
           obligations under this Agreement.
         </p>
         <p className="font-bold">
-          Prior to the end of the business day, 3pm, on November 30 of the
+          Prior to the end of the business day, 3pm, on November 29th of the
           current season, participants may request, in writing, a refund for
           their lessons and/or transportation. When processed there will be a
-          $25 fee subtracted for each refund. After 3pm of November 30,
+          $25 fee subtracted for each refund. After 3pm of November 29th,
           participant&apos;s lessons and/or transportation are NOT refundable unless:
           The program is not completed by April 30. In which case a prorated
           credit will be applied towards the following season.
