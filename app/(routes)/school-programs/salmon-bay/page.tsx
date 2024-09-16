@@ -1,25 +1,27 @@
-"use client"; import getProductsByProgramId from "@/actions/get-productByProgram";
+"use client";
+import getProductsByProgramId from "@/actions/get-productByProgram";
 import ProductsTable from "@/components/ui/productTable";
 import { Product } from "@/types";
 import { useUser } from "@clerk/nextjs";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-const Ballard = () => {
+const SalmonBay = () => {
   const { user } = useUser(); // Client-side only
   const [products, setProducts] = useState<Product[]>([]);
   const [error, setError] = useState<string | null>(null);
-  console.log('User object:', user);
+  console.log("User object:", user);
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        
-        const fetchedProducts = await getProductsByProgramId("3a12dc00-41ad-49c1-9884-765c25b2644d");
+        const fetchedProducts = await getProductsByProgramId(
+          "911e2064-d954-4428-b249-7089a24f90ed"
+        );
         console.log(fetchProducts);
         setProducts(fetchedProducts);
       } catch (err) {
-        console.error('Failed to load products:', err);
-        setError('Failed to load products');
+        console.error("Failed to load products:", err);
+        setError("Failed to load products");
       }
     };
 
@@ -28,16 +30,16 @@ const Ballard = () => {
 
   // Helper function to check if user has coordinator access
   const hasCoordinatorAccess = () => {
-    return user?.publicMetadata?.role === 'coordinator'; // Adjust based on how you're managing roles
+    return user?.publicMetadata?.role === "coordinator"; // Adjust based on how you're managing roles
   };
   return (
     <div className="max-w-4xl mx-auto p-8">
-      
       <h1 className="text-6xl font-bold text-blue-800 mb-6 text-center">
-        Ballard Snowsports
+        Salmon Bay Snowsports
       </h1>
       <p className="text-lg mb-4">
-        OUR EXPERIENCED, FRIENDLY MOHAN INSTRUCTORS BRING FUN TO YOUR MOUNTAIN EXPERIENCE.
+        OUR EXPERIENCED, FRIENDLY MOHAN INSTRUCTORS BRING FUN TO YOUR MOUNTAIN
+        EXPERIENCE.
       </p>
       <h2 className="text-2xl font-bold mb-6 text-center">
         1/10, 1/17, 1/24, 1/31, 2/7 &amp; 2/21
@@ -54,8 +56,8 @@ const Ballard = () => {
           </a>{" "}
           and then select option 1 to hear our latest operation updates just
           before leaving for the mountains or while en route. Our website and
-          voicemail are the most reliable way for us to update the operation&apos;s
-          status.
+          voicemail are the most reliable way for us to update the
+          operation&apos;s status.
         </li>
         <li>
           The program offers a fantastic opportunity to help you or your
@@ -101,9 +103,9 @@ const Ballard = () => {
           the Summit&apos;s website. Tickets are NOT guaranteed to be available.
         </li>
         <li>
-          Equipment is not included. We suggest &quot;Take Home Season Rentals&quot; to
-          avoid having to pick up rental equipment daily. See our Equipment page
-          for more information.
+          Equipment is not included. We suggest &quot;Take Home Season
+          Rentals&quot; to avoid having to pick up rental equipment daily. See
+          our Equipment page for more information.
         </li>
         <li>
           Before registering please make sure you have read and understood our
@@ -124,41 +126,70 @@ const Ballard = () => {
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Program Coordinator <br />
-          TBD<br />
-          Email: <a href="mailto:Ballardsnowsports@gmail.com" className="text-blue-600 underline">ballardsnowsports@gmail.com</a>
+          TBD
+          <br />
+          Email:{" "}
+          <a
+            href="mailto:	
+            salmonbaysnowsports@gmail.com"
+            className="text-blue-600 underline"
+          >
+            salmonbaysnowsports@gmail.com
+          </a>
         </h2>
-         {/* Render Coordinator's Portal Button if user has access */}
-       {hasCoordinatorAccess() && (
-        <div className="pb-5">
-          <Link
-  href={`${process.env.NEXT_PUBLIC_API_COORDINATORPORTAL_URL}?programId=Ballard`}
-  className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700"
->
-  Go to Coordinator's Portal
-</Link>
-        </div>
-      )}
+        {/* Render Coordinator's Portal Button if user has access */}
+        {hasCoordinatorAccess() && (
+          <div className="pb-5">
+            <Link
+              href={`${process.env.NEXT_PUBLIC_API_COORDINATORPORTAL_URL}?programId=SalmonBay`}
+              className="px-4 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-700"
+            >
+              Go to Coordinator's Portal
+            </Link>
+          </div>
+        )}
       </div>
       <div>
         <h3 className="text-xl font-bold mb-6 text-center">
-          Bus Meeting Location: Ballard Pool Parking Lot (1471 NW 67th St, Seattle, WA 98117)
+          Bus Meeting Location:
         </h3>
         <ul className="list-disc list-inside mb-6">
-          <li>The bus departs at 4:00 PM and returns at approximately 11:00 PM- 11:30 PM</li>
-          <li>6-week Friday programs include transportation and optional skiing/boarding lessons</li>
+          <li>
+            The bus departs at 4:00 PM and returns at approximately 11:00 PM-
+            11:30 PM
+          </li>
+          <li>
+            6-week Friday programs include transportation and optional
+            skiing/boarding lessons
+          </li>
           <li>Participants of this Friday program should be high school age</li>
-          <li>Participants must be self sufficient. There is little to no supervision while on the hill. </li>
+          <li>
+            Participants must be self sufficient. There is little to no
+            supervision while on the hill.{" "}
+          </li>
           <li>Lesson duration: 2 hours</li>
           <li>Classes begin at 7 PM with peers of similar age and ability</li>
           <li>Substantial discount on lessons for bus rider students</li>
           <li>Great opportunity to help your children improve their skills</li>
-          <li>As their skills increase, students may be moved to another class to optimize their learning and progress</li>
-          <li>If the bus sells out, please contact our office via email <a href="mailto:office@skimohan.com" className="text-blue-600 underline">(office@skimohan.com)</a> or by phone (425-868-3820) to be put on a wait list.</li>
+          <li>
+            As their skills increase, students may be moved to another class to
+            optimize their learning and progress
+          </li>
+          <li>
+            If the bus sells out, please contact our office via email{" "}
+            <a
+              href="mailto:office@skimohan.com"
+              className="text-blue-600 underline"
+            >
+              (office@skimohan.com)
+            </a>{" "}
+            or by phone (425-868-3820) to be put on a wait list.
+          </li>
         </ul>
       </div>
       <div>
         <h1 className="flex items-center justify-center font-bold mb-6 text-center">
-          <ProductsTable products={products} />
+          {/* <ProductsTable products={products} /> */}
         </h1>
       </div>
       <div>
@@ -179,9 +210,9 @@ const Ballard = () => {
           current season, participants may request, in writing, a refund for
           their lessons and/or transportation. When processed there will be a
           $25 fee subtracted for each refund. After 3pm of November 29th,
-          participant&apos;s lessons and/or transportation are NOT refundable unless:
-          The program is not completed by April 30. In which case a prorated
-          credit will be applied towards the following season.
+          participant&apos;s lessons and/or transportation are NOT refundable
+          unless: The program is not completed by April 30. In which case a
+          prorated credit will be applied towards the following season.
         </p>
         <p>
           Please note that it is typical to postpone program operations
@@ -196,6 +227,6 @@ const Ballard = () => {
       </div>
     </div>
   );
-}
+};
 
-export default Ballard;
+export default SalmonBay;

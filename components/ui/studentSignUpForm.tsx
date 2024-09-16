@@ -105,19 +105,22 @@ const StudentSignupForm: React.FC<StudentSignupFormProps> = ({
       const age = differenceInYears(new Date("2025-01-01"), parsedDate);
       if (age >= 5) {
         form.setValue("BRTHD", parsedDate);
+        form.setValue("AGE", age);  // Set AGE in the form
         setAge(age);
+        console.log('Age set:', age); // Verify AGE is set correctly
       } else {
         form.setValue("BRTHD", undefined);
+        form.setValue("AGE", 0);  // Reset AGE if not valid
         setAge(0);
         alert("Student must be at least 5 years old as of January 1, 2025.");
       }
     } else {
       form.setValue("BRTHD", undefined);
+      form.setValue("AGE", 0);  // Reset AGE to 0
       setAge(0);
       alert("Please enter a valid date.");
     }
   };
-
   return (
     <div className="container mx-auto p-8">
       <Card>

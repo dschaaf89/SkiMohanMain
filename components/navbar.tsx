@@ -60,6 +60,12 @@ const Navbar = () => {
     {
       title: "Wallingford Snow Sports",
       href: "/school-programs/wallingford",
+    }, {
+      title: "South Jackson Snow Sports",
+      href: "/school-programs/south-jackson",
+    }, {
+      title: "Salmon Bay Snow Sports",
+      href: "/school-programs/salmon-bay",
     },
   ];
 

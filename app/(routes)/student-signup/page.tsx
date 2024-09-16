@@ -23,52 +23,39 @@ const StudentSignupPage = () => {
     }
   }, [searchParams]);
 console.log(userId)
-  const handleSubmit = async (data: StudentFormValues) => {
-    try {
-      const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/students/studentSignUp`;
-      const seasonId = process.env.NEXT_PUBLIC_SEASON_ID;
-  
-      if (!seasonId) {
-        throw new Error("Season ID is missing in environment variables");
-      }
-  
-      const requestBody = {
-        ...data,
-        seasonId,
-        ProgCode: programCodes[currentProgramIndex],
-        userId,
-      };
-  
-      const response = await axios.post(apiUrl, requestBody);
-  
-      if (response.status === 200 || response.status === 201) {
-        toast.success("Student data submitted successfully!");
-  
-        // Store the submitted student data in localStorage
-        const storedStudents = JSON.parse(localStorage.getItem('submittedStudents') || '[]');
-        storedStudents.push(requestBody);
-        localStorage.setItem('submittedStudents', JSON.stringify(storedStudents));
-  
-        console.log("Stored Students after submission:", storedStudents);
-  
-        if (currentProgramIndex < programCodes.length - 1) {
-          setCurrentProgramIndex(currentProgramIndex + 1);
-        } else {
-          // Store payment details (assuming you store them earlier during checkout)
-          const paymentDetails = JSON.parse(localStorage.getItem('paymentDetails') || '{}');
-          console.log("Payment Details before clearing cart:", paymentDetails);
-  
-          clearCart();
-          router.push("/success"); // Redirect to the success page
-        }
-      } else {
-        toast.error("Failed to submit student data. Please try again.");
-      }
-    } catch (error) {
-      toast.error("An error occurred while submitting the data.");
-      console.error("Error submitting student data:", error);
+const handleSubmit = async (data: StudentFormValues) => {
+  try {
+    console.log('Submitted data:', data);  // Verify data including AGE before sending to API
+    const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/students/studentSignUp`;
+    const seasonId = process.env.NEXT_PUBLIC_SEASON_ID;
+
+    if (!seasonId) {
+      throw new Error("Season ID is missing in environment variables");
     }
-  };
+
+    const requestBody = {
+      ...data,
+      seasonId,
+      ProgCode: programCodes[currentProgramIndex],
+      userId,
+    };
+
+    console.log('Request Body:', requestBody);  // Log the request body to ensure AGE is present
+    const response = await axios.post(apiUrl, requestBody);
+
+    if (response.status === 200 || response.status === 201) {
+      toast.success("Student data submitted successfully!");
+      clearCart();
+      router.push("/success"); // Redirect to the success page
+    } else {
+      toast.error("Failed to submit student data. Please try again.");
+    }
+  } catch (error) {
+    toast.error("An error occurred while submitting the data.");
+    console.error("Error submitting student data:", error);
+  }
+};
+
   
 
   return (
