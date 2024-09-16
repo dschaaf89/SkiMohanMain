@@ -32,8 +32,21 @@ const SummaryComponent = () => {
   useEffect(() => {
     if (searchParams.get('success')) {
       toast.success('Payment completed.');
+
+      // Log the cart items to verify the data structure
+      console.log("Cart items before extraction:", items);
+
+      // Extract program codes from the cart items (assuming item.name is the program code)
+      const programCodes = items.map(item => item.name).join(',');
+
+      // Log the extracted program codes
+      console.log("Extracted program codes:", programCodes);
+
+      // Remove all items from the cart after a successful payment
       removeAll();
-      router.push(`/student-signup?items=${encodeURIComponent(JSON.stringify(items))}`);
+
+      // Redirect to student-signup page with programCodes in query params
+      router.push(`/student-signup?productCodes=${programCodes}&userId=${userId}&session_id=${searchParams.get('session_id')}`);
     }
 
     if (searchParams.get('canceled')) {
@@ -42,7 +55,8 @@ const SummaryComponent = () => {
 
     // Check if all terms are accepted before enabling the checkout button
     setTermsAccepted(acceptedRefundPolicy && acceptedTeachingPhilosophy && acceptedLatenessPolicy);
-  }, [searchParams, removeAll, router, items, acceptedRefundPolicy, acceptedTeachingPhilosophy, acceptedLatenessPolicy]);
+  }, [searchParams, removeAll, router, items, acceptedRefundPolicy, acceptedTeachingPhilosophy, acceptedLatenessPolicy,userId]);
+
 
   const totalPrice = items.reduce((total, item) => {
     return total + (Number(item.price) * item.quantity);
