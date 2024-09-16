@@ -15,7 +15,7 @@ const ThortonCreek = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const fetchedProducts = await getProductsByProgramId("97322011-3674-4c89-b54b-9f207e073d6");
+        const fetchedProducts = await getProductsByProgramId("97322011-3674-4c89-b54b-9f207e073d6b");
         setProducts(fetchedProducts);
       } catch (err) {
         console.error('Failed to load products:', err);
