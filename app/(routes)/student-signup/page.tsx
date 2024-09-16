@@ -25,7 +25,7 @@ const StudentSignupPage = () => {
 console.log(userId)
 const handleSubmit = async (data: StudentFormValues) => {
   try {
-    console.log('Submitted data:', data);  // Verify data including AGE before sending to API
+    console.log('Submitted data:', data);  // Verify the submitted data
     const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/students/studentSignUp`;
     const seasonId = process.env.NEXT_PUBLIC_SEASON_ID;
 
@@ -40,8 +40,10 @@ const handleSubmit = async (data: StudentFormValues) => {
       userId,
     };
 
-    console.log('Request Body:', requestBody);  // Log the request body to ensure AGE is present
+    console.log('Request Body:', requestBody);  // Log the request body
     const response = await axios.post(apiUrl, requestBody);
+
+    console.log('API Response:', response);  // Log the response
 
     if (response.status === 200 || response.status === 201) {
       toast.success("Student data submitted successfully!");
@@ -56,7 +58,6 @@ const handleSubmit = async (data: StudentFormValues) => {
   }
 };
 
-  
 
   return (
     <div>

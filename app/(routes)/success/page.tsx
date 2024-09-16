@@ -15,32 +15,36 @@ interface PaymentDetails {
   transactionId: string;
   paymentDate: string;
 }
-
 const SuccessPage: React.FC = () => {
   const [students, setStudents] = useState<StudentInfo[]>([]);
   const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null);
+  const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
 
   useEffect(() => {
     const storedStudents = JSON.parse(localStorage.getItem("submittedStudents") || "[]");
     const storedPaymentDetails = JSON.parse(localStorage.getItem("paymentDetails") || "null");
-  
+
     console.log("Loaded Students:", storedStudents);
     console.log("Loaded Payment Details:", storedPaymentDetails);
-  
+
     if (storedStudents.length === 0 || !storedPaymentDetails) {
-      // Redirect to home if no data
       console.log("No data found, redirecting to home...");
       router.push("/");
     } else {
       setStudents(storedStudents);
       setPaymentDetails(storedPaymentDetails);
     }
+
+    setIsLoading(false);  // Set loading to false after checking data
   }, [router]);
 
+  if (isLoading) {
+    return <div>Loading...</div>;  // Add a loading indicator
+  }
+
   if (!students.length || !paymentDetails) {
-    // Show a loading state or return null to prevent premature rendering
-    return <div>Loading...</div>;
+    return <div>Redirecting...</div>;  // Show redirect message if no data found
   }
 
   const handlePrint = () => {
