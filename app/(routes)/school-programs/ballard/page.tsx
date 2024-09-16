@@ -86,7 +86,7 @@ const Ballard = () => {
           Students 14 years and older who are interested in teaching or
           assisting should visit our{" "}
           <a
-            href="https://www.skimohan.com/instructor-assistants"
+            href="https://www.skimohan.com/staff/assistants"
             className="text-blue-600 underline"
           >
             Job Application page
