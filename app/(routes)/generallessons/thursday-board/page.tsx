@@ -49,7 +49,7 @@ const ThursdayBoard = () => {
         join us.
       </p>
       <h1 className="flex items-center justify-center font-bold mb-6 text-center">
-          {/* <ProductsTable products={products} /> */}
+          <ProductsTable products={products} />
         </h1>
       <h2 className="text-xl font-bold">SOME OF OUR CREW</h2>
       <p>

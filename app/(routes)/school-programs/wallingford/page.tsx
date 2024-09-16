@@ -180,7 +180,7 @@ const hasCoordinatorAccess = () => {
         <h1> <strong>We are priortizing the lesson/transportation combo. If you want Transportation only please sign up for the waitlist and your program coordinator will contact you as space is available.</strong> </h1>
       <div>
       <h1 className="flex items-center justify-center font-bold mb-6 text-center">
-          {/* <ProductsTable products={products} /> */}
+          <ProductsTable products={products} />
         </h1>
       </div>
 
