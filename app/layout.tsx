@@ -10,7 +10,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 const font = Urbanist({ subsets: ["latin"] });
 const messages = [
   
-  "REGISTRATION IS NOW AVAILABLE",
+  "REGISTRATION IS Paused. We are working on some technical issues right now. will update as soon as we have information",
   "If your student is trying out for Winter Sports, please remember that there are no refunds after November 29th at 3pm. NO EXECPTIONS."
 ];
 export const metadata: Metadata = {
