@@ -27,7 +27,6 @@ const StudentSignupPage = () => {
     }
   }, [searchParams]);
 console.log(userId)
-
 const handleSubmit = async (data: StudentFormValues) => {
   try {
     console.log('Submitted data:', data);  // Verify the submitted data
@@ -38,11 +37,10 @@ const handleSubmit = async (data: StudentFormValues) => {
       throw new Error("Season ID is missing in environment variables");
     }
 
-    // Include session_id in the request body
     const requestBody = {
       ...data,
       seasonId,
-      ProgCode: programCodes[currentProgramIndex],
+      ProgCode: programCodes[currentProgramIndex], // Use the current program code
       userId,
       sessionId, // Pass the sessionId
     };
@@ -53,17 +51,21 @@ const handleSubmit = async (data: StudentFormValues) => {
     console.log('API Response:', response);  // Log the response
 
     if (response.status === 200 || response.status === 201) {
+      // Store submitted student data and program codes in localStorage
       localStorage.setItem('submittedStudents', JSON.stringify([data]));
-      localStorage.setItem('programCodes', JSON.stringify(programCodes)); // Add the form data to localStorage
+      localStorage.setItem('programCodes', JSON.stringify(programCodes));
       toast.success("Student data submitted successfully!");
-      clearCart();
 
-      
-  // Build the success URL with sessionId
-  const successUrl = `/success?session_id=${sessionId}&userId=${userId}`;
-
-  // Redirect to success page with session_id and userId in the query string
-  router.push(successUrl); 
+      // Move to the next program code if available
+      if (currentProgramIndex < programCodes.length - 1) {
+        setCurrentProgramIndex(currentProgramIndex + 1); // Increment the program index
+      } else {
+        // All students submitted, clear cart and redirect to success page
+        clearCart();
+        
+        const successUrl = `/success?session_id=${sessionId}&userId=${userId}`;
+        router.push(successUrl); // Redirect to success page
+      }
     } else {
       toast.error("Failed to submit student data. Please try again.");
     }
