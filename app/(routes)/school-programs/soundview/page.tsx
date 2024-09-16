@@ -50,8 +50,8 @@ const hasCoordinatorAccess = () => {
             www.skimohan.com
           </a>{" "}
           or call{" "}
-          <a href="tel:+14258863820" className="text-blue-600 underline">
-            (425) 888-3820
+          <a href="tel:+14258683820" className="text-blue-600 underline">
+            (425) 868-3820
           </a>{" "}
           and then select option 1 to hear our latest operation updates just
           before leaving for the mountains or while en route. Our website and
@@ -173,23 +173,14 @@ const hasCoordinatorAccess = () => {
             As their skills increase, students may be moved to another class to
             optimize their learning and progress
           </li>
-          <li>
-            If the bus sells out, please contact our office via email{" "}
-            <a
-              href="mailto:office@skimohan.com"
-              className="text-blue-600 underline"
-            >
-              (office@skimohan.com)
-            </a>
-            {""}
-            or by phone (425-868-3820) to be put on a wait list.
-          </li>
+     
         </ul>
       </div>
+      <h1> <strong>We are priortizing the lesson/transportation combo. If you want Transportation only please sign up for the waitlist and your program coordinator will contact you as space is available.</strong> </h1>
 
       <div>
       <h1 className="flex items-center justify-center font-bold mb-6 text-center">
-          {/* <ProductsTable products={products} /> */}
+          <ProductsTable products={products} />
         </h1>
       </div>
 

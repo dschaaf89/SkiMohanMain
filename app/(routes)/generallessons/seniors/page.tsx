@@ -46,11 +46,11 @@ const SeniorLessons = () => {
         <h2 className="text-xl font-bold">HERE’S HOW TO GET STARTED</h2>
         <ul className="list-disc list-inside mb-6">
           <li>
-            To join the Senior program, please complete this{" "}
-            <Link href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EQoR80_TCWxGqhwpm0VbvIsBJ-Ei-CgIXAIrzKPfgJICOw?e=Z9f45o">
-              <span className="text-blue-700 font-bold">form</span> 
-            </Link>
-            and email it to the Mohan main office at Office@skimohan.com with Your name and Senior Program in the subject line.
+            To join the Senior program, Form will be available by 9/17/2024
+            {/* <Link href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EQoR80_TCWxGqhwpm0VbvIsBJ-Ei-CgIXAIrzKPfgJICOw?e=Z9f45o">
+              <span className="text-blue-700 font-bold">{" "}form</span> 
+            </Link> */}
+            {/* and email it to the Mohan main office at Office@skimohan.com with Your name and Senior Program in the subject line. */}
           </li>
           <li>
             Lift Tickets are NOT included. See our Lift Ticket page for different season pass options.

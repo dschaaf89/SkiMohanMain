@@ -132,7 +132,12 @@ try {
     target="_blank"
     rel="noopener noreferrer">I-9
     </a></li>
-        <li>Parent-School Authorization Form</li>
+    <li>
+        <a 
+    className="text-blue-500"
+    href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EReH_0Yh55dFs1E0AdnD74QBZeV3XWw48DHvGZ7i4T3JrA?e=lxTKwb"
+    target="_blank"
+    rel="noopener noreferrer">Parent-School Authorization Form</a></li>
         <li><a 
     className="text-blue-500"
     href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EZXLcNMg8l1Ojurb9WL_GiIBrEmTHtxuipc0eAjm-4ZELw?e=Pxwv63"

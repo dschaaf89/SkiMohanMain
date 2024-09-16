@@ -10,7 +10,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 const font = Urbanist({ subsets: ["latin"] });
 const messages = [
   
-  "REGISTRATION WIll OPEN ON SEPTEMBER 16TH AT 9AM",
+  "REGISTRATION IS NOW AVAILABLE",
   "If your student is trying out for Winter Sports, please remember that there are no refunds after November 29th at 3pm. NO EXECPTIONS."
 ];
 export const metadata: Metadata = {
