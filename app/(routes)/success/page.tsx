@@ -1,6 +1,8 @@
 "use client";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import axios from "axios";
 
 interface StudentInfo {
   NAME_FIRST: string;
@@ -9,77 +11,84 @@ interface StudentInfo {
   [key: string]: any; // Add this to accommodate any additional fields
 }
 
-interface PaymentDetails {
-  totalAmount: string;
+interface OrderDetails {
+  Name_First: string;
+  Name_Last: string;
+  phone: string;
+  address: string;
   paymentMethod: string;
-  transactionId: string;
+  totalAmount: number;
   paymentDate: string;
+  transactionId:string;
 }
+
 const SuccessPage: React.FC = () => {
   const [students, setStudents] = useState<StudentInfo[]>([]);
-  const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null);
+  const [orderDetails, setOrderDetails] = useState<OrderDetails | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const sessionId = searchParams.get("session_id");
 
+  // Fetch student info from localStorage and order details from API
   useEffect(() => {
     const storedStudents = JSON.parse(localStorage.getItem("submittedStudents") || "[]");
-    const storedPaymentDetails = JSON.parse(localStorage.getItem("paymentDetails") || "null");
+    setStudents(storedStudents);
 
-    console.log("Loaded Students:", storedStudents);
-    console.log("Loaded Payment Details:", storedPaymentDetails);
+    if (sessionId) {
+      console.log("Fetching order details for session:", sessionId);
+      const fetchOrderDetails = async () => {
+        try {
+          const response = await axios.post(`${process.env.NEXT_PUBLIC_PAYMENT_API}`, {
+            sessionId,  // Send session_id as part of the request body
+          });
 
-    if (storedStudents.length === 0 || !storedPaymentDetails) {
-      console.log("No data found, redirecting to home...");
-      router.push("/");
-    } else {
-      setStudents(storedStudents);
-      setPaymentDetails(storedPaymentDetails);
+          console.log("Order API response:", response.data);
+
+          setOrderDetails(response.data.order);  // Set the fetched order details
+        } catch (error) {
+          console.error("Error fetching order details:", error);
+        }
+      };
+
+      fetchOrderDetails();
     }
 
-    setIsLoading(false);  // Set loading to false after checking data
-  }, [router]);
+    setIsLoading(false);
+  }, [sessionId]);
 
   if (isLoading) {
     return <div>Loading...</div>;  // Add a loading indicator
   }
-
-  if (!students.length || !paymentDetails) {
-    return <div>Redirecting...</div>;  // Show redirect message if no data found
-  }
-
-  const handlePrint = () => {
-    window.print(); // Triggers the browser's print functionality
-  };
-
-  const handleBackToMainPage = () => {
-    // Clear the localStorage items
-    localStorage.removeItem("submittedStudents");
-    localStorage.removeItem("paymentDetails");
-
-    // Redirect to main page
-    router.push("/");
-  };
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
       <h1 className="text-2xl font-bold mb-6">Payment Successful!</h1>
       <p className="text-lg mb-4">Here is your receipt:</p>
 
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
-        <h2 className="text-xl font-semibold mb-4">Payment Details</h2>
-        <p><strong>Total Amount:</strong> ${paymentDetails.totalAmount}</p>
-        <p><strong>Payment Method:</strong> {paymentDetails.paymentMethod}</p>
-        <p><strong>Transaction ID:</strong> {paymentDetails.transactionId}</p>
-        <p><strong>Payment Date:</strong> {paymentDetails.paymentDate}</p>
-      </div>
+      {/* Order Details */}
+      {orderDetails && (
+        <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+          <h2 className="text-xl font-semibold mb-4">Order Details</h2>
+          <p><strong>First Name:</strong> {orderDetails.Name_First}</p>
+          <p><strong>Last Name:</strong> {orderDetails.Name_Last}</p>
+          <p><strong>Phone:</strong> {orderDetails.phone}</p>
+          <p><strong>Address:</strong> {orderDetails.address}</p>
+          <p><strong>Payment Method:</strong> {orderDetails.paymentMethod}</p>
+          <p><strong>transactionId:</strong> {orderDetails.transactionId}</p>
+          <p><strong>Total Amount:</strong> ${orderDetails.totalAmount}</p>
+          <p><strong>Payment Date:</strong> {orderDetails.paymentDate}</p>
+        </div>
+      )}
 
+      {/* Student Information */}
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mt-6">
         <h2 className="text-xl font-semibold mb-4">Student Information</h2>
         {students.length > 0 ? (
           students.map((student, index) => (
             <div key={index} className="mb-4">
               <p><strong>Student Name:</strong> {student.NAME_FIRST} {student.NAME_LAST}</p>
-              <p><strong>Program :</strong> {student.ProgCode}</p>
+              
             </div>
           ))
         ) : (
@@ -90,13 +99,17 @@ const SuccessPage: React.FC = () => {
       <div className="mt-6 flex space-x-4">
         <button
           className="bg-blue-500 text-white py-2 px-4 rounded-lg"
-          onClick={handleBackToMainPage} // Updated to clear localStorage
+          onClick={() => {
+            localStorage.removeItem("submittedStudents");
+            localStorage.removeItem("paymentDetails");
+            router.push("/");  // Redirect to main page
+          }}
         >
           Back to Main Page
         </button>
         <button
           className="bg-green-500 text-white py-2 px-4 rounded-lg"
-          onClick={handlePrint}
+          onClick={() => window.print()}  // Print the receipt
         >
           Print Receipt
         </button>

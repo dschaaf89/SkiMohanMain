@@ -14,8 +14,12 @@ const StudentSignupPage = () => {
   const [programCodes, setProgramCodes] = useState<string[]>([]);
   const router = useRouter();
   const searchParams = useSearchParams();
+  console.log(searchParams.toString()); 
   const clearCart = useCart((state) => state.removeAll);
   const userId = searchParams.get('userId') || user?.id;
+  const sessionId = searchParams.get('session_id');
+  console.log("THIS IS THE SESSIONID PLEASE LOOK HERE",sessionId);
+
   useEffect(() => {
     const productCodes = searchParams.get('productCodes');
     if (productCodes) {
@@ -23,6 +27,7 @@ const StudentSignupPage = () => {
     }
   }, [searchParams]);
 console.log(userId)
+
 const handleSubmit = async (data: StudentFormValues) => {
   try {
     console.log('Submitted data:', data);  // Verify the submitted data
@@ -33,11 +38,13 @@ const handleSubmit = async (data: StudentFormValues) => {
       throw new Error("Season ID is missing in environment variables");
     }
 
+    // Include session_id in the request body
     const requestBody = {
       ...data,
       seasonId,
       ProgCode: programCodes[currentProgramIndex],
       userId,
+      sessionId, // Pass the sessionId
     };
 
     console.log('Request Body:', requestBody);  // Log the request body
@@ -46,9 +53,17 @@ const handleSubmit = async (data: StudentFormValues) => {
     console.log('API Response:', response);  // Log the response
 
     if (response.status === 200 || response.status === 201) {
+      localStorage.setItem('submittedStudents', JSON.stringify([data]));
+      localStorage.setItem('programCodes', JSON.stringify(programCodes)); // Add the form data to localStorage
       toast.success("Student data submitted successfully!");
       clearCart();
-      router.push("/success"); // Redirect to the success page
+
+      
+  // Build the success URL with sessionId
+  const successUrl = `/success?session_id=${sessionId}&userId=${userId}`;
+
+  // Redirect to success page with session_id and userId in the query string
+  router.push(successUrl); 
     } else {
       toast.error("Failed to submit student data. Please try again.");
     }

@@ -47,7 +47,6 @@ const SummaryComponent = () => {
   const totalPrice = items.reduce((total, item) => {
     return total + (Number(item.price) * item.quantity);
   }, 0);
-
   const onCheckout = async () => {
     try {
       const url = `${process.env.NEXT_PUBLIC_API_URL}/checkout`;
@@ -56,7 +55,7 @@ const SummaryComponent = () => {
         quantity: item.quantity,
         programCode: item.name,
       }));
-
+  
       const response = await axios.post(url, {
         items: itemsWithProgramCodes,
         userId: user?.id,
@@ -66,18 +65,8 @@ const SummaryComponent = () => {
           latenessPolicy: acceptedLatenessPolicy,
         },
       });
-
-      const paymentDetails = {
-        totalAmount: totalPrice,
-        paymentMethod: response.data.paymentMethod,
-        transactionId: response.data.transactionId,
-        paymentDate: new Date().toLocaleDateString(),
-      };
-
-      localStorage.setItem('paymentDetails', JSON.stringify(paymentDetails));
-      const programCodes = items.map((item) => item.name);
-      localStorage.setItem('programCodes', JSON.stringify(programCodes));
-
+  
+      // Redirect to the Stripe checkout page
       window.location = response.data.url;
     } catch (error) {
       toast.error('Something went wrong during checkout.');
