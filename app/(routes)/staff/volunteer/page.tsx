@@ -147,7 +147,7 @@ const Volunteer = () => {
 
           <h1>Volunteer Forms</h1>
           <p>
-        Please download and complete the following forms:
+        Please download and complete the following forms and Save as a PDF:
       </p>
       <br />
       <ul className="list-disc pl-5 mb-6 space-y-1">
