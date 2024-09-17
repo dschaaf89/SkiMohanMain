@@ -144,6 +144,47 @@ const Volunteer = () => {
             school or other organizations.
           </p>
           <br />
+
+          <h1>Volunteer Forms</h1>
+          <p>
+        Please download and complete the following forms:
+      </p>
+      <br />
+      <ul className="list-disc pl-5 mb-6 space-y-1">
+      <li>
+  <a 
+    className="text-blue-500"
+    href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EZRZ3aN_oJ9KuYiONw3vMoEBzEHBEaT-91Q8OXmuT3gD8g?e=hKXO7W"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+    Background Check
+  </a>
+</li>
+
+<li>
+  <a 
+    className="text-blue-500"
+    href="https://skimohan.sharepoint.com/:w:/s/MohanServer/ERsx9mzQ1P5DtaKJ1f6U82wBXsy_kkMnHqwM7MDpEefSMg?e=SaVq0l"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+   Volunteer App
+  </a>
+</li>
+
+<li>
+  <a 
+    className="text-blue-500"
+    href="https://skimohan.sharepoint.com/:w:/s/MohanServer/EfPiKmvX3xVBucbSTaReruABejfcaontK9QGR7VughS98A?e=iceIjT"
+    target="_blank"
+    rel="noopener noreferrer"
+  >
+   Friday Night Volunteer App
+  </a>
+</li>
+
+      </ul>
           <div className="text-center">
             <Button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onClick={handleApplyNowClick}>
               Apply Now
