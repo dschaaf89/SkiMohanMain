@@ -165,7 +165,7 @@ const Volunteer = () => {
 <li>
   <a 
     className="text-blue-500"
-    href="https://skimohan.sharepoint.com/:w:/s/MohanServer/ERsx9mzQ1P5DtaKJ1f6U82wBXsy_kkMnHqwM7MDpEefSMg?e=SaVq0l"
+    href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EWXgNyGXj89NpbGNkU1cVcwBvOjpIjl63mM0KCN06qH9rA?e=bjkMmz"
     target="_blank"
     rel="noopener noreferrer"
   >
@@ -176,7 +176,7 @@ const Volunteer = () => {
 <li>
   <a 
     className="text-blue-500"
-    href="https://skimohan.sharepoint.com/:w:/s/MohanServer/EfPiKmvX3xVBucbSTaReruABejfcaontK9QGR7VughS98A?e=iceIjT"
+    href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EWXgNyGXj89NpbGNkU1cVcwBvOjpIjl63mM0KCN06qH9rA?e=bjkMmz"
     target="_blank"
     rel="noopener noreferrer"
   >
