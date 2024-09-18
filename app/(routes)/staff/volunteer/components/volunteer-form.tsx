@@ -189,7 +189,7 @@ export const VolunteerForm: React.FC = () => {
       });
       toast.success("Volunteer created and email sent.");
       // Route to the volunteer page after successful submission
-      router.push(`/staff/volunteers`);
+      router.push(`/staff/volunteer`);
       
     } catch (error: any) {
       console.error(error);
