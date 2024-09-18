@@ -176,8 +176,7 @@ const Volunteer = () => {
 <li>
   <a 
     className="text-blue-500"
-    href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EWXgNyGXj89NpbGNkU1cVcwBvOjpIjl63mM0KCN06qH9rA?e=bjkMmz"
-    target="_blank"
+    href="https://skimohan.sharepoint.com/:b:/s/Mohan_Website_Documents/EdHauKuROidLgSDEWHEWAB0Bt7DxFHBJMhureE_EpZbR-w?e=CvBqne"
     rel="noopener noreferrer"
   >
    Friday Night Volunteer App
