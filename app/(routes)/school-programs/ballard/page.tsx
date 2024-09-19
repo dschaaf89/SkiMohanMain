@@ -125,7 +125,7 @@ const Ballard = () => {
         <h2 className="text-2xl font-bold mb-6 text-center">
           Program Coordinator <br />
           TBD<br />
-          Email: <a href="mailto:Ballardsnowsports@gmail.com" className="text-blue-600 underline">ballardsnowsports@gmail.com</a>
+          {/* Email: <a href="mailto:Ballardsnowsports@gmail.com" className="text-blue-600 underline">ballardsnowsports@gmail.com</a> */}
         </h2>
          {/* Render Coordinator's Portal Button if user has access */}
        {hasCoordinatorAccess() && (

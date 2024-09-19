@@ -127,13 +127,13 @@ const hasCoordinatorAccess = () => {
           Program Coordinator <br />
           TBD
           <br />
-          Email:{" "}
+          {/* Email:{" "}
           <a
             href="mailto:soundviewsnowsports@gmail.com"
             className="text-blue-600 underline"
           >
             soundviewsnowsports@gmail.com
-          </a>
+          </a> */}
         </h2>
         {/* Render Coordinator's Portal Button if user has access */}
         {hasCoordinatorAccess() && (

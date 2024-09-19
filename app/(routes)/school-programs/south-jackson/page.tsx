@@ -128,14 +128,14 @@ const SouthJackson = () => {
           Program Coordinator <br />
           TBD
           <br />
-          Email:{" "}
+          {/* Email:{" "}
           <a
             href="mailto:	
             SouthJacksonsnowsports@gmail.com"
             className="text-blue-600 underline"
           >
             SouthJacksonsnowsports@gmail.com
-          </a>
+          </a> */}
         </h2>
         {/* Render Coordinator's Portal Button if user has access */}
         {hasCoordinatorAccess() && (

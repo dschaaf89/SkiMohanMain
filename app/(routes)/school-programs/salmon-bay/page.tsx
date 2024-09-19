@@ -128,14 +128,14 @@ const SalmonBay = () => {
           Program Coordinator <br />
           TBD
           <br />
-          Email:{" "}
+          {/* Email:{" "}
           <a
             href="mailto:	
             salmonbaysnowsports@gmail.com"
             className="text-blue-600 underline"
           >
             salmonbaysnowsports@gmail.com
-          </a>
+          </a> */}
         </h2>
         {/* Render Coordinator's Portal Button if user has access */}
         {hasCoordinatorAccess() && (
