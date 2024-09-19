@@ -7,7 +7,7 @@ const clientId = process.env.AZURE_CLIENT_ID as string;
 const clientSecret = process.env.AZURE_CLIENT_SECRET as string;
 const tenantId = process.env.AZURE_TENANT_ID as string;
 const senderEmail = process.env.SENDER_EMAIL as string;
-const receiverEmail = process.env.RECEIVER_EMAIL as string;
+const receiverEmail = process.env.CONTACT_EMAIL as string;
 
 if (!clientId || !clientSecret || !tenantId || !senderEmail || !receiverEmail) {
   throw new Error('Missing environment variables for Azure AD configuration or email addresses');
