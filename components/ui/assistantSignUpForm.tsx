@@ -769,7 +769,7 @@ const AssistantSignupForm: React.FC<AssistantSignupFormProps> = ({
               {/* File Upload */}
               <Card className="p-4">
                 <CardHeader>
-                  <CardTitle>Upload Required Documents</CardTitle>
+                  <CardTitle>Upload Required Documents.</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <MyFileUpload onFilesUploaded={handleFileUpload} />

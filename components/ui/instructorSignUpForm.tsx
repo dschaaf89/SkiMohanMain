@@ -716,7 +716,7 @@ const InstructorSignupForm: React.FC<InstructorSignupFormProps> = ({
               {/* File Upload */}
               <Card className="p-4">
                 <CardHeader>
-                  <CardTitle>Upload Required Documents</CardTitle>
+                  <CardTitle>Upload Required Documents  ONLY PDF'S WILL BE ACCEPTED</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <MyFileUpload onFilesUploaded={handleFileUpload} />
