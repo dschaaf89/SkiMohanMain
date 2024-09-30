@@ -7,6 +7,9 @@ import { toast } from "react-hot-toast";
 import useCart from "@/hooks/use-cart";
 import { InstructorSignupForm, InstructorFormValues } from "@/components/ui/instructorSignUpForm"
 import { useUser } from "@clerk/nextjs"; 
+
+
+
 const InstructorSignupPage = () => {
   const [currentProgramIndex, setCurrentProgramIndex] = useState(0);
   const [programCodes, setProgramCodes] = useState<string[]>([]);
@@ -24,19 +27,15 @@ const InstructorSignupPage = () => {
     }
   }, [searchParams]);
 
-  const handleSubmit = async (data: InstructorFormValues) => {
+  const handleSubmit = async (data: InstructorFormValues, reset: () => void) => {
     try {
       setLoading(true);
-
-      // Separate out the files from the form data
       const { files, ...formData } = data;
-      console.log("Files uploaded:", files);
 
-  // If files are undefined, there might be an issue with capturing the file upload
-  if (!files || files.length === 0) {
-    console.error("No files were uploaded");
-    return;
-  }
+      if (!files || files.length === 0) {
+        console.error("No files were uploaded");
+        return;
+      }
 
       const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/instructors/instructorSignUp`;
       const seasonId = process.env.NEXT_PUBLIC_SEASON_ID;
@@ -52,25 +51,21 @@ const InstructorSignupPage = () => {
         userId,
       };
 
-      // First, send the form data to the backend (without files)
       const response = await axios.post(apiUrl, requestBody);
 
       if (response.status === 200 || response.status === 201) {
         toast.success("Instructor form data submitted successfully!");
 
-        // Prepare the FormData object for files
         const formDataForFiles = new FormData();
         formDataForFiles.append("firstName", formData.NAME_FIRST);
         formDataForFiles.append("lastName", formData.NAME_LAST);
 
-        // Append files if they exist
-        if (files && files.length > 0) {
+        if (files.length > 0) {
           files.forEach((file) => {
             formDataForFiles.append("files", file, file.name);
           });
         }
 
-        // Send files to your document handling route (similar to your volunteer form)
         const fileResponse = await axios.post("/api/sendInstructorDocs", formDataForFiles, {
           headers: {
             "Content-Type": "multipart/form-data",
@@ -80,18 +75,16 @@ const InstructorSignupPage = () => {
         if (fileResponse.status === 200 || fileResponse.status === 201) {
           toast.success("Instructor documents sent successfully!");
 
-          // Store the submitted instructor data in localStorage
           const storedInstructors = JSON.parse(localStorage.getItem("submittedInstructors") || "[]");
           storedInstructors.push(requestBody);
           localStorage.setItem("submittedInstructors", JSON.stringify(storedInstructors));
 
-          console.log("Stored Instructors after submission:", storedInstructors);
+          // Reset the form after successful submission
+          reset();
 
-          // Update the current program index or navigate to success page
           if (currentProgramIndex < programCodes.length - 1) {
             setCurrentProgramIndex(currentProgramIndex + 1);
           } else {
-            // Clear cart and navigate to success
             clearCart();
             router.push("/success");
           }
@@ -108,7 +101,6 @@ const InstructorSignupPage = () => {
       setLoading(false);
     }
   };
-  
 
   return (
     <div>

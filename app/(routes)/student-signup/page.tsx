@@ -8,15 +8,21 @@ import { StudentSignupForm, StudentFormValues } from "@/components/ui/studentSig
 import { useUser } from "@clerk/nextjs";
 import useCart from "@/hooks/use-cart";
 
-const StudentSignupPage = () => {
+interface ProgramDetails {
+  programCode: string;
+  formIndex: number;
+  totalFormsForProduct: number;
+}
+
+const StudentSignupPage: React.FC = () => {
   const { user } = useUser();
   const [programCodes, setProgramCodes] = useState<string[]>([]);
-  const [quantities, setQuantities] = useState<number[]>([]);  // Store the quantities for each product
-  const [currentFormIndex, setCurrentFormIndex] = useState(0); // Track the current form being shown
-  const [totalForms, setTotalForms] = useState(0); // Track total number of forms to be rendered
+  const [quantities, setQuantities] = useState<number[]>([]); // Store the quantities for each product
+  const [currentFormIndex, setCurrentFormIndex] = useState<number>(0); // Track the current form being shown
+  const [totalForms, setTotalForms] = useState<number>(0); // Track total number of forms to be rendered
   const router = useRouter();
   const searchParams = useSearchParams();
-  const clearCart = useCart((state) => state.removeAll);  // Clear cart after all forms are submitted
+  const clearCart = useCart((state) => state.removeAll); // Clear cart after all forms are submitted
   const userId = searchParams.get('userId') || user?.id;
   const sessionId = searchParams.get('session_id');
 
@@ -28,9 +34,9 @@ const StudentSignupPage = () => {
     if (productCodes && quantitiesString) {
       const codes = productCodes.split(',');
       const qtys = quantitiesString.split(',').map(Number);
-      setProgramCodes(codes);  // Set program codes
-      setQuantities(qtys);  // Convert quantities to numbers
-      
+      setProgramCodes(codes); // Set program codes
+      setQuantities(qtys); // Convert quantities to numbers
+
       // Calculate total number of forms based on quantity
       const totalFormsCount = qtys.reduce((acc, qty) => acc + qty, 0);
       setTotalForms(totalFormsCount);
@@ -38,7 +44,7 @@ const StudentSignupPage = () => {
   }, [searchParams]);
 
   // Handle form submission for each individual form
-  const handleSubmit = async (data: StudentFormValues, programCode: string) => {
+  const handleSubmit = async (data: StudentFormValues, programCode: string): Promise<void> => {
     try {
       const apiUrl = `${process.env.NEXT_PUBLIC_API_URL}/students/studentSignUp`;
       const seasonId = process.env.NEXT_PUBLIC_SEASON_ID;
@@ -50,9 +56,9 @@ const StudentSignupPage = () => {
       const requestBody = {
         ...data,
         seasonId,
-        ProgCode: programCode,  // Submit the current program code
+        ProgCode: programCode, // Submit the current program code
         userId,
-        sessionId,  // Pass the sessionId
+        sessionId, // Pass the sessionId
       };
 
       const response = await axios.post(apiUrl, requestBody);
@@ -66,9 +72,10 @@ const StudentSignupPage = () => {
           ProgCode: programCode,
         };
         localStorage.setItem("submittedStudents", JSON.stringify([...existingStudents, newStudent]));
+
         // Move to the next form after successful submission
         if (currentFormIndex + 1 < totalForms) {
-          setCurrentFormIndex(currentFormIndex + 1);  // Move to the next form
+          setCurrentFormIndex(currentFormIndex + 1); // Move to the next form
         } else {
           // If all forms are submitted, clear the cart and redirect
           clearCart();
@@ -85,13 +92,17 @@ const StudentSignupPage = () => {
   };
 
   // Get the current program code and form number based on the current form index
-  const getCurrentProgramCode = () => {
+  const getCurrentProgramCode = (): ProgramDetails | null => {
     let formCounter = 0;
 
     for (let i = 0; i < programCodes.length; i++) {
       for (let j = 0; j < quantities[i]; j++) {
         if (formCounter === currentFormIndex) {
-          return { programCode: programCodes[i], formIndex: j + 1, totalFormsForProduct: quantities[i] };
+          return {
+            programCode: programCodes[i],
+            formIndex: j + 1,
+            totalFormsForProduct: quantities[i],
+          };
         }
         formCounter++;
       }
@@ -109,8 +120,8 @@ const StudentSignupPage = () => {
             Sign Up for {currentForm.programCode} (Form {currentForm.formIndex} of {currentForm.totalFormsForProduct})
           </h2>
           <StudentSignupForm
-            programCode={currentForm.programCode}  // Pass the program code to each form
-            onSubmit={(data) => handleSubmit(data, currentForm.programCode)}  // Handle form submission
+            programCode={currentForm.programCode} // Pass the program code to each form
+            onSubmit={(data) => handleSubmit(data, currentForm.programCode)} // Handle form submission
           />
         </div>
       ) : (

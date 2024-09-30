@@ -202,7 +202,7 @@ const clinics = [
 
 
 interface InstructorSignupFormProps {
-  onSubmit: (data: InstructorFormValues) => void;
+  onSubmit: (data: InstructorFormValues, reset: () => void) => void; // Update to include reset
   programCode: string;
 }
 const calculateAge = (birthdate: Date | string): number => {
@@ -456,7 +456,7 @@ const InstructorSignupForm: React.FC<InstructorSignupFormProps> = ({
     </CardHeader>
     <CardContent className="space-y-8">
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form  onSubmit={form.handleSubmit((data) => onSubmit(data, form.reset))} className="space-y-8">
           {/* Top Section: Three Columns */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <FormField
@@ -716,7 +716,7 @@ const InstructorSignupForm: React.FC<InstructorSignupFormProps> = ({
               {/* File Upload */}
               <Card className="p-4">
                 <CardHeader>
-                  <CardTitle>Upload Required Documents  ONLY PDF'S WILL BE ACCEPTED</CardTitle>
+                <CardTitle>Upload Required Documents  ONLY PDF&#39;S WILL BE ACCEPTED</CardTitle>
                 </CardHeader>
                 <CardContent>
                   <MyFileUpload onFilesUploaded={handleFileUpload} />

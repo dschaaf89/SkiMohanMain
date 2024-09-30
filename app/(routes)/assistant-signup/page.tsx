@@ -7,16 +7,17 @@ import { toast } from "react-hot-toast";
 import useCart from "@/hooks/use-cart";
 import { AssistantSignupForm, AssistantFormValues } from "@/components/ui/assistantSignUpForm"
 import { useUser } from "@clerk/nextjs"; 
+
 const AssistantSignupPage = () => {
   const [currentProgramIndex, setCurrentProgramIndex] = useState(0);
   const [programCodes, setProgramCodes] = useState<string[]>([]);
-  const [loading, setLoading] = useState(false); // Define loading state here
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const searchParams = useSearchParams();
   const clearCart = useCart((state) => state.removeAll);
   const { user } = useUser(); 
   const userId = searchParams.get('userId') || user?.id;
-  console.log(userId);
+
   useEffect(() => {
     const productCodes = searchParams.get('productCodes');
     if (productCodes) {
@@ -24,11 +25,10 @@ const AssistantSignupPage = () => {
     }
   }, [searchParams]);
 
-  const handleSubmit = async (data: AssistantFormValues) => {
+  const handleSubmit = async (data: AssistantFormValues, resetForm: () => void) => {
     try {
-      // Separate out the files from the form data
+      setLoading(true);
       const { files, ...formData } = data;
-      console.log("Files uploaded:", files);
 
       if (!files || files.length === 0) {
         console.error("No files were uploaded");
@@ -52,52 +52,52 @@ const AssistantSignupPage = () => {
       const response = await axios.post(apiUrl, requestBody);
 
       if (response.status === 200 || response.status === 201) {
-        toast.success("Instructor form data submitted successfully!");
+        toast.success("Assistant form data submitted successfully!");
 
         const formDataForFiles = new FormData();
         formDataForFiles.append("firstName", formData.NAME_FIRST);
         formDataForFiles.append("lastName", formData.NAME_LAST);
 
-        if (files && files.length > 0) {
+        if (files.length > 0) {
           files.forEach((file) => {
             formDataForFiles.append("files", file, file.name);
           });
         }
 
-        const fileResponse = await axios.post("/api/sendInstructorDocs", formDataForFiles, {
+        const fileResponse = await axios.post("/api/sendAssistantDocs", formDataForFiles, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
         });
 
         if (fileResponse.status === 200 || fileResponse.status === 201) {
-          toast.success("Instructor documents sent successfully!");
+          toast.success("Assistant documents sent successfully!");
 
           const storedAssistants = JSON.parse(localStorage.getItem('submittedAssistants') || '[]');
           storedAssistants.push(requestBody);
           localStorage.setItem('submittedAssistants', JSON.stringify(storedAssistants));
 
-          console.log("Stored Assistants after submission:", storedAssistants);
+          // Reset the form
+          resetForm();
 
           if (currentProgramIndex < programCodes.length - 1) {
             setCurrentProgramIndex(currentProgramIndex + 1);
           } else {
             const paymentDetails = JSON.parse(localStorage.getItem('paymentDetails') || '{}');
-            console.log("Payment Details before clearing cart:", paymentDetails);
-
             clearCart();
             router.push("/success");
           }
         } else {
-          toast.error("Failed to submit instructor data. Please try again.");
+          toast.error("Failed to send assistant documents. Please try again.");
         }
       }
     } catch (error) {
       toast.error("An error occurred while submitting the data.");
-      console.error("Error submitting instructor data:", error);
+      console.error("Error submitting assistant data:", error);
+    } finally {
+      setLoading(false);
     }
   };
-  
 
   return (
     <div>
