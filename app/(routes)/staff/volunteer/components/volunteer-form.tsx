@@ -479,6 +479,8 @@ export const VolunteerForm: React.FC = () => {
                       <SelectItem value="Soundview">Soundview</SelectItem>
                       <SelectItem value="Thorton Creek">Thorton Creek</SelectItem>
                       <SelectItem value="Wallingford">Wallingford</SelectItem>
+                      <SelectItem value="SouthJackon">South Jackson</SelectItem>
+                      <SelectItem value="SalmonBay">Salmon Bay</SelectItem>
                     </SelectContent>
                   </Select>
                   <FormMessage />
