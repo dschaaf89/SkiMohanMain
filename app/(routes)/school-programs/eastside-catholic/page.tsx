@@ -145,7 +145,7 @@ const hasCoordinatorAccess = () => {
     <ul className="list-disc list-inside mb-6">
       <li>The bus departs from the Eastside Catholic parking lot at approximately 3:15 PM and returns at approximately 11:00 PM- 11:30 PM</li>
       <li>6-week Friday programs include transportation and optional skiing/boarding lessons</li>
-      <li>Participants of this Friday program should be in 6th - 12th grade</li>
+      <li>Participants of this Friday program should be in 6th - 12th Grade</li>
       <li>Participants must be self sufficient. There is little to no supervision while on the hill. </li>
       <li>Lesson duration: 2 hours</li>
       <li>Classes begin at 7 PM with peers of similar age and ability</li>
