@@ -9,7 +9,7 @@ import ModalProvider from "@/providers/modal-provider";
 import { ClerkProvider } from '@clerk/nextjs';
 const font = Urbanist({ subsets: ["latin"] });
 const messages = [
-  "Registration is Now Open.If your student is trying out for Winter Sports, please remember that there are no refunds after November 29th at 3pm. NO EXECPTIONS."
+  "Registration is Now Open.If your student is trying out for Winter Sports, please remember that there are no refunds after November 29th at 3pm. NO EXCEPTIONS."
 ];
 export const metadata: Metadata = {
   title: "Mohan Ski School Website",
