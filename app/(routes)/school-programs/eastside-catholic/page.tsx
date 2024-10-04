@@ -66,7 +66,7 @@ const hasCoordinatorAccess = () => {
         awarded on the final week of lessons to all who attend.
       </li>
       <li>
-        verage class size is under eight students. If there are fewer than
+        Average class size is under eight students. If there are fewer than
         three registered students for any class, we reserve the right to
         cancel the class or reduce the lesson time to one hour.
       </li>
