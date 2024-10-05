@@ -7,6 +7,7 @@ import Ticker from "@/components/ticker";
 import ToastProvider from "@/providers/toast-provider";
 import ModalProvider from "@/providers/modal-provider";
 import { ClerkProvider } from '@clerk/nextjs';
+import ResponsiveAppBar from "@/components/ui/ResponsiveAppBar";
 const font = Urbanist({ subsets: ["latin"] });
 const messages = [
   "Registration is Now Open.If your student is trying out for Winter Sports, please remember that there are no refunds after November 29th at 3pm. NO EXCEPTIONS."
@@ -28,7 +29,8 @@ export default function RootLayout({
       <body className={font.className}>
         <ModalProvider/>
         <ToastProvider/>
-        <Navbar/>
+        {/* <Navbar/> */}
+        <ResponsiveAppBar />
         <Ticker messages={messages}/>
         {children}
         <Footer/>
