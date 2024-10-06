@@ -20,12 +20,27 @@ import Link from 'next/link';
 import Image from 'next/image';
 import NavbarActions from '../navbar-actions';
 
+// Data for various sections
 const generalLessons = [
   { title: 'Saturday', href: '/generallessons/saturday' },
   { title: 'Sunday', href: '/generallessons/sunday' },
   { title: 'Private Lessons', href: '/generallessons/private-lessons' },
   { title: 'Seniors', href: '/generallessons/seniors' },
   { title: 'Thursday Board', href: '/generallessons/thursday-board' },
+];
+
+const schoolPrograms = [
+  { title: 'Eastside Catholic Snow Sports', href: '/school-programs/eastside-catholic' },
+  { title: 'Ballard Snow Sports', href: '/school-programs/ballard' },
+  { title: 'Interlake Ave Snow Sports', href: '/school-programs/interlake' },
+  { title: 'Meadowbrook Snow Sports', href: '/school-programs/meadowbrook' },
+  { title: 'Northeast Seattle Snow Sports', href: '/school-programs/northeast-seattle' },
+  { title: 'Roosevelt Snow Sports', href: '/school-programs/roosevelt' },
+  { title: 'Soundview Snow Sports', href: '/school-programs/soundview' },
+  { title: 'Thornton Creek Snow Sports', href: '/school-programs/thornton-creek' },
+  { title: 'Wallingford Snow Sports', href: '/school-programs/wallingford' },
+  { title: 'South Jackson Snow Sports', href: '/school-programs/south-jackson' },
+  { title: 'Salmon Bay Snow Sports', href: '/school-programs/salmon-bay' },
 ];
 
 const resources = [
@@ -51,10 +66,8 @@ const aboutUs = [
   { title: 'Be A Part Of Our Team', href: '/staff' },
   { title: 'Company Profile', href: '/aboutus/company-profile' },
   { title: 'Our Mission', href: '/aboutus/our-mission' },
-//   { title: 'Donations', href: '/aboutus/donations' },
   { title: 'Founders and Past Leaders', href: '/aboutus/our-leadership' },
   { title: 'Today\'s Leadership', href: '/aboutus/todays-leadership' },
-//   { title: 'History Timeline', href: '/aboutus/timeline' },
 ];
 
 function ResponsiveAppBar() {
@@ -66,6 +79,7 @@ function ResponsiveAppBar() {
   const [openResources, setOpenResources] = useState(false);
   const [openStaff, setOpenStaff] = useState(false);
   const [openAboutUs, setOpenAboutUs] = useState(false);
+  const [openSchoolPrograms, setOpenSchoolPrograms] = useState(false); // New state for School Programs
 
   const handlePopoverOpen = (event: React.MouseEvent<HTMLElement>, type: string) => {
     setAnchorEl(event.currentTarget);
@@ -93,6 +107,8 @@ function ResponsiveAppBar() {
       setOpenStaff(!openStaff);
     } else if (menu === 'aboutUs') {
       setOpenAboutUs(!openAboutUs);
+    } else if (menu === 'schoolPrograms') {
+      setOpenSchoolPrograms(!openSchoolPrograms);  // Handle School Programs state
     }
   };
 
@@ -129,6 +145,10 @@ function ResponsiveAppBar() {
 
             <Button onMouseEnter={(e) => handlePopoverOpen(e, 'generalLessons')} sx={{ my: 2, color: 'black', display: 'block' }}>
               General Lessons
+            </Button>
+
+            <Button onMouseEnter={(e) => handlePopoverOpen(e, 'schoolPrograms')} sx={{ my: 2, color: 'black', display: 'block' }}>
+              School Programs
             </Button>
 
             <Button onMouseEnter={(e) => handlePopoverOpen(e, 'resources')} sx={{ my: 2, color: 'black', display: 'block' }}>
@@ -173,6 +193,23 @@ function ResponsiveAppBar() {
                 </ListItemButton>
                 <Collapse in={openGeneralLessons} timeout="auto" unmountOnExit>
                   {generalLessons.map((item) => (
+                    <ListItemButton key={item.title} component="a" sx={{ pl: 4 }}>
+                      <Link href={item.href} passHref legacyBehavior>
+                        <Button sx={{ my: 2, color: 'black', display: 'block' }}>{item.title}</Button>
+                      </Link>
+                    </ListItemButton>
+                  ))}
+                </Collapse>
+
+                {/* School Programs - Collapsible */}
+                <ListItemButton component="div" onClick={() => handleCollapseToggle('schoolPrograms')}>
+                  <Button sx={{ my: 2, color: 'black', display: 'block' }}>
+                    School Programs
+                    {openSchoolPrograms ? <ExpandLess /> : <ExpandMore />}
+                  </Button>
+                </ListItemButton>
+                <Collapse in={openSchoolPrograms} timeout="auto" unmountOnExit>
+                  {schoolPrograms.map((item) => (
                     <ListItemButton key={item.title} component="a" sx={{ pl: 4 }}>
                       <Link href={item.href} passHref legacyBehavior>
                         <Button sx={{ my: 2, color: 'black', display: 'block' }}>{item.title}</Button>
@@ -249,41 +286,45 @@ function ResponsiveAppBar() {
 
       {/* Popover for Hover Menus */}
       <Popover
-        id="menu-popover"
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handlePopoverClose}
-        anchorOrigin={{
-          vertical: 'bottom',
-          horizontal: 'left',
-        }}
-        transformOrigin={{
-          vertical: 'top',
-          horizontal: 'left',
-        }}
-        disableRestoreFocus
-        slotProps={{
-          paper: {
-            onMouseEnter: () => setAnchorEl(anchorEl),
-            onMouseLeave: handlePopoverClose,
-            style: { width: '250px', pointerEvents: 'all' },
-          },
-        }}
-      >
-        <Box p={2}>
-          {(menuType === 'generalLessons' ? generalLessons :
-            menuType === 'resources' ? resources :
-            menuType === 'staff' ? staff :
-            menuType === 'aboutUs' ? aboutUs : []
-          ).map((item) => (
-            <MenuItem key={item.title} onClick={handlePopoverClose}>
-              <Link href={item.href} passHref legacyBehavior>
-                <Typography textAlign="center">{item.title}</Typography>
-              </Link>
-            </MenuItem>
-          ))}
-        </Box>
-      </Popover>
+  id="menu-popover"
+  open={open}
+  anchorEl={anchorEl}
+  onClose={handlePopoverClose}
+  anchorOrigin={{
+    vertical: 'bottom',
+    horizontal: 'left',
+  }}
+  transformOrigin={{
+    vertical: 'top',
+    horizontal: 'left',
+  }}
+  disableRestoreFocus
+  slotProps={{
+    paper: {
+      onMouseEnter: () => setAnchorEl(anchorEl),
+      onMouseLeave: handlePopoverClose,
+      style: {
+        width: '300px',  // Increase the width to fit the long names
+        pointerEvents: 'all',
+      },
+    },
+  }}
+>
+  <Box p={2}>
+    {(menuType === 'generalLessons' ? generalLessons :
+      menuType === 'schoolPrograms' ? schoolPrograms :
+      menuType === 'resources' ? resources :
+      menuType === 'staff' ? staff :
+      menuType === 'aboutUs' ? aboutUs : []
+    ).map((item) => (
+      <MenuItem key={item.title} onClick={handlePopoverClose}>
+        <Link href={item.href} passHref legacyBehavior>
+          <Typography textAlign="center">{item.title}</Typography>
+        </Link>
+      </MenuItem>
+    ))}
+  </Box>
+</Popover>
     </AppBar>
   );
 }
