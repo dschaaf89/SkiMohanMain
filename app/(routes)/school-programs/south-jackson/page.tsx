@@ -126,16 +126,16 @@ const SouthJackson = () => {
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Program Coordinator <br />
-          TBD
+          Heather Wilde
           <br />
-          {/* Email:{" "}
+          Email:{" "}
           <a
             href="mailto:	
-            SouthJacksonsnowsports@gmail.com"
+            southjackaonsnowsports@skimohan.com"
             className="text-blue-600 underline"
           >
-            SouthJacksonsnowsports@gmail.com
-          </a> */}
+            southjackaonsnowsports@skimohan.com
+          </a>
         </h2>
         {/* Render Coordinator's Portal Button if user has access */}
         {hasCoordinatorAccess() && (

@@ -126,16 +126,16 @@ const SalmonBay = () => {
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Program Coordinator <br />
-          TBD
+          Taylor Santos
           <br />
-          {/* Email:{" "}
+          Email:{" "}
           <a
             href="mailto:	
-            salmonbaysnowsports@gmail.com"
+            salmonbaysnowsports@skimohan.com"
             className="text-blue-600 underline"
           >
-            salmonbaysnowsports@gmail.com
-          </a> */}
+            salmonbaysnowsports@skimohan.com
+          </a>
         </h2>
         {/* Render Coordinator's Portal Button if user has access */}
         {hasCoordinatorAccess() && (
