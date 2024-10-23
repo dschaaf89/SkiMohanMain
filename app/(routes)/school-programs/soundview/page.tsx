@@ -160,7 +160,7 @@ const hasCoordinatorAccess = () => {
             6-week Friday programs include transportation and optional
             skiing/boarding lessons
           </li>
-          <li>Participants of this Friday program should be high school age</li>
+          <li>Participants of this Friday program should be middle school age age</li>
           <li>
             Participants must be self sufficient. There is little to no
             supervision while on the hill.{" "}
