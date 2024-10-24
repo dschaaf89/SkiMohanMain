@@ -36,19 +36,19 @@ interface StudentSignupFormProps {
 }
 
 const formSchema = z.object({
-  NAME_FIRST: z.string().min(1),
-  NAME_LAST: z.string().min(1),
-  HOME_TEL: z.string().optional(),
-  ADDRESS: z.string().min(1),
-  CITY: z.string().min(1),
-  STATE: z.string().min(1),
-  ZIP: z.string().min(1),
+  NAME_FIRST: z.string().min(1, "First Name is required"),
+  NAME_LAST: z.string().min(1, "Last Name is required"),
+  HOME_TEL: z.string().min(1, "Phone number is required"), // Phone required
+  ADDRESS: z.string().min(1, "Address is required"),
+  CITY: z.string().min(1, "City is required"),
+  STATE: z.string().min(1, "State is required"),
+  ZIP: z.string().min(1, "ZIP is required"),
   Email_student: z.string().optional(),
   BRTHD: z.date().optional(),
   AGE: z.number(),
   GradeLevel: z.string().optional(),
   LEVEL: z.string().optional(),
-  E_mail_main: z.string().optional(),
+  E_mail_main: z.string().min(1, "Email is required").email("Invalid email"), // Email required and format validation
   E_NAME: z.string().optional(),
   E_TEL: z.string().optional(),
   ProgCode: z.string(), // Add ProgCode to schema
