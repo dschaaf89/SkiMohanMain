@@ -28,7 +28,7 @@ const Ballard = () => {
 
   // Helper function to check if user has coordinator access
   const hasCoordinatorAccess = () => {
-    return user?.publicMetadata?.role === 'coordinator'; // Adjust based on how you're managing roles
+    return user?.publicMetadata?.role === 'Ballard-coordinator'; // Adjust based on how you're managing roles
   };
   return (
     <div className="max-w-4xl mx-auto p-8">

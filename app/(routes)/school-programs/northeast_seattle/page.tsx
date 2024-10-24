@@ -29,7 +29,7 @@ const NortheastSeattle = () => {
 
 // Helper function to check if user has coordinator access
 const hasCoordinatorAccess = () => {
-  return user?.publicMetadata?.role === 'coordinator'; // Adjust based on how you're managing roles
+  return user?.publicMetadata?.role === 'NESeattle-coordinator'; // Adjust based on how you're managing roles
 };
  
 

@@ -27,7 +27,7 @@ const EastsideCatholic =() => {
 
 // Helper function to check if user has coordinator access
 const hasCoordinatorAccess = () => {
-  return user?.publicMetadata?.role === 'coordinator'; // Adjust based on how you're managing roles
+  return user?.publicMetadata?.role === 'EastsideCatholic-coordinator'; // Adjust based on how you're managing roles
 };
 
     return ( <div className="max-w-4xl mx-auto p-8">
