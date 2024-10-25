@@ -238,7 +238,7 @@ const StudentSignupForm: React.FC<StudentSignupFormProps> = ({
                   name="Email_student"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>contact Email</FormLabel>
+                      <FormLabel>Contact Email</FormLabel>
                       <FormControl>
                         <Input placeholder="Student Email" {...field} />
                       </FormControl>
