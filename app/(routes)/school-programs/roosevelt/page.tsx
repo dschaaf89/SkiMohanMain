@@ -126,7 +126,7 @@ const hasCoordinatorAccess = () => {
       <div className="text-center">
         <h2 className="text-2xl font-bold mb-6 text-center">
           Program Coordinator <br />
-          TBD <br />
+          Kooy Montgomery <br />
           Email:{" "}
           <a
             href="mailto:rooseveltdistrictsnowsports@skimohan.com"
