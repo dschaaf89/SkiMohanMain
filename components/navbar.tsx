@@ -64,7 +64,7 @@ const Navbar = () => {
       title: "South Jackson Snow Sports",
       href: "/school-programs/south-jackson",
     }, {
-      title: "Salmon Bay Snow Sports",
+      title: "FOSB",
       href: "/school-programs/salmon-bay",
     },
   ];
