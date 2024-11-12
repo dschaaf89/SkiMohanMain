@@ -35,7 +35,7 @@ const SalmonBay = () => {
   return (
     <div className="max-w-4xl mx-auto p-8">
       <h1 className="text-6xl font-bold text-blue-800 mb-6 text-center">
-        Salmon Bay Snowsports
+        FOSB Snowsports
       </h1>
       <p className="text-lg mb-4">
         OUR EXPERIENCED, FRIENDLY MOHAN INSTRUCTORS BRING FUN TO YOUR MOUNTAIN
