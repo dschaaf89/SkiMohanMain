@@ -40,7 +40,7 @@ const schoolPrograms = [
   { title: 'Thornton Creek Snow Sports', href: '/school-programs/thorton-creek' },
   { title: 'Wallingford Snow Sports', href: '/school-programs/wallingford' },
   { title: 'South Jackson Snow Sports', href: '/school-programs/south-jackson' },
-  { title: 'FOSB', href: '/school-programs/salmon-bay' },
+  { title: 'FOSB Snow Sports', href: '/school-programs/salmon-bay' },
 ];
 
 const resources = [
