@@ -132,7 +132,7 @@ const TodaysLeadership = () => {
         <div className="space-y-4">
           {" "}
           {/* Vertical spacing */}
-          <Card className="flex flex-col h-full bg-gray-100">
+          {/* <Card className="flex flex-col h-full bg-gray-100">
             <CardHeader>
               <CardTitle className="text-center">Nathaniel Gibbs</CardTitle>
               <CardDescription className="text-center text-black-800">
@@ -168,7 +168,7 @@ const TodaysLeadership = () => {
                 his clubs.
               </p>
             </CardFooter>
-          </Card>
+          </Card> */}
         </div>
         {/* Column 3 */}
         <div className="space-y-4"> {/* Vertical spacing */}</div>
@@ -178,7 +178,7 @@ const TodaysLeadership = () => {
       <div className="grid grid-cols-2 gap-8">
         {/* Column 1 */}
         <div className="space-y-4">
-          <Card className="flex flex-col h-full bg-gray-100">
+          {/* <Card className="flex flex-col h-full bg-gray-100">
             <CardHeader>
               <CardTitle className="text-center">Ruth Richardson</CardTitle>
               <CardDescription className="text-center text-black-800">
@@ -208,7 +208,7 @@ const TodaysLeadership = () => {
                 down smile to the way it should be.
               </p>
             </CardFooter>
-          </Card>
+          </Card> */}
         </div>
 
         {/* Column 2 */}
