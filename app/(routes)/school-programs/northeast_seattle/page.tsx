@@ -151,12 +151,11 @@ const hasCoordinatorAccess = () => {
       </div>
       <div>
         <h3 className="text-xl font-bold mb-6 text-center">
-          Bus Meeting Location:South lot along 30th, furthest from the flag pole
-          (30th Ave NE south of 75th)
+          Bus Meeting Location:South lot along 30th, furthest from the flag pole (30th Ave NE south of 75th)
         </h3>
         <ul className="list-disc list-inside mb-6">
           <li>
-            The bus departs at 3:50 PM and returns at approximately 11:00 PM- 11:30 PM
+            The bus departs at 3:40 PM and returns at approximately 11:00 PM- 11:30 PM
           </li>
           <li>
             6-week Friday programs include transportation and optional

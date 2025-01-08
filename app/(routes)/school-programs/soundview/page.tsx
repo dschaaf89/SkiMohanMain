@@ -150,7 +150,7 @@ const hasCoordinatorAccess = () => {
       </div>
       <div>
         <h3 className="text-xl font-bold mb-6 text-center">
-          Bus Meeting Location:Parking lot on 15th Ave. NW between 92nd & 95th
+          Bus Meeting Location: Bus Zone in front of School (9201 15th Ave NW Seattle, WA 98117)
         </h3>
         <ul className="list-disc list-inside mb-6">
           <li>

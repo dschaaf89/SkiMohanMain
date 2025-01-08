@@ -151,11 +151,11 @@ const SouthJackson = () => {
       </div>
       <div>
         <h3 className="text-xl font-bold mb-6 text-center">
-          Bus Meeting Location: 
+          Bus Meeting Location: the parking lot at the intersection of S Weller & 20th Pl (2006 S Weller St, Seattle, WA 98144)
         </h3>
         <ul className="list-disc list-inside mb-6">
           <li>
-            The bus departs at 4:00 PM and returns at approximately 11:00 PM-
+            The bus departs at 4:10PM and returns at approximately 11:00 PM-
             11:30 PM
           </li>
           <li>

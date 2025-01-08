@@ -159,16 +159,7 @@ const TodaysLeadership = () => {
                 during the season. He also oversees the mountain operations
                 alongside the Technical Director and oversees the Mohan Office.
                 He loves to get to know all the Mohanian students and their
-                families so come up and say hello! Nathaniel will do what he can
-                to help provide everyone with the opportunity to be up on the
-                slopes, experiencing skiing and boarding and the wonders of the
-                snowy mountains. Outside of Mohan, Nathaniel is a member of
-                Rotary International and is a local Rotarian where he does
-                community service events and supports the local community with
-                his clubs.
-              </p>
-            </CardFooter>
-          </Card> */}
+           
         </div>
         {/* Column 3 */}
         <div className="space-y-4"> {/* Vertical spacing */}</div>

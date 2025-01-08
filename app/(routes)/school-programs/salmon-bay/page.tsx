@@ -151,11 +151,11 @@ const SalmonBay = () => {
       </div>
       <div>
         <h3 className="text-xl font-bold mb-6 text-center">
-          Bus Meeting Location:
+          Bus Meeting Location:SW side of school in bus zone on corner of 19th Ave NW and NW 65th St.
         </h3>
         <ul className="list-disc list-inside mb-6">
           <li>
-            The bus departs at 4:00 PM and returns at approximately 11:00 PM-
+            The bus departs at 4:15 PM and returns at approximately 11:00 PM-
             11:30 PM
           </li>
           <li>

@@ -153,7 +153,7 @@ const hasCoordinatorAccess = () => {
       </div>
       <div>
         <h3 className="text-xl font-bold mb-6 text-center">
-          Bus Meeting Location:NE side of school
+          Bus Meeting Location:NE side of school going onto N 42nd St to South on Densmore Ave N (1610 N 41st St Seattle 98103)
         </h3>
         <ul className="list-disc list-inside mb-6">
           <li>
