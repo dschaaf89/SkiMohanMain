@@ -325,16 +325,18 @@ const HomePage: React.FC = () => {
       <div className="py-12 bg-gray-800 text-white text-center">
         <h2 className="text-3xl mb-4">Welcome Video</h2>
         <div className="flex justify-center my-8">
-          <iframe
-            width="560"
-            height="315"
-            src="https://www.youtube.com/embed/kJ2Qw2tggKw?si=YfJc3ZfJo2c3wD_m"
-            title="Welcome Video"
-            frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowFullScreen
-            className="rounded-lg shadow-lg"
-          ></iframe>
+        <iframe 
+  width="560" 
+  height="315" 
+  src="https://www.youtube.com/embed/kJ2Qw2tggKw?si=Iuqkl9ZvTjCk-hg4" 
+  title="YouTube video player" 
+  style={{ border: "0" }} 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  referrerPolicy="strict-origin-when-cross-origin" 
+  allowFullScreen
+></iframe>
+
+
         </div>
       </div>
 
