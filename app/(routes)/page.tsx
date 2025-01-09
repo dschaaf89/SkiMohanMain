@@ -206,7 +206,7 @@ const HomePage: React.FC = () => {
         <iframe
           width="100%"
           height="300"
-          src="https://www.youtube.com/embed/7VFEFBUuGTI?autoplay=1&mute=1"
+          src="https://www.youtube.com/live/kJ2Qw2tggKw?si=3fNz6u2lgJIHI4Ph"
           title="YouTube video player"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
@@ -325,18 +325,16 @@ const HomePage: React.FC = () => {
       <div className="py-12 bg-gray-800 text-white text-center">
         <h2 className="text-3xl mb-4">Welcome Video</h2>
         <div className="flex justify-center my-8">
-        <iframe 
-  width="560" 
-  height="315" 
-  src="https://www.youtube.com/embed/kJ2Qw2tggKw?si=Iuqkl9ZvTjCk-hg4" 
-  title="YouTube video player" 
-  style={{ border: "0" }} 
-  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-  referrerPolicy="strict-origin-when-cross-origin" 
-  allowFullScreen
-></iframe>
-
-
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/MZ7NTs-pAc8"
+            title="Welcome Video"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+            className="rounded-lg shadow-lg"
+          ></iframe>
         </div>
       </div>
 
