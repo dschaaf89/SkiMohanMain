@@ -6,7 +6,7 @@ const generallessons = () => {
       <p className="text-lg mb-4">OUR EXPERIENCED, FRIENDLY MOHAN INSTRUCTORS BRING FUN TO YOUR MOUNTAIN EXPERIENCE.</p>
 
       <ul className="list-disc list-inside mb-6">
-        <li>We suggest you always check our website <a href="http://www.skimohan.com" className="text-blue-600 underline">www.skimohan.com</a> or call <a href="tel:+14258863820" className="text-blue-600 underline">(425) 888-3820</a> and then select option 1 to hear our latest operation updates just before leaving for the mountains or while en route. Our website and voice mail are the most reliable way for us to update the operation's status, which is updated daily by 6AM.</li>
+        <li>We suggest you always check our website <a href="http://www.skimohan.com" className="text-blue-600 underline">www.skimohan.com</a> or call <a href="tel:+14258683820" className="text-blue-600 underline">(425) 868-3820</a> and then select option 1 to hear our latest operation updates just before leaving for the mountains or while en route. Our website and voice mail are the most reliable way for us to update the operation's status, which is updated daily by 6AM.</li>
         <li>The program offers a fantastic opportunity to help you and/or your children improve skills.  As skills increase, students may be moved to another class to optimize their learning and progress.</li>
         <li><strong>Student must be 10 years old or older to take snowboard lessons.</strong></li>
         <li>Weekly achievement ribbons given to all participants.  Achievement pins awarded on the final week of lessons to all who attend.</li>
