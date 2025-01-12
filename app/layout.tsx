@@ -10,7 +10,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import ResponsiveAppBar from "@/components/ui/ResponsiveAppBar";
 const font = Urbanist({ subsets: ["latin"] });
 const messages = [
-  "We Are now Operational!!!"
+  " We're operational January 10,11,12"
 ];
 export const metadata: Metadata = {
   title: "Mohan Ski School Website",
