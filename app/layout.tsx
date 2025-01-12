@@ -10,7 +10,7 @@ import { ClerkProvider } from '@clerk/nextjs';
 import ResponsiveAppBar from "@/components/ui/ResponsiveAppBar";
 const font = Urbanist({ subsets: ["latin"] });
 const messages = [
-  "Registration is Now Open.If your student is trying out for Winter Sports, please remember that there are no refunds after November 29th at 3pm. NO EXCEPTIONS."
+  "We Are now Operational!!!"
 ];
 export const metadata: Metadata = {
   title: "Mohan Ski School Website",
